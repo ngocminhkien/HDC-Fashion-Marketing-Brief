@@ -72,11 +72,11 @@ window.HDC.Views.HomeView = {
 
                 <!-- Action Buttons -->
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
-                  <button onclick="HDC.Router.navigate('shop')" class="bg-brand-red hover:bg-brand-redHover text-white px-7 py-3 rounded-md font-bold text-xs uppercase tracking-wider transition shadow-lg shadow-brand-red/20 flex items-center gap-2">
+                  <button onclick="HDC.Router.navigate('shop')" class="btn-shimmer bg-brand-red hover:bg-brand-redHover text-white px-7 py-3 rounded-md font-bold text-xs uppercase tracking-wider transition shadow-lg shadow-brand-red/20 flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]">
                     <span>Khám Phá Cửa Hàng Ngay</span>
                     <i class="fa-solid fa-arrow-right text-xs"></i>
                   </button>
-                  <button onclick="HDC.Router.navigate('b2b')" class="bg-white hover:bg-gray-50 text-brand-green border-2 border-brand-green px-6 py-2.5 rounded-md font-bold text-xs uppercase tracking-wider transition flex items-center gap-2">
+                  <button onclick="HDC.Router.navigate('b2b')" class="bg-white hover:bg-gray-50 text-brand-green border-2 border-brand-green px-6 py-2.5 rounded-md font-bold text-xs uppercase tracking-wider transition flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]">
                     <i class="fa-solid fa-calculator"></i>
                     <span>Dự Toán Đồng Phục B2B</span>
                   </button>
@@ -93,13 +93,13 @@ window.HDC.Views.HomeView = {
               <div class="lg:col-span-6 relative">
                 <div class="grid grid-cols-2 gap-3 sm:gap-4 max-w-lg mx-auto">
                   <div class="space-y-3 pt-6">
-                    <div class="rounded-2xl overflow-hidden shadow-xl border-2 border-white relative group cursor-pointer" onclick="HDC.Router.navigate('shop')">
+                    <div class="rounded-2xl overflow-hidden shadow-xl border-2 border-white relative group cursor-pointer card-lift" onclick="HDC.Router.navigate('shop')">
                       <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&auto=format&fit=crop&q=80" alt="Sơ mi sợi sen" class="w-full h-56 sm:h-72 object-cover product-img-hover">
-                      <div class="absolute bottom-2 left-2 right-2 bg-white/90 backdrop-blur py-1.5 px-2 rounded text-center text-xs font-bold text-brand-green shadow">
+                      <div class="absolute bottom-2 left-2 right-2 bg-white/90 backdrop-blur py-1.5 px-2 rounded text-center text-xs font-bold text-brand-green shadow animate-float">
                         🌿 Sơ mi Sợi Sen & Tơ Chuối
                       </div>
                     </div>
-                    <div class="rounded-2xl overflow-hidden shadow-lg border-2 border-white relative group cursor-pointer" onclick="HDC.Router.navigate('b2b')">
+                    <div class="rounded-2xl overflow-hidden shadow-lg border-2 border-white relative group cursor-pointer card-lift" onclick="HDC.Router.navigate('b2b')">
                       <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&auto=format&fit=crop&q=80" alt="Doanh nhân trẻ" class="w-full h-40 sm:h-48 object-cover product-img-hover">
                       <div class="absolute bottom-2 left-2 right-2 bg-brand-green/90 text-white py-1 px-2 rounded text-[11px] text-center font-semibold">
                         💼 Đồng Phục DNT Việt Nam
@@ -108,16 +108,16 @@ window.HDC.Views.HomeView = {
                   </div>
 
                   <div class="space-y-3">
-                    <div class="rounded-2xl overflow-hidden shadow-lg border-2 border-white relative group cursor-pointer" onclick="HDC.Router.navigate('shop')">
+                    <div class="rounded-2xl overflow-hidden shadow-lg border-2 border-white relative group cursor-pointer card-lift" onclick="HDC.Router.navigate('shop')">
                       <img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=600&auto=format&fit=crop&q=80" alt="Polo Anti-UV" class="w-full h-44 sm:h-52 object-cover product-img-hover">
-                      <div class="absolute top-2 right-2 bg-brand-red text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow">Anti-UV</div>
+                      <div class="absolute top-2 right-2 bg-brand-red text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow animate-float">Anti-UV</div>
                       <div class="absolute bottom-2 left-2 right-2 bg-white/90 backdrop-blur py-1 px-2 rounded text-[11px] text-center font-bold text-gray-800">
                         ⛳ Polo Golf & Doanh Nhân
                       </div>
                     </div>
-                    <div class="rounded-2xl overflow-hidden shadow-xl border-2 border-white relative group cursor-pointer" onclick="HDC.Router.navigate('kids')">
+                    <div class="rounded-2xl overflow-hidden shadow-xl border-2 border-white relative group cursor-pointer card-lift" onclick="HDC.Router.navigate('kids')">
                       <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&auto=format&fit=crop&q=80" alt="IHDC Kids Vinschool" class="w-full h-56 sm:h-68 object-cover product-img-hover">
-                      <div class="absolute bottom-2 left-2 right-2 bg-emerald-700 text-white py-1.5 px-2 rounded-lg text-center text-xs font-bold shadow">
+                      <div class="absolute bottom-2 left-2 right-2 bg-emerald-700 text-white py-1.5 px-2 rounded-lg text-center text-xs font-bold shadow animate-float-delay">
                         🎓 IHDC Kids — Vinschool
                       </div>
                     </div>
@@ -128,6 +128,48 @@ window.HDC.Views.HomeView = {
             </div>
           </div>
         </section>
+
+        <!-- INFINITE SMOOTH MARQUEE RIBBON -->
+        <div class="marquee-wrapper py-3 bg-brand-greenDark text-emerald-200 text-xs font-semibold tracking-wider uppercase border-y border-emerald-900 shadow-inner">
+          <div class="marquee-track flex items-center gap-8">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-leaf text-emerald-400"></i> 100% Sợi Tự Nhiên Bản Địa</span>
+            <span>&bull;</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-spa text-emerald-300"></i> Sợi Sen Đồng Tháp Thanh Khiết</span>
+            <span>&bull;</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-tree text-emerald-400"></i> Sợi Tre Bamboo Kháng Khuẩn</span>
+            <span>&bull;</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-seedling text-amber-300"></i> Xơ Dừa Bến Tre Bền Bỉ</span>
+            <span>&bull;</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-landmark text-brand-gold"></i> Họa Tiết Di Sản Trống Đồng Đông Sơn</span>
+            <span>&bull;</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-bolt text-yellow-400"></i> Seamless 4D Không Đường May</span>
+            <span>&bull;</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-sun text-yellow-300"></i> Chống Tia Cực Tím UPF 50+</span>
+            <span>&bull;</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-truck-fast text-emerald-300"></i> Miễn Phí Vận Chuyển Toàn Quốc</span>
+            <span>&bull;</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-rotate-left text-teal-300"></i> Đổi Size Miễn Phí 7 Ngày Tận Nơi</span>
+            <span>&bull;</span>
+            <!-- Duplicate for smooth endless loop -->
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-leaf text-emerald-400"></i> 100% Sợi Tự Nhiên Bản Địa</span>
+            <span>&bull;</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-spa text-emerald-300"></i> Sợi Sen Đồng Tháp Thanh Khiết</span>
+            <span>&bull;</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-tree text-emerald-400"></i> Sợi Tre Bamboo Kháng Khuẩn</span>
+            <span>&bull;</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-seedling text-amber-300"></i> Xơ Dừa Bến Tre Bền Bỉ</span>
+            <span>&bull;</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-landmark text-brand-gold"></i> Họa Tiết Di Sản Trống Đồng Đông Sơn</span>
+            <span>&bull;</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-bolt text-yellow-400"></i> Seamless 4D Không Đường May</span>
+            <span>&bull;</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-sun text-yellow-300"></i> Chống Tia Cực Tím UPF 50+</span>
+            <span>&bull;</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-truck-fast text-emerald-300"></i> Miễn Phí Vận Chuyển Toàn Quốc</span>
+            <span>&bull;</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-rotate-left text-teal-300"></i> Đổi Size Miễn Phí 7 Ngày Tận Nơi</span>
+          </div>
+        </div>
 
         <!-- MÃ KHUYẾN MÃI TICKETS SECTION -->
         <section class="py-8 bg-brand-grayBg border-b border-gray-200">
@@ -238,25 +280,25 @@ window.HDC.Views.HomeView = {
         </section>
 
         <!-- SẢN PHẨM BÁN CHẠY (BEST SELLER) -->
-        <section class="py-12 bg-white">
+        <section class="py-12 bg-white reveal-on-scroll">
           <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-8">
               <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight uppercase font-heading">
                 SẢN PHẨM BÁN CHẠY
               </h2>
               <div class="inline-block mt-2">
-                <span class="badge-dotted text-brand-red text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
+                <span class="badge-dotted text-brand-red text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider animate-pulse">
                   BEST SELLER
                 </span>
               </div>
             </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 reveal-stagger">
               ${products10.map(p => HDC.Components.ProductCard.render(p)).join('')}
             </div>
 
             <div class="text-center mt-10">
-              <button onclick="HDC.Router.navigate('shop')" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-gray-800 hover:text-brand-green uppercase tracking-wider transition">
+              <button onclick="HDC.Router.navigate('shop')" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-gray-800 hover:text-brand-green uppercase tracking-wider transition hover:gap-3">
                 <span>Xem toàn bộ danh mục sản phẩm</span>
                 <i class="fa-solid fa-chevron-right text-[10px]"></i>
               </button>
@@ -265,36 +307,36 @@ window.HDC.Views.HomeView = {
         </section>
 
         <!-- B2B & IHDC KIDS TEASER CARDS -->
-        <section class="py-12 bg-brand-grayBg border-t border-gray-200">
+        <section class="py-12 bg-brand-grayBg border-t border-gray-200 reveal-on-scroll">
           <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="bg-white rounded-2xl p-6 shadow-md border flex flex-col justify-between">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-stagger">
+              <div class="bg-white rounded-2xl p-6 shadow-md border flex flex-col justify-between card-lift">
                 <div>
                   <span class="bg-brand-gold text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Dự án Quốc gia</span>
                   <h3 class="text-lg sm:text-xl font-bold text-gray-900 mt-2">Đồng Phục Doanh Nghiệp & Thể Thao Golf</h3>
                   <p class="text-xs text-gray-600 mt-1">Đơn vị thiết kế cho Giải Golf kỷ niệm 30 năm DNT Việt Nam. Tư vấn & thiết kế miễn phí 100%, sửa mẫu không giới hạn.</p>
                 </div>
                 <div class="pt-5 flex items-center gap-3">
-                  <button onclick="HDC.Router.navigate('b2b')" class="bg-brand-green text-white text-xs font-bold px-4 py-2.5 rounded-lg hover:bg-brand-greenDark transition">
+                  <button onclick="HDC.Router.navigate('b2b')" class="btn-shimmer bg-brand-green text-white text-xs font-bold px-4 py-2.5 rounded-lg hover:bg-brand-greenDark transition">
                     Cổng Tính Chiết Khấu B2B &rarr;
                   </button>
-                  <button onclick="HDC.Components.B2BModal.open()" class="border text-gray-700 text-xs font-semibold px-4 py-2.5 rounded-lg hover:bg-gray-50">
+                  <button onclick="HDC.Components.B2BModal.open()" class="border text-gray-700 text-xs font-semibold px-4 py-2.5 rounded-lg hover:bg-gray-50 transition">
                     Gửi yêu cầu mẫu
                   </button>
                 </div>
               </div>
 
-              <div class="bg-white rounded-2xl p-6 shadow-md border flex flex-col justify-between">
+              <div class="bg-white rounded-2xl p-6 shadow-md border flex flex-col justify-between card-lift">
                 <div>
                   <span class="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Đối Tác Vinschool</span>
                   <h3 class="text-lg sm:text-xl font-bold text-gray-900 mt-2">IHDC Kids — Cải Cách Đồng Phục Học Sinh</h3>
                   <p class="text-xs text-gray-600 mt-1">Trang phục học đường thời trang, thoáng mát, mềm mại, chuẩn mực quốc tế. Đã hợp tác cùng Hệ thống Giáo dục Vinschool.</p>
                 </div>
                 <div class="pt-5 flex items-center gap-3">
-                  <button onclick="HDC.Router.navigate('kids')" class="bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg hover:bg-emerald-800 transition">
+                  <button onclick="HDC.Router.navigate('kids')" class="btn-shimmer bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg hover:bg-emerald-800 transition">
                     Cổng Đồng Phục Học Đường &rarr;
                   </button>
-                  <button onclick="HDC.Router.navigate('quiz')" class="border text-gray-700 text-xs font-semibold px-4 py-2.5 rounded-lg hover:bg-gray-50">
+                  <button onclick="HDC.Router.navigate('quiz')" class="border text-gray-700 text-xs font-semibold px-4 py-2.5 rounded-lg hover:bg-gray-50 transition">
                     Bảng size trẻ em
                   </button>
                 </div>
@@ -304,27 +346,27 @@ window.HDC.Views.HomeView = {
         </section>
 
         <!-- BRAND TRUST & SOCIAL PROOF -->
-        <section class="py-12 bg-white border-t border-gray-100">
+        <section class="py-12 bg-white border-t border-gray-100 reveal-on-scroll">
           <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-8">
               <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900 uppercase font-heading">Đối Tác Tin Tưởng HDC</h2>
               <p class="text-xs text-gray-500 mt-1">Được tin chọn bởi các thương hiệu uy tín và tổ chức hàng đầu Việt Nam</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-              <div class="p-6 border border-gray-200 rounded-2xl bg-brand-grayBg hover:shadow-md transition">
-                <div class="text-3xl font-extrabold text-brand-green font-heading">30+</div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center reveal-stagger">
+              <div class="p-6 border border-gray-200 rounded-2xl bg-brand-grayBg card-lift">
+                <div class="text-3xl sm:text-4xl font-extrabold text-brand-green font-heading transition-transform" data-counter="30" data-counter-suffix="+">30+</div>
                 <div class="text-xs font-bold text-gray-800 mt-1 uppercase tracking-wider">Năm phong trào DNT</div>
                 <div class="text-[11px] text-gray-500 mt-1">Đối tác thiết kế đồng phục Giải Golf kỷ niệm 30 năm DNT Việt Nam</div>
               </div>
-              <div class="p-6 border border-gray-200 rounded-2xl bg-brand-grayBg hover:shadow-md transition">
+              <div class="p-6 border border-gray-200 rounded-2xl bg-brand-grayBg card-lift">
                 <div class="w-14 h-14 mx-auto mb-2 bg-emerald-100 text-brand-green rounded-full flex items-center justify-center border shadow-sm">
                   <span class="font-serif font-extrabold text-xl">V</span>
                 </div>
                 <div class="text-xs font-bold text-gray-800 uppercase tracking-wider">Đối Tác Vinschool</div>
                 <div class="text-[11px] text-gray-500 mt-1">Đồng phục học sinh IHDC Kids chuẩn mực quốc tế</div>
               </div>
-              <div class="p-6 border border-gray-200 rounded-2xl bg-brand-grayBg hover:shadow-md transition">
-                <div class="text-3xl font-extrabold text-brand-green font-heading">500+</div>
+              <div class="p-6 border border-gray-200 rounded-2xl bg-brand-grayBg card-lift">
+                <div class="text-3xl sm:text-4xl font-extrabold text-brand-green font-heading transition-transform" data-counter="500" data-counter-suffix="+">500+</div>
                 <div class="text-xs font-bold text-gray-800 mt-1 uppercase tracking-wider">Doanh nghiệp B2B</div>
                 <div class="text-[11px] text-gray-500 mt-1">Đặt may đồng phục mỗi năm trên toàn quốc</div>
               </div>
@@ -333,7 +375,7 @@ window.HDC.Views.HomeView = {
         </section>
 
         <!-- TIN TỨC MỚI -->
-        <section class="py-12 bg-white">
+        <section class="py-12 bg-white reveal-on-scroll">
           <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-8">
               <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight uppercase font-heading">TIN TỨC MỚI</h2>
@@ -341,7 +383,7 @@ window.HDC.Views.HomeView = {
               <p class="text-xs sm:text-sm text-gray-500 font-medium">Bản tin phong cách, văn hóa di sản và xu hướng thời trang bền vững</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal-stagger">
               ${news.map(n => `
                 <article class="group bg-white rounded-lg border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition">
                   <div class="aspect-[16/10] overflow-hidden bg-gray-100">

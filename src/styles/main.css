@@ -1,6 +1,6 @@
 /**
  * HDC Fashion — Core Stylesheet
- * Brand design tokens, animations, custom scrollbars, and voucher styling
+ * Brand design tokens, rich animations, micro-interactions, custom scrollbars, and voucher styling
  */
 
 /* Custom Scrollbars */
@@ -26,10 +26,22 @@
 
 /* Smooth Product Image Hover Zoom */
 .product-img-hover {
-  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
 }
 .group:hover .product-img-hover {
-  transform: scale(1.06);
+  transform: scale(1.07);
+}
+
+/* Card Lift & Ambient Glow */
+.card-lift {
+  transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.32s ease, border-color 0.32s ease;
+  will-change: transform, box-shadow;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 30px -10px rgba(30, 72, 50, 0.15), 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+  border-color: rgba(30, 72, 50, 0.25);
 }
 
 /* Voucher Ticket Card Design */
@@ -37,6 +49,11 @@
   background: linear-gradient(135deg, #ffffff 0%, #faf8f5 100%);
   border: 1px solid #ebd8b7;
   position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.voucher-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -5px rgba(184, 144, 71, 0.2);
 }
 .voucher-card::before,
 .voucher-card::after {
@@ -68,7 +85,7 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -76,7 +93,7 @@
   }
 }
 .animate-fadeIn {
-  animation: fadeIn 0.3s ease-out forwards;
+  animation: fadeIn 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 /* Skeleton Loading Animation */
@@ -94,3 +111,128 @@
   }
 }
 
+/* Luxury Shimmer Sweep on CTA Buttons */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -70%;
+  width: 45%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.32) 50%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: rotate(25deg);
+  animation: btn-shimmer-sweep 4s infinite;
+  pointer-events: none;
+}
+@keyframes btn-shimmer-sweep {
+  0% { left: -70%; }
+  30% { left: 150%; }
+  100% { left: 150%; }
+}
+
+/* Gentle Floating Badges */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+.animate-float {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+.animate-float-delay {
+  animation: floatSlow 4.5s ease-in-out 1.2s infinite;
+}
+
+/* Interactive Cart Shake / Bounce Animation */
+@keyframes cartBounce {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  20% { transform: scale(1.25) rotate(-12deg); }
+  40% { transform: scale(1.25) rotate(12deg); }
+  60% { transform: scale(1.15) rotate(-6deg); }
+  80% { transform: scale(1.05) rotate(3deg); }
+}
+.animate-cart-shake {
+  animation: cartBounce 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Heartbeat Pop Animation for Wishlist */
+@keyframes heartPop {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.4); }
+  65% { transform: scale(0.92); }
+  100% { transform: scale(1); }
+}
+.animate-heart-pop {
+  animation: heartPop 0.42s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Continuous Infinite Marquee Ribbon */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-wrapper {
+  overflow: hidden;
+  user-select: none;
+  white-space: nowrap;
+}
+.marquee-track {
+  display: inline-flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+  will-change: transform;
+}
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Scroll Reveal Elements */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger Children on Scroll */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+.reveal-stagger.revealed > *:nth-child(1) { transition-delay: 0.04s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.revealed > *:nth-child(2) { transition-delay: 0.10s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.revealed > *:nth-child(3) { transition-delay: 0.16s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.revealed > *:nth-child(4) { transition-delay: 0.22s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.revealed > *:nth-child(5) { transition-delay: 0.28s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.revealed > *:nth-child(6) { transition-delay: 0.34s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.revealed > *:nth-child(7) { transition-delay: 0.40s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.revealed > *:nth-child(8) { transition-delay: 0.46s; opacity: 1; transform: translateY(0); }
+
+/* Progress bar inside Toast Notification */
+@keyframes toastProgress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+.toast-progress-bar {
+  animation: toastProgress 3.5s linear forwards;
+}
+
+/* Sticky Header Scroll Elevation */
+header.scrolled {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  border-bottom-color: rgba(30, 72, 50, 0.1);
+}

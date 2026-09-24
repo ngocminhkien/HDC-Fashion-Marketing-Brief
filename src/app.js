@@ -1,6 +1,6 @@
 /**
  * HDC Fashion — Application Bootstrap Orchestrator
- * Mounts components, views, modals, and initializes state & router
+ * Mounts components, views, modals, and initializes state, router & motion engine
  */
 
 window.HDC = window.HDC || {};
@@ -26,6 +26,14 @@ window.HDC.App = {
 
     // 4. Initialize Router
     HDC.Router.init();
+
+    // 5. Initialize Motion Intelligence (Scroll Reveal, Header & Counters)
+    HDC.Utils.initScrollReveal();
+    HDC.Utils.initScrollHeader();
+
+    window.addEventListener('hdc:view-changed', () => {
+      setTimeout(() => HDC.Utils.initScrollReveal(), 100);
+    });
   },
 
   /**
@@ -68,10 +76,13 @@ window.HDC.App = {
         HDC.Components.CartDrawer.render(),
         HDC.Components.Chatbot.render(),
         `
-        <!-- Toast Container -->
-        <div id="toastNotification" class="fixed top-20 right-5 z-50 bg-gray-900 text-white text-xs px-4 py-3 rounded-lg shadow-xl hidden items-center gap-2 animate-fadeIn border border-gray-700">
-          <i class="fa-solid fa-circle-check text-emerald-400"></i>
-          <span id="toastMessage">Thông báo</span>
+        <!-- Animated Toast Container with Progress Bar -->
+        <div id="toastNotification" class="fixed top-20 right-5 z-50 bg-gray-900/95 backdrop-blur text-white text-xs px-4 py-3 rounded-xl shadow-2xl hidden items-center gap-3 animate-fadeIn border border-gray-700/80 overflow-hidden min-w-[280px]">
+          <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm shrink-0">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <span id="toastMessage" class="flex-1 font-medium">Thông báo</span>
+          <div id="toastProgressBar" class="absolute bottom-0 left-0 h-1 bg-emerald-500 toast-progress-bar"></div>
         </div>
         `
       ].join('\n');

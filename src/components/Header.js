@@ -33,7 +33,7 @@ window.HDC.Components.Header = {
       </div>
 
       <!-- MAIN STICKY NAVIGATION -->
-      <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+      <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
           
           <!-- Mobile Menu Button -->
@@ -105,7 +105,7 @@ window.HDC.Components.Header = {
               <span id="cartCountBadge" class="absolute -top-1.5 -right-2 bg-brand-red text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold ring-2 ring-white">0</span>
             </button>
 
-            <button onclick="HDC.Components.B2BModal.open()" class="hidden md:inline-flex items-center gap-1.5 bg-brand-green text-white text-xs font-bold px-3 py-1.5 rounded-full hover:bg-brand-greenDark transition shadow-sm">
+            <button onclick="HDC.Components.B2BModal.open()" class="btn-shimmer hidden md:inline-flex items-center gap-1.5 bg-brand-green text-white text-xs font-bold px-3.5 py-1.5 rounded-full hover:bg-brand-greenDark transition shadow-sm hover:scale-105 active:scale-95">
               <i class="fa-solid fa-paper-plane text-[10px]"></i> Báo giá B2B
             </button>
           </div>

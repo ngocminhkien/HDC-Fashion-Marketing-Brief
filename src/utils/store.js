@@ -67,6 +67,7 @@ window.HDC.Store = {
       });
     }
     this.notify();
+    HDC.Utils.triggerCartBounce();
     HDC.Utils.showToast(`Đã thêm "${product.title}" vào giỏ hàng!`);
   },
 
@@ -74,6 +75,7 @@ window.HDC.Store = {
     if (index >= 0 && index < this.state.cart.length) {
       const removed = this.state.cart.splice(index, 1)[0];
       this.notify();
+      HDC.Utils.triggerCartBounce();
       HDC.Utils.showToast(`Đã xóa "${removed.title}" khỏi giỏ`);
     }
   },
@@ -115,6 +117,7 @@ window.HDC.Store = {
       HDC.Utils.showToast('Đã lưu vào danh sách yêu thích');
     }
     this.notify();
+    HDC.Utils.triggerWishlistPop();
   },
 
   isWishlisted(productId) {
