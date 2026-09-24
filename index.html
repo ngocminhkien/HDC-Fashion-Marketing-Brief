@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HDC Fashion — Nền Tảng Thời Trang Bền Vững & Giải Pháp Đồng Phục Toàn Diện</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Montserrat, Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind Theme Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#1e4832',      // Xanh lá trầm bền vững
+              greenDark: '#133222',  // Xanh đậm sang trọng
+              greenLight: '#2c6848', // Xanh lá nhấn
+              gold: '#b89047',        // Vàng đồng văn hóa Đông Sơn
+              goldLight: '#d4af37',
+              red: '#d92d20',         // Đỏ son thương hiệu như j-p.vn
+              redHover: '#b42318',
+              cream: '#fbf9f5',       // Trắng kem tự nhiên
+              dark: '#161c18',        // Màu than tối
+              grayBg: '#f5f7f5',
+              border: '#e4eae5'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Montserrat"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Application Custom Stylesheet -->
+  <link rel="stylesheet" href="./src/styles/main.css">
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased selection:bg-brand-green selection:text-white flex flex-col min-h-screen">
+
+  <!-- Application Layout Mount Points -->
+  <div id="appHeader"></div>
+  <main id="appMain" class="flex-1"></main>
+  <div id="appFooter"></div>
+  <div id="appModals"></div>
+
+  <!-- ========================================================
+       CLEAN ARCHITECTURE SCRIPT LOADER (Order of dependencies)
+       ======================================================== -->
+  
+  <!-- 1. Utilities & Core State Management -->
+  <script src="./src/utils/helpers.js"></script>
+  <script src="./src/utils/store.js"></script>
+  <script src="./src/utils/router.js"></script>
+
+  <!-- 2. Data Models -->
+  <script src="./src/data/products.js"></script>
+  <script src="./src/data/kidsProducts.js"></script>
+  <script src="./src/data/news.js"></script>
+  <script src="./src/data/faqs.js"></script>
+
+  <!-- 3. Components -->
+  <script src="./src/components/ProductCard.js"></script>
+  <script src="./src/components/Header.js"></script>
+  <script src="./src/components/Footer.js"></script>
+  <script src="./src/components/CartDrawer.js"></script>
+  <script src="./src/components/QuickViewModal.js"></script>
+  <script src="./src/components/B2BModal.js"></script>
+  <script src="./src/components/Chatbot.js"></script>
+
+  <!-- 4. Modular Views (Pages) -->
+  <script src="./src/views/HomeView.js"></script>
+  <script src="./src/views/ShopView.js"></script>
+  <script src="./src/views/B2BView.js"></script>
+  <script src="./src/views/KidsView.js"></script>
+  <script src="./src/views/QuizView.js"></script>
+  <script src="./src/views/TrackingView.js"></script>
+  <script src="./src/views/FaqView.js"></script>
+  <script src="./src/views/CheckoutView.js"></script>
+
+  <!-- 5. Master Application Bootstrap -->
+  <script src="./src/app.js"></script>
+
+</body>
+</html>
