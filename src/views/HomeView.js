@@ -303,6 +303,35 @@ window.HDC.Views.HomeView = {
           </div>
         </section>
 
+        <!-- BRAND TRUST & SOCIAL PROOF -->
+        <section class="py-12 bg-white border-t border-gray-100">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-8">
+              <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900 uppercase font-heading">Đối Tác Tin Tưởng HDC</h2>
+              <p class="text-xs text-gray-500 mt-1">Được tin chọn bởi các thương hiệu uy tín và tổ chức hàng đầu Việt Nam</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+              <div class="p-6 border border-gray-200 rounded-2xl bg-brand-grayBg hover:shadow-md transition">
+                <div class="text-3xl font-extrabold text-brand-green font-heading">30+</div>
+                <div class="text-xs font-bold text-gray-800 mt-1 uppercase tracking-wider">Năm phong trào DNT</div>
+                <div class="text-[11px] text-gray-500 mt-1">Đối tác thiết kế đồng phục Giải Golf kỷ niệm 30 năm DNT Việt Nam</div>
+              </div>
+              <div class="p-6 border border-gray-200 rounded-2xl bg-brand-grayBg hover:shadow-md transition">
+                <div class="w-14 h-14 mx-auto mb-2 bg-emerald-100 text-brand-green rounded-full flex items-center justify-center border shadow-sm">
+                  <span class="font-serif font-extrabold text-xl">V</span>
+                </div>
+                <div class="text-xs font-bold text-gray-800 uppercase tracking-wider">Đối Tác Vinschool</div>
+                <div class="text-[11px] text-gray-500 mt-1">Đồng phục học sinh IHDC Kids chuẩn mực quốc tế</div>
+              </div>
+              <div class="p-6 border border-gray-200 rounded-2xl bg-brand-grayBg hover:shadow-md transition">
+                <div class="text-3xl font-extrabold text-brand-green font-heading">500+</div>
+                <div class="text-xs font-bold text-gray-800 mt-1 uppercase tracking-wider">Doanh nghiệp B2B</div>
+                <div class="text-[11px] text-gray-500 mt-1">Đặt may đồng phục mỗi năm trên toàn quốc</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- TIN TỨC MỚI -->
         <section class="py-12 bg-white">
           <div class="max-w-7xl mx-auto px-4 sm:px-6">

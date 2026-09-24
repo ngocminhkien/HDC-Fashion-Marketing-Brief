@@ -14,3 +14,6 @@ desktop.ini
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.agents
+2023-12-28_Catalogue*.pdf

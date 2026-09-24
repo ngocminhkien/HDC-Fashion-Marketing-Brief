@@ -97,12 +97,12 @@ window.HDC.Components.Header = {
 
             <button onclick="HDC.Utils.showToast('Danh sách yêu thích đã lưu ' + HDC.Store.getWishlistCount() + ' sản phẩm!')" class="hover:text-brand-red p-1 transition relative" title="Yêu thích">
               <i class="fa-regular fa-heart text-lg"></i>
-              <span id="wishlistCountBadge" class="absolute -top-1 -right-1.5 bg-brand-red text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">1</span>
+              <span id="wishlistCountBadge" class="absolute -top-1 -right-1.5 bg-brand-red text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
             </button>
 
             <button onclick="HDC.Components.CartDrawer.open()" class="hover:text-brand-green p-1 transition relative" title="Giỏ hàng">
               <i class="fa-solid fa-bag-shopping text-xl text-brand-green"></i>
-              <span id="cartCountBadge" class="absolute -top-1.5 -right-2 bg-brand-red text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold ring-2 ring-white">2</span>
+              <span id="cartCountBadge" class="absolute -top-1.5 -right-2 bg-brand-red text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold ring-2 ring-white">0</span>
             </button>
 
             <button onclick="HDC.Components.B2BModal.open()" class="hidden md:inline-flex items-center gap-1.5 bg-brand-green text-white text-xs font-bold px-3 py-1.5 rounded-full hover:bg-brand-greenDark transition shadow-sm">
@@ -124,7 +124,7 @@ window.HDC.Components.Header = {
       </header>
 
       <!-- MOBILE DRAWER -->
-      <div id="mobileDrawer" class="fixed inset-0 z-50 bg-black/60 hidden transition-opacity">
+      <div id="mobileDrawer" class="fixed inset-0 z-50 bg-black/60 hidden transition-opacity" onclick="if(event.target===this) HDC.Components.Header.toggleMobileMenu()">
         <div class="w-4/5 max-w-sm bg-white h-full p-6 flex flex-col justify-between overflow-y-auto">
           <div>
             <div class="flex items-center justify-between pb-4 border-b">

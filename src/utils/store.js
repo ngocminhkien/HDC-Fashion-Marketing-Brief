@@ -6,25 +6,8 @@
 window.HDC = window.HDC || {};
 window.HDC.Store = {
   state: {
-    cart: [
-      {
-        id: 1,
-        title: "Sơ mi Trắng Sợi Sen Cao Cấp 1001",
-        size: "L",
-        price: 649000,
-        qty: 1,
-        img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=300&auto=format&fit=crop&q=80"
-      },
-      {
-        id: 5,
-        title: "Áo Polo Doanh Nhân Trẻ Golf Edition",
-        size: "XL",
-        price: 529000,
-        qty: 1,
-        img: "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=300&auto=format&fit=crop&q=80"
-      }
-    ],
-    wishlist: [1],
+    cart: [],
+    wishlist: [],
     activeVoucher: null, // { code: 'HDC50K', discount: 50000 }
     listeners: []
   },

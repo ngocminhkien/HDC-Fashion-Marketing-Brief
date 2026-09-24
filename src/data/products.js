@@ -19,6 +19,8 @@ window.HDC.Data.products = [
     badge: "Không Cần Là Ủi",
     colors: ["#ffffff", "#dbeafe", "#f3f4f6"],
     sizes: ["S", "M", "L", "XL", "XXL"],
+    stock: 35,
+    rating: 4.9,
     description: "100% Sợi sen tự nhiên với khả năng kháng khuẩn vượt trội, thoáng mát và tự phục hồi phẳng sau khi phơi."
   },
   {
@@ -33,6 +35,8 @@ window.HDC.Data.products = [
     badge: "Seamless 4D",
     colors: ["#1e293b", "#ffffff"],
     sizes: ["S", "M", "L", "XL", "XXL"],
+    stock: 28,
+    rating: 4.8,
     description: "Công nghệ dệt liền không đường may tại nẹp và vạt áo, loại bỏ mọi cọ xát, co giãn 4 hướng êm ái như làn da thứ hai."
   },
   {
@@ -47,6 +51,8 @@ window.HDC.Data.products = [
     badge: "Di Sản Đông Sơn",
     colors: ["#3d3835", "#0f172a"],
     sizes: ["S", "M", "L", "XL"],
+    stock: 19,
+    rating: 5.0,
     description: "Lồng ghép họa tiết Trống Đồng Đông Sơn 2.000 năm lịch sử, tôn vinh khí chất doanh nhân và bản sắc văn hóa Việt."
   },
   {
@@ -61,6 +67,8 @@ window.HDC.Data.products = [
     badge: "Tơ Chuối 100%",
     colors: ["#e2e8f0", "#ffffff"],
     sizes: ["S", "M", "L", "XL", "XXL"],
+    stock: 42,
+    rating: 4.7,
     description: "Chiết xuất sợi sinh học từ thân cây chuối kết hợp Bamboo tự nhiên, khử mùi hôi cơ thể và siêu nhẹ."
   },
   {
@@ -75,6 +83,8 @@ window.HDC.Data.products = [
     badge: "Anti-UV 50+",
     colors: ["#1e4832", "#1e293b", "#ffffff"],
     sizes: ["M", "L", "XL", "XXL"],
+    stock: 50,
+    rating: 4.9,
     description: "Chuẩn chống nắng UPF 50+, thấm hút mồ hôi đa chiều, dòng sản phẩm đồng hành cùng các golfer doanh nhân."
   },
   {
@@ -89,6 +99,8 @@ window.HDC.Data.products = [
     badge: "Sale -30%",
     colors: ["#f8fafc", "#93c5fd"],
     sizes: ["S", "M", "L", "XL"],
+    stock: 31,
+    rating: 4.8,
     description: "Chất liệu tre Bamboo mềm mịn, giữ màu cực tốt sau 50 lần giặt và mang lại cảm giác dễ chịu quanh năm."
   },
   {
@@ -103,6 +115,8 @@ window.HDC.Data.products = [
     badge: "Mát Lạnh",
     colors: ["#dcfce7", "#ffffff"],
     sizes: ["S", "M", "L", "XL"],
+    stock: 24,
+    rating: 4.9,
     description: "Sợi dệt từ tinh chất bạc hà giúp hạ nhiệt độ bề mặt da 2-3°C, giải pháp hoàn hảo cho mùa hè nhiệt đới."
   },
   {
@@ -117,6 +131,8 @@ window.HDC.Data.products = [
     badge: "Di Sản",
     colors: ["#451a03", "#0f172a"],
     sizes: ["S", "M", "L", "XL"],
+    stock: 15,
+    rating: 4.9,
     description: "Lấy cảm hứng từ nét khắc đá 10.000 năm thời tiền sử tại Hòa Bình, vẻ đẹp thâm trầm đầy bản lĩnh."
   },
   {
@@ -131,6 +147,8 @@ window.HDC.Data.products = [
     badge: "Combo Set",
     colors: ["#b89047", "#1e4832"],
     sizes: ["M", "L", "XL"],
+    stock: 12,
+    rating: 5.0,
     description: "Bộ combo quà tặng ngoại giao đồng bộ họa tiết Đông Sơn cao cấp, đóng hộp thủ công sang trọng."
   },
   {
@@ -141,17 +159,19 @@ window.HDC.Data.products = [
     features: ["anti-uv"],
     price: 529000,
     oldPrice: 650000,
-    img: "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=600&auto=format&fit=crop&q=80",
+    img: "https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=600&auto=format&fit=crop&q=80",
     badge: "DNT 30 Năm",
     colors: ["#1e4832", "#b89047"],
     sizes: ["S", "M", "L", "XL", "XXL"],
+    stock: 45,
+    rating: 5.0,
     description: "Phiên bản thiết kế riêng kỷ niệm 30 năm phong trào Doanh nhân trẻ Việt Nam, dáng đứng sang trọng."
   },
   {
     id: 11,
     title: "Sơ Mi Xơ Dừa Bền Vững Eco Classic",
     category: "xanh",
-    material: "sen",
+    material: "xodua",
     features: ["khong-ui"],
     price: 569000,
     oldPrice: 680000,
@@ -159,6 +179,8 @@ window.HDC.Data.products = [
     badge: "Eco",
     colors: ["#fef3c7", "#e2e8f0"],
     sizes: ["S", "M", "L", "XL"],
+    stock: 26,
+    rating: 4.8,
     description: "Ứng dụng sợi từ phụ phẩm xơ dừa Bến Tre, thân thiện tuyệt đối với môi trường và có độ bền bỉ cao."
   },
   {
@@ -173,6 +195,8 @@ window.HDC.Data.products = [
     badge: "Văn Hóa",
     colors: ["#065f46", "#ffffff"],
     sizes: ["S", "M", "L", "XL"],
+    stock: 18,
+    rating: 4.9,
     description: "Họa tiết thiên nhiên nguồn khoáng nóng Kim Bôi và Núi Đầu Rồng, mang lại nguồn năng lượng tích cực."
   }
 ];

@@ -70,6 +70,10 @@ window.HDC.Views.ShopView = {
                     <input type="checkbox" name="matFilter" value="modal" onchange="HDC.Views.ShopView.applyFilters()" class="rounded text-brand-green">
                     <span>Vải Modal Bền Màu</span>
                   </label>
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" name="matFilter" value="xodua" onchange="HDC.Views.ShopView.applyFilters()" class="rounded text-brand-green">
+                    <span>Xơ Dừa Bến Tre</span>
+                  </label>
                 </div>
               </div>
 
@@ -219,12 +223,22 @@ window.HDC.Views.ShopView = {
   },
 
   filterSaleItems() {
-    const saleList = HDC.Data.products.filter(p => p.oldPrice > p.price);
+    const saleList = HDC.Data.products.filter(p => {
+      if (!p.oldPrice || p.oldPrice <= p.price) return false;
+      const discountPct = ((p.oldPrice - p.price) / p.oldPrice) * 100;
+      return discountPct >= 10;
+    });
     this.renderCatalog(saleList);
   },
 
   filterBySearch(query) {
-    const matched = HDC.Data.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase()));
+    const q = (query || '').toLowerCase().trim();
+    const matched = HDC.Data.products.filter(p => 
+      p.title.toLowerCase().includes(q) || 
+      (p.description && p.description.toLowerCase().includes(q)) ||
+      (p.badge && p.badge.toLowerCase().includes(q)) ||
+      (p.material && p.material.toLowerCase().includes(q))
+    );
     this.renderCatalog(matched);
   }
 };

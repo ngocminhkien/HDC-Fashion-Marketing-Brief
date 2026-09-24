@@ -32,6 +32,12 @@ window.HDC.Views.B2BView = {
                   Gửi Yêu Cầu Thiết Kế Riêng
                 </button>
               </div>
+              <div class="pt-2">
+                <a href="./catalogue-dong-phuc-hdc.pdf" download="HDC-Catalogue-Dong-Phuc-2024.pdf" class="inline-flex items-center gap-2 text-xs text-white/90 hover:text-white underline font-semibold transition bg-white/10 hover:bg-white/20 px-3.5 py-1.5 rounded-lg border border-white/20">
+                  <i class="fa-solid fa-file-pdf text-red-300 text-sm"></i>
+                  <span>Tải Catalogue Đồng Phục HDC (PDF 25MB)</span>
+                </a>
+              </div>
             </div>
             <div class="absolute right-0 bottom-0 opacity-15 pointer-events-none text-9xl text-white font-serif">
               HDC
@@ -53,7 +59,12 @@ window.HDC.Views.B2BView = {
                 <div>
                   <div class="flex justify-between items-center text-xs font-bold text-gray-700 mb-2">
                     <span>Số lượng áo dự kiến đặt may:</span>
-                    <span id="calcQuantityLabel" class="text-base text-brand-green font-extrabold">100 bộ</span>
+                    <div class="flex items-center gap-1.5">
+                      <input type="number" id="calcQuantityInput" min="20" max="5000" value="100"
+                        oninput="HDC.Views.B2BView.calculateQuote(this.value)"
+                        class="w-24 border-2 border-brand-green/40 rounded-lg px-2 py-1 text-sm font-extrabold text-brand-green text-center focus:border-brand-green focus:outline-none bg-emerald-50/50">
+                      <span class="text-xs font-bold text-gray-500">bộ</span>
+                    </div>
                   </div>
                   <input type="range" id="b2bQuantityRange" min="20" max="2000" step="10" value="100" oninput="HDC.Views.B2BView.calculateQuote()" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand-green">
                   <div class="flex justify-between text-[10px] text-gray-400 mt-1">
@@ -203,17 +214,21 @@ window.HDC.Views.B2BView = {
     this.calculateQuote();
   },
 
-  calculateQuote() {
+  calculateQuote(manualQty) {
     const rangeEl = document.getElementById('b2bQuantityRange');
+    const inputEl = document.getElementById('calcQuantityInput');
     const typeEl = document.getElementById('calcProductType');
     const embEl = document.getElementById('calcEmbroidery');
     if (!rangeEl || !typeEl || !embEl) return;
 
-    const qty = parseInt(rangeEl.value);
+    let qty = manualQty !== undefined ? parseInt(manualQty) : parseInt(rangeEl.value);
+    if (isNaN(qty) || qty < 20) qty = 20;
+
+    if (inputEl && manualQty === undefined) inputEl.value = qty;
+    if (rangeEl && manualQty !== undefined) rangeEl.value = Math.min(2000, qty);
+
     const basePrice = parseInt(typeEl.value);
     const extraPrint = parseInt(embEl.value);
-
-    document.getElementById('calcQuantityLabel').innerText = qty + " bộ";
 
     let discountRate = 0.10;
     let discountLabel = "-10% Ưu Đãi";
@@ -224,10 +239,15 @@ window.HDC.Views.B2BView = {
     const unitAfter = Math.round((basePrice + extraPrint) * (1 - discountRate));
     const totalBudget = unitAfter * qty;
 
-    document.getElementById('calcDiscountTag').innerText = discountLabel;
-    document.getElementById('calcUnitAfter').innerText = HDC.Utils.formatCurrency(unitAfter);
-    document.getElementById('calcUnitBefore').innerText = HDC.Utils.formatCurrency(basePrice + extraPrint);
-    document.getElementById('calcTotalBudget').innerText = HDC.Utils.formatCurrency(totalBudget);
+    const discountTag = document.getElementById('calcDiscountTag');
+    const unitAfterEl = document.getElementById('calcUnitAfter');
+    const unitBeforeEl = document.getElementById('calcUnitBefore');
+    const totalBudgetEl = document.getElementById('calcTotalBudget');
+
+    if (discountTag) discountTag.innerText = discountLabel;
+    if (unitAfterEl) unitAfterEl.innerText = HDC.Utils.formatCurrency(unitAfter);
+    if (unitBeforeEl) unitBeforeEl.innerText = HDC.Utils.formatCurrency(basePrice + extraPrint);
+    if (totalBudgetEl) totalBudgetEl.innerText = HDC.Utils.formatCurrency(totalBudget);
   },
 
   applyEstimateToModal() {

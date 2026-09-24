@@ -40,10 +40,15 @@ window.HDC.Components.ProductCard = {
             <span class="text-xs sm:text-sm font-bold text-brand-red">${product.price.toLocaleString('vi-VN')}₫</span>
             ${oldPriceFormatted ? `<span class="text-[11px] text-gray-400 line-through">${oldPriceFormatted}</span>` : ''}
           </div>
-          <div class="flex items-center gap-1 pt-0.5">
-            <span class="w-3 h-3 rounded-full bg-white border border-gray-400"></span>
-            <span class="w-3 h-3 rounded-full bg-[#1e293b]"></span>
-            <span class="w-3 h-3 rounded-full bg-[#e2e8f0]"></span>
+          <div class="flex items-center justify-between pt-0.5">
+            <div class="flex items-center gap-1">
+              ${(product.colors || []).map(c => 
+                `<span class="w-3 h-3 rounded-full border border-gray-300 shadow-sm" style="background-color:${c}"></span>`
+              ).join('')}
+            </div>
+            <span class="text-[11px] text-amber-500 font-bold flex items-center gap-0.5">
+              <i class="fa-solid fa-star text-[10px]"></i> ${product.rating || '4.8'}
+            </span>
           </div>
         </div>
       </div>

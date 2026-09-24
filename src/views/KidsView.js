@@ -24,13 +24,19 @@ window.HDC.Views.KidsView = {
               <p class="text-xs sm:text-sm text-gray-200">
                 Cải cách các thiết kế gò bó truyền thống. Tự hào đồng hành cùng <strong>Hệ thống Giáo dục Vinschool</strong> mang lại trang phục học đường thoáng mát, thời trang và an toàn cho làn da trẻ.
               </p>
-              <div class="flex gap-3 pt-2">
+              <div class="flex flex-wrap gap-3 pt-2">
                 <button onclick="document.getElementById('kidsUniformPicker').scrollIntoView({behavior:'smooth'})" class="bg-amber-400 hover:bg-amber-500 text-gray-900 px-5 py-2.5 rounded-lg text-xs font-bold uppercase transition">
                   Chọn Đồ Đồng Phục Theo Trường
                 </button>
                 <button onclick="HDC.Components.B2BModal.open('Đồng phục trường học')" class="bg-white/10 hover:bg-white/20 border border-white/40 text-white px-5 py-2.5 rounded-lg text-xs font-bold uppercase transition">
                   Liên Hệ Ban Giám Hiệu
                 </button>
+              </div>
+              <div class="pt-2">
+                <a href="./catalogue-dong-phuc-hdc.pdf" download="IHDC-Kids-Catalogue-Dong-Phuc.pdf" class="inline-flex items-center gap-2 text-xs text-white/90 hover:text-white underline font-semibold transition bg-white/10 hover:bg-white/20 px-3.5 py-1.5 rounded-lg border border-white/20">
+                  <i class="fa-solid fa-file-pdf text-amber-300 text-sm"></i>
+                  <span>Tải Catalogue Đồng Phục Học Sinh IHDC Kids (PDF 25MB)</span>
+                </a>
               </div>
             </div>
           </div>
