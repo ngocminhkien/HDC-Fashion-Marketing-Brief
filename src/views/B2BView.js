@@ -152,7 +152,7 @@ window.HDC.Views.B2BView = {
               </div>
 
               <div class="bg-gray-50 rounded-2xl overflow-hidden border group">
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80" alt="Ngoại giao & Hội nghị" class="w-full h-48 object-cover product-img-hover" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=600&auto=format&fit=crop&q=80" alt="Ngoại giao & Hội nghị" class="w-full h-48 object-cover product-img-hover" loading="lazy">
                 <div class="p-4">
                   <span class="text-[10px] font-bold text-purple-700 uppercase">Đối Ngoại & Hội Thảo</span>
                   <h4 class="font-bold text-sm text-gray-900 mt-0.5">Sơ mi & Cà vạt Họa Tiết Trống Đồng</h4>

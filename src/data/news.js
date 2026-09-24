@@ -28,7 +28,7 @@ window.HDC.Data.news = [
     title: "BÍ MẬT DI SẢN: HỌA TIẾT TRỐNG ĐỒNG ĐÔNG SƠN TRÊN TỪNG THỚ VẢI",
     date: "12/09/2026",
     desc: "Mỗi đường hoa văn mặt trời và chim lạc là khởi nguồn cho các câu chuyện mở màn thương vụ kinh doanh quốc tế.",
-    img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80",
+    img: "https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?w=600&auto=format&fit=crop&q=80",
     author: "Nghiên Cứu Văn Hóa HDC"
   },
   {

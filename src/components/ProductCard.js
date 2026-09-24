@@ -1,6 +1,6 @@
 /**
  * HDC Fashion — Reusable Product Card Component
- * Generates semantic HTML for product items in grids
+ * Generates semantic HTML for product items in grids with graceful image fallbacks
  */
 
 window.HDC = window.HDC || {};
@@ -16,6 +16,7 @@ window.HDC.Components.ProductCard = {
     const isWish = HDC.Store.isWishlisted(product.id);
     const wishIconClass = isWish ? 'fa-solid fa-heart text-brand-red' : 'fa-regular fa-heart';
     const oldPriceFormatted = product.oldPrice ? product.oldPrice.toLocaleString('vi-VN') + '₫' : '';
+    const fallbackImg = "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&auto=format&fit=crop&q=80";
 
     return `
       <div class="product-item group cursor-pointer" onclick="HDC.Components.QuickViewModal.open(${product.id})">
@@ -26,7 +27,7 @@ window.HDC.Components.ProductCard = {
           <button onclick="event.stopPropagation(); HDC.Store.toggleWishlist(${product.id})" class="absolute top-2 right-2 z-10 w-7 h-7 bg-white/80 rounded-full flex items-center justify-center text-gray-400 hover:text-brand-red transition shadow-sm" title="Yêu thích">
             <i class="${wishIconClass} text-xs"></i>
           </button>
-          <img src="${product.img}" alt="${product.title}" class="w-full h-full object-cover product-img-hover" loading="lazy">
+          <img src="${product.img}" alt="${product.title}" onerror="this.onerror=null; this.src='${fallbackImg}';" class="w-full h-full object-cover product-img-hover" loading="lazy">
           <div class="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex justify-center">
             <span class="text-xs text-white font-semibold bg-brand-green px-3 py-1 rounded shadow">Xem nhanh</span>
           </div>
