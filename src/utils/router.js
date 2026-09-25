@@ -1,6 +1,6 @@
 /**
- * HDC Fashion — SPA Client Router
- * Manages view switching, URL synchronization, and active state
+ * HDC Fashion — SPA Client Router with Cinematic Page Transitions
+ * Manages view switching, progress bar loading, URL synchronization, and active state
  */
 
 window.HDC = window.HDC || {};
@@ -8,22 +8,29 @@ window.HDC.Router = {
   currentView: 'home',
 
   /**
-   * Navigate to a target view panel
+   * Navigate to a target view panel with smooth page transition
    * @param {string} viewName - e.g. 'home', 'shop', 'b2b', 'kids', 'quiz', 'tracking', 'faq', 'checkout'
    * @param {Object} [params] - optional parameters (e.g. category filter, search query)
    */
   navigate(viewName, params = {}) {
     this.currentView = viewName;
 
+    // Trigger Top Route Loading Progress Bar
+    this.startProgressBar();
+
+    const targetViewId = 'view-' + viewName;
+
     // Hide all view panels
     document.querySelectorAll('.view-panel').forEach(panel => {
       panel.classList.add('hidden');
+      panel.classList.remove('view-enter-active');
     });
 
-    // Show target view panel
-    const targetEl = document.getElementById('view-' + viewName);
+    // Show target view panel with entrance animation
+    const targetEl = document.getElementById(targetViewId);
     if (targetEl) {
       targetEl.classList.remove('hidden');
+      targetEl.classList.add('view-enter-active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -41,6 +48,11 @@ window.HDC.Router = {
       }
     }
 
+    // Complete Progress Bar
+    setTimeout(() => {
+      this.completeProgressBar();
+    }, 280);
+
     // Dispatch custom router event
     window.dispatchEvent(new CustomEvent('hdc:view-changed', {
       detail: { view: viewName, params }
@@ -48,9 +60,38 @@ window.HDC.Router = {
   },
 
   /**
+   * Start top route progress bar
+   */
+  startProgressBar() {
+    let bar = document.getElementById('routeProgressBar');
+    if (!bar) {
+      bar = document.createElement('div');
+      bar.id = 'routeProgressBar';
+      document.body.prepend(bar);
+    }
+    bar.classList.remove('done');
+    bar.classList.add('loading');
+  },
+
+  /**
+   * Complete top route progress bar
+   */
+  completeProgressBar() {
+    const bar = document.getElementById('routeProgressBar');
+    if (!bar) return;
+    bar.classList.remove('loading');
+    bar.classList.add('done');
+    setTimeout(() => {
+      bar.classList.remove('done');
+    }, 350);
+  },
+
+  /**
    * Initialize router listeners
    */
   init() {
+    this.startProgressBar();
+
     // Handle hash on page load
     const initialHash = window.location.hash.replace('#', '') || 'home';
     this.navigate(initialHash);
