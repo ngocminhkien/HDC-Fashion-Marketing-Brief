@@ -497,7 +497,7 @@ window.HDC.Views.HomeView = {
                   const f = this.fiberData[key];
                   const isActive = key === this.activeFiber;
                   return `
-                    <button onclick="HDC.Views.HomeView.selectFiber('${key}')" class="px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 ${
+                    <button data-fiber="${key}" onclick="HDC.Views.HomeView.selectFiber('${key}')" class="px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 ${
                       isActive 
                         ? 'bg-brand-green text-white shadow-md scale-105' 
                         : 'bg-brand-grayBg text-gray-700 hover:bg-gray-200 border border-gray-200'
@@ -606,12 +606,12 @@ window.HDC.Views.HomeView = {
               </div>
 
               <!-- Lookbook Switcher Tabs -->
-              <div class="flex flex-wrap gap-2">
+              <div class="flex flex-wrap gap-2" id="lookbookTabs">
                 ${Object.keys(this.lookbookData).map(k => {
                   const lb = this.lookbookData[k];
                   const isLbActive = k === this.activeLookbook;
                   return `
-                    <button onclick="HDC.Views.HomeView.setLookbook('${k}')" class="px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm ${
+                    <button data-lookbook="${k}" onclick="HDC.Views.HomeView.setLookbook('${k}')" class="px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm ${
                       isLbActive
                         ? 'bg-brand-green text-white shadow-md scale-105'
                         : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
@@ -1338,7 +1338,8 @@ window.HDC.Views.HomeView = {
     // Update active tab buttons
     const tabs = document.querySelectorAll('#fiberMicroTabs button');
     tabs.forEach(btn => {
-      if (btn.innerText.includes(fiber.name)) {
+      const key = btn.getAttribute('data-fiber');
+      if (key === fiberKey || btn.innerText.includes(fiber.name)) {
         btn.className = 'px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-brand-green text-white shadow-md scale-105';
       } else {
         btn.className = 'px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-brand-grayBg text-gray-700 hover:bg-gray-200 border border-gray-200';
@@ -1407,6 +1408,17 @@ window.HDC.Views.HomeView = {
         </div>
       </div>
     `;
+
+    // Update active tab buttons
+    const tabs = document.querySelectorAll('#lookbookTabs button');
+    tabs.forEach(btn => {
+      const key = btn.getAttribute('data-lookbook');
+      if (key === lookbookKey) {
+        btn.className = 'px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm bg-brand-green text-white shadow-md scale-105';
+      } else {
+        btn.className = 'px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm bg-white text-gray-700 hover:bg-gray-100 border border-gray-200';
+      }
+    });
   },
 
   /**
