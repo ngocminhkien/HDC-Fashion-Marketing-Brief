@@ -51,6 +51,7 @@ window.HDC.App = {
     if (mainMount) {
       mainMount.innerHTML = [
         HDC.Views.HomeView.render(),
+        HDC.Views.AboutView.render(),
         HDC.Views.ShopView.render(),
         HDC.Views.B2BView.render(),
         HDC.Views.KidsView.render(),
@@ -75,6 +76,7 @@ window.HDC.App = {
         HDC.Components.B2BModal.render(),
         HDC.Components.CartDrawer.render(),
         HDC.Components.Chatbot.render(),
+        HDC.Components.LegalModal.render(),
         `
         <!-- Animated Toast Container with Progress Bar -->
         <div id="toastNotification" class="fixed top-20 right-5 z-50 bg-gray-900/95 backdrop-blur text-white text-xs px-4 py-3 rounded-xl shadow-2xl hidden items-center gap-3 animate-fadeIn border border-gray-700/80 overflow-hidden min-w-[280px]">

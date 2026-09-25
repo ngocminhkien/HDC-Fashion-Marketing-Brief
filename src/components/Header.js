@@ -60,6 +60,10 @@ window.HDC.Components.Header = {
               Trang chủ
             </button>
 
+            <button onclick="HDC.Router.navigate('about')" id="nav-about" class="nav-tab py-2 transition hover:text-brand-green">
+              Về HDC
+            </button>
+
             <button onclick="HDC.Router.navigate('shop')" id="nav-shop" class="nav-tab py-2 transition hover:text-brand-green flex items-center gap-1">
               Cửa Hàng (Shop) <span class="text-[9px] bg-emerald-100 text-brand-green px-1.5 py-0.2 rounded font-bold">Mới</span>
             </button>
@@ -138,6 +142,7 @@ window.HDC.Components.Header = {
             </div>
             <div class="py-4 flex flex-col gap-2 font-semibold text-xs tracking-wider uppercase divide-y divide-gray-100">
               <button onclick="HDC.Router.navigate('home'); HDC.Components.Header.toggleMobileMenu()" class="text-left py-2.5 text-brand-green">Trang chủ</button>
+              <button onclick="HDC.Router.navigate('about'); HDC.Components.Header.toggleMobileMenu()" class="text-left py-2.5 text-gray-800">Về HDC & Di Sản Sinh Học</button>
               <button onclick="HDC.Router.navigate('shop'); HDC.Components.Header.toggleMobileMenu()" class="text-left py-2.5 text-gray-800">Cửa hàng & Bộ Lọc (Shop)</button>
               <button onclick="HDC.Router.navigate('b2b'); HDC.Components.Header.toggleMobileMenu()" class="text-left py-2.5 text-brand-gold">Đồng phục B2B (Doanh nghiệp & Golf)</button>
               <button onclick="HDC.Router.navigate('kids'); HDC.Components.Header.toggleMobileMenu()" class="text-left py-2.5 text-emerald-700">IHDC Kids — Trường Vinschool</button>

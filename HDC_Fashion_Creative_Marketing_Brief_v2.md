@@ -477,6 +477,50 @@ Thị trường thời trang công sở Việt Nam có một **"vùng đất tr�
 
 ---
 
+---
+
+## XI. BẢN PITCH 5-10 PHÚT CHO NGƯỜI MUA BẬN RỘN (ELEVATOR PITCH & FLASH SALES BRIEF)
+
+> **Bối cảnh sử dụng:** Gặp gỡ đối tác tại sự kiện, hành lang doanh nghiệp, cuộc gọi làm quen (cold call/warm intro), hoặc thuyết trình ngắn khi khách hàng chỉ có 5-10 phút.  
+> **Nguyên tắc cốt lõi:** *"Mỗi giây đều có giá trị — Bắt đầu bằng con số gây sốc, chứng minh bằng giải pháp thực tế, kết thúc bằng cam kết không rủi ro."*
+
+### 11.1. Mở đầu — Móc cảm xúc (30 giây)
+> *"Cho tôi hỏi thật — mỗi sáng anh/chị có phải mất 10-15 phút để là ủi áo sơ mi không? Hoặc phải tốn chi phí và thời gian gửi tiệm giặt hấp hàng tuần?"*  
+> *(Dừng 2 giây để lắng nghe)*  
+> *"Thực tế, anh/chị đang đánh đổi khoảng **91 giờ mỗi năm** chỉ cho chiếc bàn là. HDC Fashion ra đời để **trả lại 91 giờ đó** cho anh/chị tập trung vào những thương vụ lớn và thời gian cho gia đình."*
+
+### 11.2. Chúng tôi là ai & 3 khác biệt cốt lõi (1 phút)
+**HDC Fashion** — Thương hiệu thời trang sinh học tiên phong tại Việt Nam:
+1. 🌿 **100% Sợi Tự Nhiên Bản Địa:** Sen Đồng Tháp, Tơ Chuối Bến Tre, Bạc Hà hữu cơ — Kháng khuẩn tự nhiên 99.8%, phân hủy sinh học trong đất.
+2. ⚡ **Công Nghệ Tự Phục Hồi Phẳng:** Giặt xong treo lên, cấu trúc vi ẩm tự kéo phẳng nếp gấp. Hoàn toàn không cần bàn là.
+3. 🏆 **Bảo Chứng Uy Tín Cấp Quốc Gia:** Nhà cung cấp đồng phục Giải Golf 30 năm phong trào DNT Việt Nam • Đối tác đồng phục chính thức Hệ thống Giáo dục Vinschool.
+
+### 11.3. Giải quyết vấn đề theo từng phân khúc khách hàng (1 phút)
+- **Khách hàng cá nhân (B2C):** Ngồi máy bay 2 tiếng bước xuống áo vẫn phẳng phiu. Họp xong đi tiếp tiệc networking tối mà không cần thay áo. Áo thoáng mát, hạ nhiệt 2.8°C, không mùi cơ thể dù ngày dài 12 tiếng.
+- **Doanh nghiệp (B2B):** Đồng phục chính là gương mặt thương hiệu. Khi nhân viên tự hào mặc áo công ty đi cà phê cuối tuần, đó là kênh marketing tự nhiên và hiệu quả nhất của doanh nghiệp.
+- **Trường học (IHDC Kids):** Đồng phục thoát khỏi khuôn mẫu gò bó. Trẻ hào hứng mặc áo đến trường mỗi sáng — lời khẳng định đầu tiên của nhà trường về môi trường giáo dục hạnh phúc.
+
+### 11.4. Ba bằng chứng uy tín không thể phủ nhận (1 phút)
+1. **Công nghệ vật lý thực nghiệm:** Thử nghiệm camera nhiệt FLIR chứng minh bề mặt da hạ nhiệt 2.8°C so với vải Poly/Cotton thường.
+2. **Sự kiện cấp quốc gia:** Sản xuất trọn bộ đồng phục thi đấu cho hơn 500 golfer và CEO tại Đại hội 30 năm Doanh Nhân Trẻ.
+3. **Chinh phục chuẩn khắt khe:** Hệ thống Vinschool tin chọn dòng sản phẩm IHDC Kids đồng hành cùng hàng vạn học sinh.
+
+### 11.5. Cam kết loại bỏ 100% rủi ro cho người mua (30 giây)
+- **Doanh nghiệp B2B:** Tư vấn & thiết kế 3D **MIỄN PHÍ** • Sửa mẫu **KHÔNG GIỚI HẠN** • Giao hàng toàn quốc **MIỄN PHÍ** • Bảo hành form dáng **12 tháng**.
+- **Cá nhân B2C:** Mặc thử 7 ngày — Đổi size tận nhà miễn phí 2 chiều hoặc hoàn tiền 100% nếu không hài lòng.
+
+### 11.6. Câu hỏi chốt mở (Closing Question - 30 giây)
+> *"Hiện tại doanh nghiệp của anh/chị đang xử lý bài toán đồng phục theo cách nào? Em xin phép gửi một **Hộp Vải Mẫu Sinh Học Thực Tế** đến tận văn phòng để anh/chị trực tiếp cảm nhận chất liệu — hoàn toàn miễn phí, được không ạ?"*
+
+### 11.7. Bảng Q&A Bỏ Túi Xử Lý Từ Chối Trong 10 Giây
+| Câu hỏi / E ngại | Câu trả lời chốt hạ ngay |
+|---|---|
+| *"Giá bên em có cao hơn chỗ khác không?"* | *"Đơn giá 490K–790K. Nhưng tính riêng tiền điện là ủi và giặt hấp trong 1 năm, anh/chị đã tiết kiệm nhiều hơn phần chênh lệch đó."* |
+| *"Chất lượng có thật sự bền không?"* | *"Được Vinschool và 500+ doanh nghiệp kiểm chứng. Bên em bảo hành 12 tháng và cho đổi thử 7 ngày miễn phí tận nơi."* |
+| *"Thời gian sản xuất mất bao lâu?"* | *"May mẫu 3-5 ngày. Sản xuất hàng loạt từ 10-21 ngày tùy số lượng. Luôn đúng tiến độ cam kết."* |
+
+---
+
 ### Phê duyệt
 
 | Vai trò | Họ tên | Chữ ký | Ngày |
@@ -491,6 +535,7 @@ Thị trường thời trang công sở Việt Nam có một **"vùng đất tr�
 |---|---|---|
 | v1.0 | 24/09/2026 | Bản draft đầu tiên |
 | v2.0 | 24/09/2026 | Bản Final — Bổ sung insight sâu, sales script thực chiến, content angles chi tiết |
+| v2.1 | 25/09/2026 | Bổ sung Phần XI: Bản Pitch 5-10 phút cho người mua bận rộn (Elevator Pitch & Q&A bỏ túi) |
 
 ---
 

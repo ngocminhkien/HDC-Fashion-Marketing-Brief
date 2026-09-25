@@ -1,16 +1,16 @@
-﻿/**
- * HDC Fashion — Complete Redesigned Home View (UI/UX Version 2.0)
- * Ground-up Luxury Sustainable Fashion Architecture:
- * - Editorial Luxury Hero Cover with Curated Lookbook Montage
- * - Sensory Fabric Laboratory (Before/After Pain-Point Slider & 6 Indigenous Fibers)
- * - Interactive Capsule Outfits & Lookbook Builder with 1-Click Combo Add
+/**
+ * HDC Fashion — Haute Couture & Sensory Fashion Experience (HomeView)
+ * Bespoke Art Direction & Radical Interactive Features:
+ * - Editorial Luxury Hero with Obsidian/Emerald Couture Aesthetic & Sacred Đông Sơn Motif
+ * - FLIR Infrared Thermal Camera Vision Simulator (Compare 35.2°C vs 38.8°C Live)
+ * - Interactive Digital Fiber Microscope HUD (100x Microscopic Zoom & Cellular Scan)
+ * - Live Wrinkle-Release Physics Simulator ("Không Cần Là Ủi" Demonstration)
+ * - Executive Capsule Fitting Studio (Interactive 1-Click Outfits)
  * - Smart AI Size & Fit Advisor (Real-time Height/Weight/Fit Calculator)
- * - Interactive B2B Corporate Uniform Cost & Solution Estimator
+ * - Interactive B2B Corporate Uniform Cost Estimator
  * - Signature Best Sellers with Direct On-Card Size Selection
- * - Luxury Ticket Voucher Vault & HDC Privé VIP Privilege Club
- * - Social Proof, Partner Trust Wall (Vinschool, DNT 30 Năm) & Verified Client Reviews
- * - Farm-to-Boardroom Heritage Traceability Journey
- * - Bottom Floating Luxury Dock with Quick Action Controls
+ * - Luxury Ticket Voucher Vault & Social Proof Wall (Vinschool & 30 Năm DNT)
+ * - Floating Luxury Dock
  */
 
 window.HDC = window.HDC || {};
@@ -20,8 +20,9 @@ window.HDC.Views.HomeView = {
   activeFiber: 'sen',
   activeCategory: 'all',
   activeLookbook: 'executive',
-  comparisonMode: 'hdc', // 'hdc' or 'traditional'
-  
+  thermalMode: false,
+  wrinkleState: 'flat', // 'wrinkled' or 'flat'
+
   // Interactive Size Advisor State
   sizeAdvisor: {
     gender: 'nam',
@@ -40,72 +41,60 @@ window.HDC.Views.HomeView = {
   fiberData: {
     sen: {
       name: "Sợi Sen Đồng Tháp",
-      region: "Đồng Tháp Mười, Tây Nam Bộ",
+      region: "Đồng Tháp Mười, Miền Tây Nam Bộ",
       badge: "Kháng Khuẩn 99.8% • Tự Phục Hồi Phẳng",
       icon: "fa-solid fa-spa",
       colorTag: "emerald",
       color: "text-emerald-800 bg-emerald-50 border-emerald-300",
-      description: "Chiết xuất tinh túy từ cuống hoa sen Đồng Tháp, cấu trúc vi xốp rỗng tự nhiên giúp điều hòa thân nhiệt, tự phẳng nếp gấp sau 15 phút mặc và loại bỏ 99.8% vi khuẩn gây mùi.",
+      description: "Chiết xuất từ cuống hoa sen Đồng Tháp, cấu trúc vi xốp rỗng 65% tự nhiên giúp điều hòa thân nhiệt, tự kéo phẳng nếp gấp sau 15 phút mặc và triệt tiêu 99.8% vi khuẩn gây mùi.",
+      hudCode: "LOTUS-BIO-PORES: 65% HOLLOW CAVITY | UV-CUT: 97.4%",
       stats: [
         { label: "Kháng khuẩn sinh học", value: "99.8%", sub: "Chứng nhận AATCC 100" },
         { label: "Tự phục hồi phẳng", value: "98%", sub: "Không cần là ủi" },
         { label: "Thấm hút mồ hôi", value: "x2.5", sub: "Gấp 2.5 lần Cotton" }
       ],
       img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80",
+      macroImg: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=600&auto=format&fit=crop&q=80",
       productSample: "Sơ mi Trắng Sợi Sen Cao Cấp 1001",
       productPrice: "649.000₫",
       productId: 1
     },
     chuoi: {
       name: "Tơ Chuối Bến Tre",
-      region: "Xứ Dừa & Vườn Chuối Bến Tre",
-      badge: "Siêu Nhẹ • Kiểm Soát Ẩm Tối Đa",
+      region: "Vườn Chuối & Xứ Dừa Bến Tre",
+      badge: "Siêu Nhẹ -30% • Kiểm Soát Ẩm 24H",
       icon: "fa-solid fa-leaf",
       colorTag: "amber",
       color: "text-amber-800 bg-amber-50 border-amber-300",
-      description: "Tận dụng thân chuối sau thu hoạch qua công nghệ phân tách sinh học, tạo sợi vải bền bỉ siêu nhẹ, giảm 30% trọng lượng so với âu phục thông thường và giữ form đứng dáng hoàn hảo.",
+      description: "Khai thác từ thân chuối sau thu hoạch qua công nghệ phân tách sinh học, tạo sợi vải bền bỉ siêu nhẹ, giảm 30% trọng lượng so với âu phục thông thường và giữ form đứng dáng hoàn hảo.",
+      hudCode: "BANANA-TENSILE: 780 MPa | DENSITY: 1.35 g/cm³",
       stats: [
         { label: "Trọng lượng âu phục", value: "-30%", sub: "Nhẹ lướt trên da" },
         { label: "Độ bền kéo chịu lực", value: "Cực Cao", sub: "Bền màu 100+ lần giặt" },
         { label: "Kiểm soát độ ẩm", value: "24 Giờ", sub: "Khô thoáng suốt ngày dài" }
       ],
       img: "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=600&auto=format&fit=crop&q=80",
+      macroImg: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&auto=format&fit=crop&q=80",
       productSample: "Sơ mi Công Sở Tơ Chuối Kháng Khuẩn 4004",
       productPrice: "599.000₫",
       productId: 4
     },
-    xodua: {
-      name: "Xơ Dừa Nam Bộ",
-      region: "Vùng Nguyên Liệu Dừa Bến Tre",
-      badge: "Kinh Tế Tuần Hoàn • Chống Bám Bụi",
-      icon: "fa-solid fa-seedling",
-      colorTag: "yellow",
-      color: "text-yellow-800 bg-yellow-50 border-yellow-300",
-      description: "Biến phụ phẩm xơ dừa thành sợi dệt thời trang cao cấp. Khả năng chống tia cực tím tự nhiên, không tích điện và hoàn toàn có thể phân hủy sinh học trong đất mà không gây ô nhiễm.",
-      stats: [
-        { label: "Thân thiện tự nhiên", value: "100%", sub: "Phân hủy sinh học" },
-        { label: "Chống tích điện bụi", value: "Chuẩn A", sub: "Luôn sáng bóng" },
-        { label: "Độ bền cọ xát", value: "5/5 Sao", sub: "Không xù lông" }
-      ],
-      img: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format&fit=crop&q=80",
-      productSample: "Sơ Mi Xơ Dừa Eco Classic",
-      productPrice: "569.000₫",
-      productId: 11
-    },
     bamboo: {
       name: "Tre Bamboo Tây Bắc",
       region: "Vùng Rừng Tre Tự Nhiên Tây Bắc",
-      badge: "Mềm Mịn Như Lụa • Chống UV UPF 50+",
+      badge: "Mềm Như Lụa • Chống Nắng UPF 50+",
       icon: "fa-solid fa-tree",
       colorTag: "teal",
       color: "text-teal-800 bg-teal-50 border-teal-300",
-      description: "Hợp chất sinh học tự nhiên Bamboo Kun giúp bảo vệ tế bào da tuyệt đối trước ánh nắng nhiệt đới. Thớ vải êm mềm lướt nhẹ, sinh ra dành riêng cho giới doanh nhân chơi golf và hoạt động ngoài trời.",
+      description: "Hợp chất sinh học tự nhiên Bamboo Kun bảo vệ tế bào da tuyệt đối trước ánh nắng nhiệt đới. Thớ vải êm mềm lướt nhẹ, sinh ra dành riêng cho giới doanh nhân chơi golf và hoạt động ngoài trời.",
+      hudCode: "BAMBOO-KUN: NATURAL ANTIMICROBIAL | UPF 50+ SOLAR",
       stats: [
         { label: "Chỉ số chống nắng", value: "UPF 50+", sub: "Ngăn 98% tia UVA/UVB" },
         { label: "Độ mềm cảm quan", value: "Như Lụa", sub: "Không gây rát da" },
         { label: "Kháng nấm mốc", value: "Tuyệt Đối", sub: "Không mùi ẩm mốc" }
       ],
       img: "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=600&auto=format&fit=crop&q=80",
+      macroImg: "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=600&auto=format&fit=crop&q=80",
       productSample: "Áo Polo Chống Tia Cực Tím HDC Golf 5005",
       productPrice: "489.000₫",
       productId: 5
@@ -113,17 +102,19 @@ window.HDC.Views.HomeView = {
     bacha: {
       name: "Sợi Bạc Hà Mát Lạnh",
       region: "Nông Trại Bạc Hà Hữu Cơ",
-      badge: "Hạ Nhiệt Da 2-3°C • Sảng Khoái",
+      badge: "Hạ Nhiệt Da 2.8°C • Sảng Khoái",
       icon: "fa-solid fa-snowflake",
       colorTag: "cyan",
       color: "text-cyan-800 bg-cyan-50 border-cyan-300",
       description: "Tinh chất menthol hữu cơ được vi bọc trong từng tao sợi, giải phóng ion làm mát tự nhiên khi tiếp xúc với nhiệt cơ thể, lập tức xua tan cơn nóng bức ngột ngạt mùa hè.",
+      hudCode: "MENTHOL-MICRO-CAPSULES: THERMAL-DISSIPATION -2.8°C",
       stats: [
         { label: "Hạ nhiệt tiếp xúc", value: "-2.8°C", sub: "Lạnh tức thì khi mặc" },
         { label: "Tốc độ bay hơi ẩm", value: "0.8 Giây", sub: "Không đọng vệt mồ hôi" },
         { label: "Hương thoảng nhẹ", value: "Thư Giãn", sub: "Giảm stress công sở" }
       ],
       img: "https://images.unsplash.com/photo-1589310243389-96a5483213a8?w=600&auto=format&fit=crop&q=80",
+      macroImg: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80",
       productSample: "Sơ Mi Sợi Bạc Hà Hạ Nhiệt 1062",
       productPrice: "689.000₫",
       productId: 7
@@ -136,15 +127,37 @@ window.HDC.Views.HomeView = {
       colorTag: "purple",
       color: "text-purple-800 bg-purple-50 border-purple-300",
       description: "Sự kết hợp giữa sợi cellulose gỗ sồi quý hiếm và công nghệ dệt liền Seamless 4D độc quyền, loại bỏ 100% đường may gây cọ xát ở vùng cổ và nách, cho chuyển động tự do không giới hạn.",
+      hudCode: "SEAMLESS-4D: ZERO-FRICTION KNIT | RESILIENCE 99.4%",
       stats: [
         { label: "Co giãn đa chiều", value: "4D Stretch", sub: "Đàn hồi tự nhiên" },
         { label: "Công nghệ dệt", value: "Seamless", sub: "Loại bỏ đường may thô" },
         { label: "Độ bền màu sắc", value: "100+ Lần", sub: "Không phai nhạt" }
       ],
       img: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
+      macroImg: "https://images.unsplash.com/photo-1579546929662-711aa81148cf?w=600&auto=format&fit=crop&q=80",
       productSample: "Sơ mi Seamless Co Giãn 4 Chiều 2002",
       productPrice: "789.000₫",
       productId: 2
+    },
+    xodua: {
+      name: "Xơ Dừa Nam Bộ",
+      region: "Thủ Phủ Dừa Bến Tre",
+      badge: "Kinh Tế Tuần Hoàn • Chống Bám Bụi",
+      icon: "fa-solid fa-seedling",
+      colorTag: "yellow",
+      color: "text-yellow-800 bg-yellow-50 border-yellow-300",
+      description: "Biến phụ phẩm xơ dừa thành sợi dệt thời trang cao cấp. Khả năng chống tia cực tím tự nhiên, không tích điện và hoàn toàn có thể phân hủy sinh học trong đất mà không gây ô nhiễm.",
+      hudCode: "COCONUT-CIRCULAR: ANTI-STATIC LEVEL-A | ZERO-WASTE",
+      stats: [
+        { label: "Thân thiện tự nhiên", value: "100%", sub: "Phân hủy sinh học" },
+        { label: "Chống tích điện bụi", value: "Chuẩn A", sub: "Luôn sáng bóng" },
+        { label: "Độ bền cọ xát", value: "5/5 Sao", sub: "Không xù lông" }
+      ],
+      img: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format&fit=crop&q=80",
+      macroImg: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=600&auto=format&fit=crop&q=80",
+      productSample: "Sơ Mi Xơ Dừa Eco Classic",
+      productPrice: "569.000₫",
+      productId: 11
     }
   },
 
@@ -214,90 +227,99 @@ window.HDC.Views.HomeView = {
     const activeLookbook = this.lookbookData[this.activeLookbook] || this.lookbookData.executive;
 
     return `
-      <div id="view-home" class="view-panel hidden bg-brand-cream/30 text-gray-800">
+      <div id="view-home" class="view-panel hidden bg-[#faf9f5] text-gray-800">
         
         <!-- Continuous Brand Values Announcement Ticker -->
-        <div class="bg-brand-green text-white/90 py-1.5 overflow-hidden text-[11px] font-semibold tracking-wider uppercase border-b border-emerald-900 select-none">
+        <div class="bg-brand-greenDark text-amber-200/90 py-2 overflow-hidden text-[11px] font-bold tracking-widest uppercase border-b border-brand-gold/30 select-none">
           <div class="marquee-track flex gap-12 whitespace-nowrap">
-            <span>🌿 100% Sợi Sinh Học Tự Nhiên Bản Địa Việt Nam</span>
-            <span>⚡ Công Nghệ Tự Phục Hồi 98% Không Cần Là Ủi</span>
-            <span>🏆 Nhà Cung Cấp Đồng Phục Đối Tác 30 Năm DNT & Vinschool</span>
-            <span>✨ May Đo Seamless 4D Không Đường May Cọ Xát</span>
-            <span>🚚 Miễn Phí Vận Chuyển Toàn Quốc & Đổi Trả 30 Ngày</span>
-            <span>🌿 100% Sợi Sinh Học Tự Nhiên Bản Địa Việt Nam</span>
-            <span>⚡ Công Nghệ Tự Phục Hồi 98% Không Cần Là Ủi</span>
-            <span>🏆 Nhà Cung Cấp Đồng Phục Đối Tác 30 Năm DNT & Vinschool</span>
+            <span>✦ 100% SỢI SINH HỌC TỰ NHIÊN BẢN ĐỊA VIỆT NAM ✦</span>
+            <span>⚡ CÔNG NGHỆ TỰ PHỤC HỒI 98% KHÔNG CẦN BÀN LÀ ⚡</span>
+            <span>🏆 ĐỐI TÁC ĐỒNG PHỤC 30 NĂM DNT & HỆ THỐNG VINSCHOOL 🏆</span>
+            <span>✨ MAY ĐO SEAMLESS 4D KHÔNG ĐƯỜNG MAY CỌ XÁT ✨</span>
+            <span>🚚 MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC & ĐỔI SIZE 7 NGÀY TẬN NƠI 🚚</span>
           </div>
         </div>
 
-        <!-- ==========================================
-             1. EDITORIAL LUXURY HERO COVER SECTION
-             ========================================== -->
-        <section class="relative overflow-hidden bg-gradient-to-b from-[#f5f8f5] via-white to-brand-cream/40 pt-10 pb-16 lg:py-20 border-b border-gray-100">
-          <!-- Subtle Heritage Radial Motif -->
-          <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
-          <div class="absolute top-1/2 -left-32 w-80 h-80 bg-brand-green/10 rounded-full blur-3xl pointer-events-none"></div>
+        <!-- ========================================================
+             1. HAUTE COUTURE EDITORIAL HERO COVER (LUMINOUS & RADIANT)
+             ======================================================== -->
+        <section class="relative overflow-hidden bg-gradient-to-b from-[#fbf9f4] via-[#f7f3e8] to-[#f0e9dc] text-gray-900 py-14 lg:py-24 border-b border-amber-200/70">
+          
+          <!-- Animated Sacred Đông Sơn Sun Motif in Background (Noble Gold Silk Watermark) -->
+          <div class="absolute -top-40 -right-40 w-[600px] h-[600px] opacity-[0.14] pointer-events-none animate-dongson-slow">
+            <svg viewBox="0 0 500 500" class="w-full h-full fill-none stroke-[#b89047] stroke-[1.4]">
+              <circle cx="250" cy="250" r="230"/>
+              <circle cx="250" cy="250" r="180" stroke-dasharray="8 6"/>
+              <circle cx="250" cy="250" r="130"/>
+              <circle cx="250" cy="250" r="80" stroke-dasharray="4 4"/>
+              <circle cx="250" cy="250" r="30" fill="currentColor"/>
+              ${[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(deg => `
+                <line x1="250" y1="250" x2="${250 + 220 * Math.cos(deg * Math.PI / 180)}" y2="${250 + 220 * Math.sin(deg * Math.PI / 180)}" opacity="0.6"/>
+              `).join('')}
+            </svg>
+          </div>
 
           <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
               
-              <!-- Left High-Fashion Editorial Typography -->
-              <div class="lg:col-span-7 space-y-7 text-center lg:text-left">
-                <div class="inline-flex items-center gap-2.5 bg-white/90 backdrop-blur px-4 py-1.5 rounded-full border border-brand-green/20 shadow-sm">
+              <!-- Left Storytelling Content -->
+              <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                
+                <div class="inline-flex items-center gap-2.5 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full border border-amber-300 shadow-sm">
                   <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-ping"></span>
                   <span class="text-xs font-bold text-brand-green uppercase tracking-widest font-heading">
-                    Kỷ Nguyên Thời Trang Bền Vững 2026
+                    Kỷ Nguyên Thời Trang Sinh Học Bản Địa 2026
                   </span>
                 </div>
 
-                <div class="space-y-4">
-                  <h1 class="text-4xl sm:text-5xl lg:text-[58px] font-extrabold text-brand-greenDark font-serif leading-[1.12] tracking-tight">
+                <div class="space-y-3">
+                  <h1 class="text-4xl sm:text-5xl lg:text-[62px] font-extrabold font-serif leading-[1.08] tracking-tight text-[#0f291a]">
                     Khí Chất Bản Lĩnh, <br class="hidden sm:inline">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-green via-emerald-700 to-brand-gold">
                       Khắc Họa Di Sản
                     </span>
                   </h1>
-                  <p class="text-sm sm:text-base text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
-                    Từ thớ sợi phù sa Sen Đồng Tháp, Tơ Chuối Bến Tre đến hào khí Trống Đồng ngàn năm. HDC Fashion tiên phong mang đến thế hệ âu phục công sở & giải pháp đồng phục doanh nghiệp <strong class="text-brand-green font-bold">hoàn toàn không cần là ủi</strong>, tự thở và nâng tầm phong thái người dẫn đầu.
+                  <p class="text-sm sm:text-base text-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+                    Từ thớ sợi phù sa Sen Đồng Tháp, Tơ Chuối Bến Tre đến hào khí Trống Đồng ngàn năm. HDC Fashion kiến tạo thế hệ âu phục công sở & giải pháp đồng phục doanh nghiệp <strong class="text-brand-green font-bold">hoàn toàn không cần bàn là</strong>, tự thở và nâng tầm phong thái người dẫn đầu.
                   </p>
                 </div>
 
-                <!-- Three Key Pillars Badge Row -->
-                <div class="grid grid-cols-3 gap-3 pt-1 max-w-lg mx-auto lg:mx-0">
-                  <div class="bg-white p-3 rounded-2xl border border-gray-100 shadow-sm text-center">
+                <!-- Three Key Pillars Badge Row (Luminous Pearl Style) -->
+                <div class="grid grid-cols-3 gap-3 pt-2 max-w-lg mx-auto lg:mx-0">
+                  <div class="bg-white/95 backdrop-blur p-3.5 rounded-2xl border border-amber-200/80 shadow-md text-center hover:scale-105 transition-transform">
                     <i class="fa-solid fa-wand-magic-sparkles text-brand-gold text-lg mb-1"></i>
-                    <div class="font-extrabold text-xs text-gray-900 font-heading">Không Là Ủi</div>
-                    <div class="text-[10px] text-gray-500 mt-0.5">Tự phẳng nếp gấp</div>
+                    <div class="font-bold text-xs text-gray-900">Tự Phẳng 98%</div>
+                    <div class="text-[10px] text-gray-500 mt-0.5">Không cần bàn là</div>
                   </div>
-                  <div class="bg-white p-3 rounded-2xl border border-gray-100 shadow-sm text-center">
-                    <i class="fa-solid fa-shield-virus text-brand-green text-lg mb-1"></i>
-                    <div class="font-extrabold text-xs text-gray-900 font-heading">Kháng Khuẩn 99%</div>
+                  <div class="bg-white/95 backdrop-blur p-3.5 rounded-2xl border border-amber-200/80 shadow-md text-center hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-temperature-arrow-down text-emerald-600 text-lg mb-1"></i>
+                    <div class="font-bold text-xs text-gray-900">Hạ Nhiệt 2.8°C</div>
                     <div class="text-[10px] text-gray-500 mt-0.5">Sợi sen & bạc hà</div>
                   </div>
-                  <div class="bg-white p-3 rounded-2xl border border-gray-100 shadow-sm text-center">
-                    <i class="fa-solid fa-certificate text-emerald-600 text-lg mb-1"></i>
-                    <div class="font-extrabold text-xs text-gray-900 font-heading">Chuẩn Vinschool</div>
+                  <div class="bg-white/95 backdrop-blur p-3.5 rounded-2xl border border-amber-200/80 shadow-md text-center hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-certificate text-brand-gold text-lg mb-1"></i>
+                    <div class="font-bold text-xs text-gray-900">Chuẩn Vinschool</div>
                     <div class="text-[10px] text-gray-500 mt-0.5">Đối tác 30 năm DNT</div>
                   </div>
                 </div>
 
                 <!-- Primary Action Button Stack -->
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
-                  <button onclick="HDC.Router.navigate('shop')" class="btn-shimmer bg-brand-green hover:bg-brand-greenDark text-white px-8 py-4 rounded-2xl font-bold text-xs uppercase tracking-wider transition-all shadow-xl shadow-brand-green/25 flex items-center gap-2.5 hover:scale-[1.02] active:scale-[0.98]">
+                  <button onclick="HDC.Router.navigate('shop')" class="btn-shimmer bg-brand-green hover:bg-brand-greenDark text-white font-extrabold px-8 py-4 rounded-2xl text-xs uppercase tracking-wider transition-all shadow-xl shadow-brand-green/25 flex items-center gap-2.5 hover:scale-[1.02] active:scale-[0.98]">
                     <span>Khám Phá Cửa Hàng</span>
                     <i class="fa-solid fa-arrow-right text-xs"></i>
                   </button>
-                  <button onclick="HDC.Router.navigate('b2b')" class="bg-white hover:bg-emerald-50 text-brand-green border-2 border-brand-green/60 hover:border-brand-green px-7 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]">
-                    <i class="fa-solid fa-briefcase text-xs"></i>
+                  <button onclick="HDC.Router.navigate('b2b')" class="bg-white hover:bg-emerald-50 text-brand-green border-2 border-brand-green/50 px-7 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]">
+                    <i class="fa-solid fa-briefcase text-xs text-brand-gold"></i>
                     <span>Đồng Phục Doanh Nghiệp (B2B)</span>
                   </button>
-                  <button onclick="HDC.Views.HomeView.scrollToSection('smart-size-advisor')" class="text-xs font-bold text-gray-600 hover:text-brand-green flex items-center gap-1.5 underline underline-offset-4 py-2">
-                    <i class="fa-solid fa-ruler-combined text-brand-gold"></i> Đo Size Bằng AI
+                  <button onclick="HDC.Views.HomeView.scrollToSection('thermal-lab-section')" class="text-xs font-bold text-brand-green hover:text-emerald-800 flex items-center gap-1.5 underline underline-offset-4 py-2">
+                    <i class="fa-solid fa-camera-rotate text-brand-gold"></i> Soi Camera Nhiệt Live &darr;
                   </button>
                 </div>
 
-                <!-- Trusted Endorsement Byline -->
-                <div class="pt-3 border-t border-gray-100 flex items-center justify-center lg:justify-start gap-6 text-xs text-gray-500">
+                <!-- Verified Stats Bar -->
+                <div class="pt-4 border-t border-amber-200/60 flex items-center justify-center lg:justify-start gap-6 text-xs text-gray-600">
                   <div class="flex items-center gap-2">
                     <i class="fa-solid fa-circle-check text-emerald-600"></i>
                     <span>500+ Doanh nghiệp Việt tin dùng</span>
@@ -307,39 +329,39 @@ window.HDC.Views.HomeView = {
                     <span>Giao hàng hỏa tốc 24H</span>
                   </div>
                 </div>
+
               </div>
 
-              <!-- Right Interactive Fashion Cover Montage -->
+              <!-- Right Centerpiece: High-Fashion Editorial Artwork -->
               <div class="lg:col-span-5 relative">
                 <div class="relative mx-auto max-w-md">
                   
-                  <!-- Main Fashion Centerpiece -->
-                  <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white card-lift group cursor-pointer" onclick="HDC.Router.navigate('shop')">
-                    <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=800&auto=format&fit=crop&q=80" alt="HDC Fashion Hero Cover" class="w-full h-[460px] sm:h-[500px] object-cover product-img-hover">
+                  <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white card-lift group cursor-pointer gold-rim-glow" onclick="HDC.Components.QuickViewModal.open(1)">
+                    <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=800&auto=format&fit=crop&q=80" alt="HDC Fashion Haute Couture" class="w-full h-[470px] sm:h-[510px] object-cover product-img-hover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
                     
                     <!-- Floating Luxury Badges on Image -->
                     <div class="absolute top-4 left-4">
-                      <span class="glass-luxury-dark text-amber-300 font-bold text-[10px] px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-lg border border-amber-300/30">
-                        <i class="fa-solid fa-spa text-xs"></i> 100% Sợi Sen Đồng Tháp
+                      <span class="glass-luxury text-brand-green font-bold text-[10px] px-3.5 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-md border border-amber-300/60">
+                        <i class="fa-solid fa-spa text-xs text-brand-gold"></i> 100% Sợi Sen Đồng Tháp
                       </span>
                     </div>
 
                     <div class="absolute top-4 right-4">
                       <span class="bg-brand-red text-white font-extrabold text-[10px] px-3 py-1.5 rounded-full shadow-lg uppercase tracking-wider animate-float">
-                        Không Cần Là Ủi
+                        Không Cần Bàn Là
                       </span>
                     </div>
 
                     <!-- Bottom Hero Information Plate -->
                     <div class="absolute bottom-5 left-5 right-5 text-white space-y-2">
-                      <span class="text-[10px] uppercase font-bold tracking-widest text-emerald-300">Bộ Sưu Tập Tiên Phong 2026</span>
+                      <span class="text-[10px] uppercase font-bold tracking-widest text-emerald-300">Tuyệt Phẩm Di Sản 2026</span>
                       <h3 class="font-serif text-xl sm:text-2xl font-bold leading-tight">
                         Sơ Mi Doanh Nhân Sợi Sen Kháng Khuẩn 1001
                       </h3>
                       <div class="flex items-center justify-between pt-1 border-t border-white/20">
                         <span class="text-amber-300 font-extrabold text-base">649.000₫ <span class="text-xs text-white/70 line-through font-normal">799.000₫</span></span>
-                        <span class="text-xs bg-white text-brand-green px-3 py-1 rounded-xl font-bold group-hover:bg-brand-gold group-hover:text-white transition">
+                        <span class="text-xs bg-brand-gold text-gray-950 px-3 py-1.5 rounded-xl font-extrabold group-hover:bg-white transition shadow">
                           Xem Chi Tiết &rarr;
                         </span>
                       </div>
@@ -347,7 +369,7 @@ window.HDC.Views.HomeView = {
                   </div>
 
                   <!-- Floating Partner Micro-Card (Bottom Right) -->
-                  <div class="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-2xl border border-gray-100 flex items-center gap-3 animate-float-delay hidden sm:flex max-w-[240px]">
+                  <div class="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-2xl border border-amber-200/80 flex items-center gap-3 animate-float-delay hidden sm:flex max-w-[240px]">
                     <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-lg font-bold shrink-0">
                       <i class="fa-solid fa-graduation-cap"></i>
                     </div>
@@ -358,12 +380,6 @@ window.HDC.Views.HomeView = {
                     </div>
                   </div>
 
-                  <!-- Floating Review Micro-Card (Top Right) -->
-                  <div class="absolute -top-4 -right-4 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-2 animate-float hidden sm:flex">
-                    <span class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
-                    <span class="text-xs font-bold text-gray-800">4.9/5 (1.2k Đánh giá)</span>
-                  </div>
-
                 </div>
               </div>
 
@@ -371,159 +387,211 @@ window.HDC.Views.HomeView = {
           </div>
         </section>
 
-        <!-- ==========================================
-             2. SENSORY FABRIC LABORATORY (INNOVATION)
-             Interactive Before/After Pain-Point & 6 Fibers
-             ========================================== -->
-        <section id="fabric-innovation-lab" class="py-16 lg:py-24 bg-white border-b border-gray-100 reveal-on-scroll">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+        <!-- ========================================================
+             2. WOW FACTOR 1: CAMERA NHIỆT HỒNG NGOẠI FLIR (THERMAL VISION)
+             Live Temperature Difference: 35.2°C vs 38.8°C
+             ======================================================== -->
+        <section id="thermal-lab-section" class="py-16 lg:py-24 bg-gradient-to-b from-[#f0e9dc] via-[#f8f6f0] to-white text-gray-900 border-b border-gray-200 reveal-on-scroll relative overflow-hidden">
+          
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
             
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+            <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
               <span class="text-[11px] font-bold text-brand-gold uppercase tracking-widest bg-amber-50 px-3.5 py-1 rounded-full border border-amber-200">
-                ✦ Bản Quyền Nghiên Cứu Độc Quyền
+                ✦ Trực Quan Hóa Bằng Công Nghệ Nhiệt FLIR
               </span>
               <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-greenDark font-serif">
-                Phòng Thí Nghiệm Chất Liệu Sinh Học
+                Tại Sao Áo Sơ Mi HDC Mát Hơn 2.8°C?
               </h2>
               <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                Giải quyết triệt để nỗi ám ảnh <em>"Áo sơ mi nhăn nhúm sau 2 tiếng họp"</em> và <em>"Mỗi sáng vật lộn 15 phút với bàn là"</em> bằng 6 loại sợi tự nhiên bản địa Việt Nam.
+                Chiêm ngưỡng bằng chứng khoa học thực nghiệm: Áo thường giữ nhiệt ngột ngạt VS Áo sợi sen HDC tự giải phóng thân nhiệt.
               </p>
-            </div>
 
-            <!-- Pain Point Comparison Interactive Switcher -->
-            <div class="bg-brand-grayBg p-6 sm:p-8 rounded-3xl border border-gray-200/80 mb-12">
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                
-                <!-- Conventional Problem Card -->
-                <div class="bg-white p-6 rounded-2xl border border-red-200 shadow-sm space-y-4">
-                  <div class="flex items-center justify-between border-b border-red-100 pb-3">
-                    <div class="flex items-center gap-2 text-brand-red font-bold text-xs uppercase tracking-wider">
-                      <i class="fa-solid fa-circle-xmark text-base"></i> Áo Sơ Mi Truyền Thống (Cotton/Poly)
-                    </div>
-                    <span class="text-[10px] bg-red-50 text-red-700 font-bold px-2 py-0.5 rounded">Nỗi Đau Phổ Biến</span>
-                  </div>
-                  <ul class="space-y-3 text-xs text-gray-600">
-                    <li class="flex items-start gap-2.5">
-                      <span class="text-brand-red font-bold">✕</span>
-                      <span><strong>Nhăn nhúm sau 2h ngồi xe:</strong> Nếp gấp ở khuỷu tay và vạt áo làm mất đi vẻ đĩnh đạc khi gặp đối tác quan trọng.</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                      <span class="text-brand-red font-bold">✕</span>
-                      <span><strong>Nóng bí & đọng mồ hôi:</strong> Vải không thoát hơi ẩm khiến lưng áo bết dính và tích tụ mùi hôi cuối ngày.</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                      <span class="text-brand-red font-bold">✕</span>
-                      <span><strong>Mất 15 phút là ủi mỗi sáng:</strong> Tốn kém thời gian quý giá và chi phí giặt hấp đắt đỏ.</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <!-- HDC Green Solution Card -->
-                <div class="bg-gradient-to-br from-emerald-50 via-white to-emerald-50/50 p-6 rounded-2xl border-2 border-brand-green shadow-md space-y-4 relative">
-                  <div class="absolute -top-3 right-6 bg-brand-green text-white text-[10px] font-extrabold px-3 py-0.5 rounded-full uppercase tracking-wider shadow">
-                    Đột Phá HDC Fashion
-                  </div>
-                  <div class="flex items-center justify-between border-b border-emerald-200 pb-3">
-                    <div class="flex items-center gap-2 text-brand-green font-bold text-xs uppercase tracking-wider font-heading">
-                      <i class="fa-solid fa-circle-check text-base text-emerald-600"></i> Sơ Mi Sinh Học HDC (Sợi Sen & Tơ Chuối)
-                    </div>
-                    <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">Giải Pháp Hoàn Hảo</span>
-                  </div>
-                  <ul class="space-y-3 text-xs text-gray-700">
-                    <li class="flex items-start gap-2.5">
-                      <span class="text-emerald-600 font-bold">✓</span>
-                      <span><strong>Tự phục hồi phẳng sau 15 phút:</strong> Cấu trúc sợi tự sắp xếp lại độ căng bề mặt, phẳng lì tự nhiên không cần bàn là.</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                      <span class="text-emerald-600 font-bold">✓</span>
-                      <span><strong>Hạ nhiệt bề mặt 2.8°C & Kháng khuẩn 99.8%:</strong> Cấu trúc vi xốp rỗng lưu thông khí mát, triệt tiêu vi khuẩn gây mùi.</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                      <span class="text-emerald-600 font-bold">✓</span>
-                      <span><strong>Lấy áo ra mặc, bước đi tự tin:</strong> Tiết kiệm 100 giờ mỗi năm cho công việc và gia đình.</span>
-                    </li>
-                  </ul>
-                </div>
-
+              <!-- Interactive Camera Switcher Controls -->
+              <div class="inline-flex p-1.5 bg-white rounded-2xl border border-gray-300 shadow-md gap-2 mt-2">
+                <button onclick="HDC.Views.HomeView.setThermalMode(false)" id="btnThermalNormal" class="px-5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-brand-green text-white shadow">
+                  <i class="fa-solid fa-eye"></i> Chế Độ Mắt Thường
+                </button>
+                <button onclick="HDC.Views.HomeView.setThermalMode(true)" id="btnThermalActive" class="px-5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200">
+                  <i class="fa-solid fa-camera-rotate text-red-500"></i> Bật Camera Nhiệt FLIR
+                </button>
               </div>
             </div>
 
-            <!-- 6 Indigenous Fibers Navigation Tabs -->
-            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8" id="fiberTabsContainer">
-              ${Object.keys(this.fiberData).map(key => {
-                const f = this.fiberData[key];
-                const isActive = key === this.activeFiber;
-                return `
-                  <button onclick="HDC.Views.HomeView.selectFiber('${key}')" class="px-4 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 flex items-center gap-2 ${
-                    isActive 
-                      ? 'bg-brand-green text-white shadow-lg scale-105 border border-brand-green' 
-                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 shadow-sm'
-                  }">
-                    <i class="${f.icon}"></i>
-                    <span>${f.name}</span>
-                  </button>
-                `;
-              }).join('')}
+            <!-- Thermal Comparison Arena -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
+              
+              <!-- Left: Conventional Cotton/Poly -->
+              <div class="bg-white rounded-3xl p-6 border-2 border-red-200 space-y-4 relative overflow-hidden shadow-lg">
+                <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                  <div class="text-xs font-bold text-red-600 uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-circle-xmark text-base"></i> Sơ Mi Cotton/Poly Thường
+                  </div>
+                  <span id="tempBadgeOld" class="text-xs font-black px-2.5 py-0.5 rounded-full bg-red-100 text-red-600 border border-red-300">
+                    🔥 38.8°C (Rất Nóng)
+                  </span>
+                </div>
+
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-black">
+                  <img id="imgThermalOld" src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&auto=format&fit=crop&q=80" alt="Cotton thường" class="w-full h-full object-cover thermal-lens-normal">
+                  <!-- Red Heat Pulse Overlay (Hidden by default, shown in thermal mode) -->
+                  <div id="overlayHeatOld" class="absolute inset-0 thermal-hotspot opacity-0 pointer-events-none transition-opacity duration-500"></div>
+                  
+                  <div class="absolute bottom-3 left-3 bg-black/70 backdrop-blur px-3 py-1 rounded-lg text-[10px] text-gray-300 font-mono">
+                    CHỈ SỐ: BÍ BÁCH & TÍCH TỤ MỒ HÔI
+                  </div>
+                </div>
+
+                <ul class="space-y-2 text-xs text-gray-600 pt-1">
+                  <li class="flex items-start gap-2">
+                    <span class="text-red-500 font-bold">✕</span>
+                    <span>Thớ vải dệt chặt giữ nhiệt ẩm, gây ngột ngạt sau 2 giờ ngồi họp.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-red-500 font-bold">✕</span>
+                    <span>Dễ ố vàng nách và tích tụ vi khuẩn tạo mùi cơ thể.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Right: HDC Lotus Bio-Shirt -->
+              <div class="bg-gradient-to-b from-white via-emerald-50/40 to-white rounded-3xl p-6 border-2 border-emerald-500 space-y-4 relative overflow-hidden shadow-xl">
+                <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                  <div class="text-xs font-bold text-brand-green uppercase tracking-wider flex items-center gap-2 font-heading">
+                    <i class="fa-solid fa-circle-check text-base"></i> Sơ Mi Sợi Sen Sinh Học HDC
+                  </div>
+                  <span id="tempBadgeHDC" class="text-xs font-black px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
+                    ❄️ 35.2°C (Hạ Nhiệt -2.8°C)
+                  </span>
+                </div>
+
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-black">
+                  <img id="imgThermalHDC" src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80" alt="Sơ mi sen HDC" class="w-full h-full object-cover thermal-lens-normal">
+                  <!-- Emerald Cool Pulse Overlay (Hidden by default, shown in thermal mode) -->
+                  <div id="overlayCoolHDC" class="absolute inset-0 thermal-coolspot opacity-0 pointer-events-none transition-opacity duration-500"></div>
+
+                  <div class="absolute bottom-3 left-3 bg-black/70 backdrop-blur px-3 py-1 rounded-lg text-[10px] text-emerald-300 font-mono">
+                    CHỈ SỐ: VI XỐP RỖNG LƯU THÔNG KHÍ MÁT
+                  </div>
+                </div>
+
+                <ul class="space-y-2 text-xs text-gray-700 pt-1">
+                  <li class="flex items-start gap-2">
+                    <span class="text-emerald-600 font-bold">✓</span>
+                    <span>Hạ nhiệt độ tiếp xúc bề mặt da 2.8°C, mát lạnh suốt ngày dài làm việc.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-emerald-600 font-bold">✓</span>
+                    <span>Kháng khuẩn sinh học 99.8% — không mùi hôi áo dù bay đường dài 12 tiếng.</span>
+                  </li>
+                </ul>
+              </div>
+
             </div>
 
-            <!-- Dynamic Fiber Spotlight Showcase Card -->
-            <div id="fiberSpotlightPanel" class="bg-gradient-to-br from-white via-brand-grayBg/60 to-white rounded-3xl p-6 sm:p-10 border border-gray-200 shadow-xl transition-all">
-              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        </section>
+
+
+        <!-- ========================================================
+             3. WOW FACTOR 2: KÍNH HIỂN VI SOI THỚ SỢI ĐIỆN TỬ 100X
+             Digital Fiber Microscope HUD & Cellular Structure Scan
+             ======================================================== -->
+        <section class="py-16 lg:py-24 bg-white border-b border-gray-100 reveal-on-scroll">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
+              <span class="text-[11px] font-bold text-brand-gold uppercase tracking-widest bg-amber-50 px-3.5 py-1 rounded-full border border-amber-200">
+                ✦ Phòng Thí Nghiệm Quang Học 100x
+              </span>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-greenDark font-serif">
+                Kính Hiển Vi Soi Thớ Sợi Sinh Học
+              </h2>
+              <p class="text-xs sm:text-sm text-gray-500">
+                Chọn mẫu sợi để khám phá cấu trúc vi mô độc quyền giúp áo tự thở và không cần là ủi
+              </p>
+
+              <!-- Fiber Selection Pills -->
+              <div class="flex flex-wrap justify-center gap-2 pt-2" id="fiberMicroTabs">
+                ${Object.keys(this.fiberData).map(key => {
+                  const f = this.fiberData[key];
+                  const isActive = key === this.activeFiber;
+                  return `
+                    <button onclick="HDC.Views.HomeView.selectFiber('${key}')" class="px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 ${
+                      isActive 
+                        ? 'bg-brand-green text-white shadow-md scale-105' 
+                        : 'bg-brand-grayBg text-gray-700 hover:bg-gray-200 border border-gray-200'
+                    }">
+                      <i class="${f.icon}"></i>
+                      <span>${f.name}</span>
+                    </button>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+
+            <!-- Microscope Visual HUD Box -->
+            <div id="microscopeDisplayPanel" class="bg-gray-950 rounded-3xl p-6 sm:p-10 border border-gray-800 text-white shadow-2xl">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
+                <!-- Left Telemetry & Lab Specs -->
                 <div class="lg:col-span-7 space-y-5">
-                  <div class="flex flex-wrap items-center gap-2.5">
-                    <span class="text-xs font-extrabold px-3 py-1 rounded-full border ${activeFiber.color}">
-                      ${activeFiber.badge}
+                  <div class="flex items-center gap-2">
+                    <span class="text-[10px] font-mono bg-amber-400/20 text-amber-300 px-3 py-1 rounded-full border border-amber-400/40">
+                      ZOOM 100X • OPTICAL SCAN
                     </span>
-                    <span class="text-xs text-gray-400 font-medium">
-                      <i class="fa-solid fa-location-dot text-brand-gold"></i> Vùng nguyên liệu: ${activeFiber.region}
-                    </span>
+                    <span class="text-xs text-gray-400 font-mono">STATUS: VERIFIED</span>
                   </div>
 
-                  <h3 class="text-2xl sm:text-3xl font-extrabold text-brand-greenDark font-serif">
+                  <h3 class="text-2xl sm:text-3xl font-extrabold text-white font-serif">
                     ${activeFiber.name}
                   </h3>
 
-                  <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
+                  <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
                     ${activeFiber.description}
                   </p>
 
-                  <!-- 3 Metrics Data Gauges -->
-                  <div class="grid grid-cols-3 gap-3 pt-2">
+                  <!-- Technical Telemetry Data -->
+                  <div class="p-3 bg-black/60 rounded-xl border border-gray-800 font-mono text-[11px] text-emerald-400 space-y-1">
+                    <div>> TELEMETRY: ${activeFiber.hudCode}</div>
+                    <div>> VÙNG NGUYÊN LIỆU: ${activeFiber.region}</div>
+                    <div>> KIỂM ĐỊNH AATCC 100: ĐẠT TIÊU CHUẨN QUỐC TẾ</div>
+                  </div>
+
+                  <!-- 3 Metrics Gauges -->
+                  <div class="grid grid-cols-3 gap-3 pt-1">
                     ${activeFiber.stats.map(s => `
-                      <div class="bg-white p-3.5 rounded-2xl border border-gray-100 shadow-sm text-center">
-                        <div class="text-xl sm:text-2xl font-extrabold text-brand-green font-heading">${s.value}</div>
-                        <div class="text-xs font-bold text-gray-800 mt-0.5">${s.label}</div>
-                        <div class="text-[10px] text-gray-400">${s.sub}</div>
+                      <div class="bg-gray-900 p-3.5 rounded-2xl border border-gray-800 text-center">
+                        <div class="text-xl sm:text-2xl font-black text-amber-300 font-heading">${s.value}</div>
+                        <div class="text-xs font-bold text-gray-200 mt-0.5">${s.label}</div>
+                        <div class="text-[10px] text-gray-500">${s.sub}</div>
                       </div>
                     `).join('')}
                   </div>
 
-                  <!-- Sample Matching Product CTA -->
-                  <div class="pt-4 flex flex-wrap items-center justify-between gap-4 border-t border-gray-100">
-                    <div class="space-y-0.5">
-                      <span class="text-[10px] text-gray-400 uppercase font-semibold">Sản phẩm tiêu biểu ứng dụng:</span>
-                      <div class="text-xs sm:text-sm font-bold text-gray-900">${activeFiber.productSample}</div>
-                    </div>
-                    <button onclick="HDC.Components.QuickViewModal.open(${activeFiber.productId})" class="btn-shimmer bg-brand-gold hover:bg-yellow-600 text-white font-bold text-xs px-6 py-3 rounded-xl transition shadow flex items-center gap-2">
-                      <span>Xem Chi Tiết Áo</span>
-                      <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  <div class="pt-2 flex items-center justify-between border-t border-gray-800">
+                    <span class="text-xs text-gray-400">Ứng dụng trên: <strong>${activeFiber.productSample}</strong></span>
+                    <button onclick="HDC.Components.QuickViewModal.open(${activeFiber.productId})" class="btn-shimmer bg-brand-gold text-gray-950 font-bold text-xs px-5 py-2.5 rounded-xl uppercase transition shadow">
+                      Xem Chi Tiết Áo &rarr;
                     </button>
                   </div>
                 </div>
 
-                <!-- Fiber Visual Spotlight Image -->
-                <div class="lg:col-span-5">
-                  <div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-square border-4 border-white group">
-                    <img id="fiberSpotlightImg" src="${activeFiber.img}" alt="${activeFiber.name}" class="w-full h-full object-cover product-img-hover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-5 left-5 right-5 text-white flex justify-between items-end">
-                      <div>
-                        <span class="text-[10px] bg-white/30 backdrop-blur-md px-2.5 py-0.5 rounded font-bold uppercase">Ứng dụng thực tế</span>
-                        <div class="font-bold text-sm sm:text-base mt-1 line-clamp-1">${activeFiber.productSample}</div>
-                      </div>
-                      <span class="text-base font-extrabold text-amber-300 shrink-0">${activeFiber.productPrice}</span>
+                <!-- Right Microscope Magnifier Lens -->
+                <div class="lg:col-span-5 relative flex items-center justify-center">
+                  <div class="relative w-72 h-72 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-amber-300/60 shadow-2xl microscope-reticle group">
+                    <img id="macroFiberImg" src="${activeFiber.macroImg}" alt="${activeFiber.name}" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700">
+                    
+                    <!-- HUD Crosshair Reticle -->
+                    <div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+                      <div class="w-full h-px bg-amber-300/30"></div>
+                      <div class="h-full w-px bg-amber-300/30 absolute"></div>
+                      <div class="w-20 h-20 border border-amber-300/50 rounded-full absolute"></div>
+                    </div>
+
+                    <div class="absolute bottom-3 inset-x-0 text-center pointer-events-none">
+                      <span class="bg-black/80 text-amber-300 font-mono text-[10px] px-2.5 py-0.5 rounded-full border border-amber-300/30">
+                        CẤU TRÚC VI MÔ 100X
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -534,11 +602,73 @@ window.HDC.Views.HomeView = {
           </div>
         </section>
 
-        <!-- ==========================================
-             3. INTERACTIVE CAPSULE LOOKBOOK & OUTFITS
-             Curated Bundles for Executives & Golfers
-             ========================================== -->
-        <section class="py-16 bg-brand-cream/50 border-b border-gray-100 reveal-on-scroll">
+
+        <!-- ========================================================
+             4. WOW FACTOR 3: MÔ PHỎNG VẢI TỰ PHỤC HỒI PHẲNG (WRINKLE-RELEASE)
+             Interactive Wrinkle Simulator Demo
+             ======================================================== -->
+        <section class="py-16 bg-brand-cream/60 border-b border-gray-100 reveal-on-scroll">
+          <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-8 space-y-2">
+              <span class="text-[11px] font-bold text-brand-gold uppercase tracking-widest bg-amber-50 px-3.5 py-1 rounded-full border border-amber-200">
+                ✦ Tương Tác Vật Lý Thực Nghiệm
+              </span>
+              <h2 class="text-3xl font-extrabold text-brand-greenDark font-serif">
+                Thử Nghiệm Độ Tự Phục Hồi Phẳng
+              </h2>
+              <p class="text-xs sm:text-sm text-gray-500">
+                Bấm nút bóp nhăn vải để tận mắt chứng kiến công nghệ tự kéo phẳng nếp gấp của HDC Fashion
+              </p>
+            </div>
+
+            <!-- Wrinkle Physics Box -->
+            <div class="bg-white rounded-3xl p-6 sm:p-10 border border-gray-200 shadow-xl text-center space-y-6">
+              
+              <div class="relative max-w-xl mx-auto h-64 sm:h-72 rounded-2xl overflow-hidden border-4 border-gray-100 shadow-inner group">
+                <img id="wrinkleSimImg" src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=800&auto=format&fit=crop&q=80" alt="Vải tự phẳng" class="w-full h-full object-cover transition-all duration-700">
+                
+                <!-- Wrinkle overlay texture (shown when simulated) -->
+                <div id="wrinkleOverlay" class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-black/40 via-transparent to-black/20 opacity-0 pointer-events-none transition-opacity duration-500 backdrop-blur-[1px]"></div>
+
+                <!-- Status Badge -->
+                <div class="absolute top-4 left-4">
+                  <span id="wrinkleStatusBadge" class="bg-brand-green text-white font-bold text-xs px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
+                    <i class="fa-solid fa-circle-check"></i> Trạng thái: Hoàn toàn phẳng phiu (98%)
+                  </span>
+                </div>
+
+                <!-- Countdown Recovery Timer -->
+                <div id="wrinkleTimerBox" class="absolute bottom-4 right-4 bg-black/80 backdrop-blur text-amber-300 font-mono text-xs px-3 py-1 rounded-xl hidden">
+                  ĐANG PHỤC HỒI: <span id="wrinkleSeconds">15</span>s
+                </div>
+              </div>
+
+              <!-- Action Trigger -->
+              <div class="flex flex-wrap justify-center gap-4 pt-2">
+                <button onclick="HDC.Views.HomeView.simulateWrinkle()" id="btnSimulateWrinkle" class="btn-shimmer bg-brand-red hover:bg-brand-redHover text-white font-bold text-xs uppercase px-7 py-3.5 rounded-xl transition shadow flex items-center gap-2">
+                  <i class="fa-solid fa-hand-fist"></i>
+                  <span>Bóp Nhăn Vải Thử Nghiệm</span>
+                </button>
+                <button onclick="HDC.Views.HomeView.resetWrinkle()" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-xs uppercase px-6 py-3.5 rounded-xl transition flex items-center gap-2">
+                  <i class="fa-solid fa-rotate-left"></i>
+                  <span>Đặt Lại</span>
+                </button>
+              </div>
+
+              <p class="text-xs text-gray-400 italic">
+                *Cơ chế: Sợi sinh học tự nhiên liên tục hấp thu vi ẩm từ không khí để tái định hình liên kết phân tử về trạng thái phẳng ban đầu.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ========================================================
+             5. HAUTE COUTURE EXECUTIVE LOOKBOOK & CAPSULE OUTFITS
+             ======================================================== -->
+        <section class="py-16 bg-white border-b border-gray-100 reveal-on-scroll">
           <div class="max-w-7xl mx-auto px-4 sm:px-6">
             
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
@@ -562,7 +692,7 @@ window.HDC.Views.HomeView = {
                   return `
                     <button onclick="HDC.Views.HomeView.setLookbook('${k}')" class="px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm ${
                       isLbActive
-                        ? 'bg-brand-green text-white shadow-md'
+                        ? 'bg-brand-green text-white shadow-md scale-105'
                         : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
                     }">
                       ${lb.title}
@@ -573,7 +703,7 @@ window.HDC.Views.HomeView = {
             </div>
 
             <!-- Active Lookbook Detail Box -->
-            <div id="lookbookDisplayPanel" class="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-xl">
+            <div id="lookbookDisplayPanel" class="bg-brand-grayBg rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-xl">
               <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
                 <!-- Left Lookbook Cover Image -->
@@ -605,7 +735,7 @@ window.HDC.Views.HomeView = {
                   <!-- Individual Items in Bundle -->
                   <div class="space-y-3">
                     ${activeLookbook.items.map(item => `
-                      <div class="flex items-center justify-between p-3.5 rounded-xl bg-brand-grayBg border border-gray-100 hover:border-brand-green/30 transition">
+                      <div class="flex items-center justify-between p-3.5 rounded-xl bg-white border border-gray-200 hover:border-brand-green/40 transition shadow-sm">
                         <div class="flex items-center gap-3">
                           <i class="fa-solid fa-shirt text-brand-green text-sm"></i>
                           <span class="text-xs font-bold text-gray-800">${item.name}</span>
@@ -616,7 +746,7 @@ window.HDC.Views.HomeView = {
                   </div>
 
                   <!-- Combo Pricing Breakdown -->
-                  <div class="bg-amber-50/70 p-4 rounded-2xl border border-amber-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div class="bg-amber-50/80 p-4 rounded-2xl border border-amber-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
                       <div class="text-[11px] text-gray-500">Tổng giá bán lẻ: <span class="line-through">${activeLookbook.originalPrice.toLocaleString('vi-VN')}₫</span></div>
                       <div class="text-xl font-extrabold text-brand-red font-heading">${activeLookbook.comboPrice.toLocaleString('vi-VN')}₫</div>
@@ -636,10 +766,10 @@ window.HDC.Views.HomeView = {
           </div>
         </section>
 
-        <!-- ==========================================
-             4. SMART AI SIZE & FIT ADVISOR
-             Interactive Widget directly on Homepage
-             ========================================== -->
+
+        <!-- ========================================================
+             6. SMART AI SIZE & FIT ADVISOR
+             ======================================================== -->
         <section id="smart-size-advisor" class="py-16 bg-white border-b border-gray-100 reveal-on-scroll">
           <div class="max-w-5xl mx-auto px-4 sm:px-6">
             
@@ -662,7 +792,6 @@ window.HDC.Views.HomeView = {
                 <!-- Controls Column -->
                 <div class="md:col-span-7 space-y-6">
                   
-                  <!-- Gender Switch -->
                   <div>
                     <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Giới Tính:</label>
                     <div class="grid grid-cols-2 gap-3">
@@ -675,7 +804,6 @@ window.HDC.Views.HomeView = {
                     </div>
                   </div>
 
-                  <!-- Height Slider -->
                   <div>
                     <div class="flex justify-between items-center text-xs font-bold text-gray-700 mb-1.5">
                       <span>Chiều Cao:</span>
@@ -689,7 +817,6 @@ window.HDC.Views.HomeView = {
                     </div>
                   </div>
 
-                  <!-- Weight Slider -->
                   <div>
                     <div class="flex justify-between items-center text-xs font-bold text-gray-700 mb-1.5">
                       <span>Cân Nặng:</span>
@@ -703,7 +830,6 @@ window.HDC.Views.HomeView = {
                     </div>
                   </div>
 
-                  <!-- Fit Preference -->
                   <div>
                     <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Gu Mặc Ưa Thích:</label>
                     <div class="grid grid-cols-3 gap-2">
@@ -735,7 +861,6 @@ window.HDC.Views.HomeView = {
                     <div class="text-xs text-amber-300 font-bold">Độ chuẩn xác: 98% Form Chuẩn Việt</div>
                   </div>
 
-                  <!-- Estimated Body Measurements -->
                   <div class="grid grid-cols-3 gap-2 pt-3 border-t border-white/20 text-center">
                     <div class="bg-white/10 p-2 rounded-xl">
                       <div class="text-[10px] text-gray-300">Rộng Vai</div>
@@ -751,7 +876,7 @@ window.HDC.Views.HomeView = {
                     </div>
                   </div>
 
-                  <button onclick="HDC.Router.navigate('shop')" class="w-full btn-shimmer bg-brand-gold hover:bg-yellow-600 text-white font-bold text-xs py-3 rounded-xl transition shadow flex items-center justify-center gap-2">
+                  <button onclick="HDC.Router.navigate('shop')" class="w-full btn-shimmer bg-brand-gold hover:bg-yellow-600 text-gray-950 font-extrabold text-xs py-3 rounded-xl transition shadow flex items-center justify-center gap-2">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <span>Xem Sản Phẩm Size Này</span>
                   </button>
@@ -763,10 +888,10 @@ window.HDC.Views.HomeView = {
           </div>
         </section>
 
-        <!-- ==========================================
-             5. INTERACTIVE B2B CORPORATE UNIFORM CALCULATOR
-             Live Estimator for HR & Enterprise Buyers
-             ========================================== -->
+
+        <!-- ========================================================
+             7. INTERACTIVE B2B CORPORATE UNIFORM CALCULATOR
+             ======================================================== -->
         <section class="py-16 bg-brand-cream/40 border-b border-gray-100 reveal-on-scroll">
           <div class="max-w-7xl mx-auto px-4 sm:px-6">
             
@@ -789,7 +914,6 @@ window.HDC.Views.HomeView = {
                 <!-- Inputs & Sliders -->
                 <div class="lg:col-span-7 space-y-6">
                   
-                  <!-- Quantity Slider -->
                   <div>
                     <div class="flex justify-between items-center text-xs font-bold text-gray-700 mb-1.5">
                       <span>Quy Mô Số Lượng Đồng Phục:</span>
@@ -803,7 +927,6 @@ window.HDC.Views.HomeView = {
                     </div>
                   </div>
 
-                  <!-- Fabric Selection Tabs -->
                   <div>
                     <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Chọn Chất Liệu Cao Cấp:</label>
                     <div class="grid grid-cols-3 gap-2">
@@ -822,7 +945,6 @@ window.HDC.Views.HomeView = {
                     </div>
                   </div>
 
-                  <!-- B2B Enterprise Guarantees -->
                   <div class="grid grid-cols-2 gap-2 text-xs text-gray-600 pt-2 border-t border-gray-100">
                     <div class="flex items-center gap-2">
                       <i class="fa-solid fa-circle-check text-emerald-600"></i>
@@ -884,10 +1006,10 @@ window.HDC.Views.HomeView = {
           </div>
         </section>
 
-        <!-- ==========================================
-             6. SIGNATURE BEST SELLERS & INSTANT SIZE CARD
-             Grid with Direct Quick-Size on Card
-             ========================================== -->
+
+        <!-- ========================================================
+             8. SIGNATURE BEST SELLERS & INSTANT SIZE CARD
+             ======================================================== -->
         <section class="py-16 bg-white border-b border-gray-100 reveal-on-scroll">
           <div class="max-w-7xl mx-auto px-4 sm:px-6">
             
@@ -937,10 +1059,10 @@ window.HDC.Views.HomeView = {
           </div>
         </section>
 
-        <!-- ==========================================
-             7. LUXURY TICKET VOUCHER VAULT
-             Direct 1-Click Copy with Animated Feedback
-             ========================================== -->
+
+        <!-- ========================================================
+             9. LUXURY TICKET VOUCHER VAULT
+             ======================================================== -->
         <section class="py-12 bg-brand-cream/60 border-b border-gray-100 reveal-on-scroll">
           <div class="max-w-5xl mx-auto px-4 sm:px-6">
             
@@ -993,14 +1115,13 @@ window.HDC.Views.HomeView = {
           </div>
         </section>
 
-        <!-- ==========================================
-             8. SOCIAL PROOF & REAL VERIFIED TESTIMONIALS
-             CEOs, Golfers, Vinschool Parents
-             ========================================== -->
+
+        <!-- ========================================================
+             10. SOCIAL PROOF & REAL VERIFIED TESTIMONIALS
+             ======================================================== -->
         <section class="py-16 bg-white border-b border-gray-100 reveal-on-scroll">
           <div class="max-w-7xl mx-auto px-4 sm:px-6">
             
-            <!-- Real Counters Row -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center border-b border-gray-100 pb-12 mb-12">
               <div class="space-y-1">
                 <div class="text-3xl sm:text-4xl font-extrabold text-brand-green font-heading" data-counter="30">30+</div>
@@ -1023,7 +1144,7 @@ window.HDC.Views.HomeView = {
             <!-- Partner Logos -->
             <div class="text-center mb-10">
               <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Được Tin Tưởng Bởi Các Thương Hiệu Đầu Ngành</span>
-              <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 mt-4 opacity-70 grayscale hover:grayscale-0 transition-all">
+              <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 mt-4 opacity-75 grayscale hover:grayscale-0 transition-all">
                 <span class="font-extrabold text-sm sm:text-base text-gray-800 tracking-wider">HỘI DOANH NHÂN TRẺ VN</span>
                 <span class="font-extrabold text-sm sm:text-base text-gray-800 tracking-wider">VINSCHOOL</span>
                 <span class="font-extrabold text-sm sm:text-base text-gray-800 tracking-wider">FPT GROUP</span>
@@ -1035,7 +1156,6 @@ window.HDC.Views.HomeView = {
             <!-- Real Testimonial Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
               
-              <!-- Review 1: CEO -->
               <div class="bg-brand-grayBg p-6 rounded-2xl border border-gray-100 space-y-4">
                 <div class="flex items-center gap-1 text-amber-400 text-xs">
                   <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -1052,7 +1172,6 @@ window.HDC.Views.HomeView = {
                 </div>
               </div>
 
-              <!-- Review 2: Golfer -->
               <div class="bg-brand-grayBg p-6 rounded-2xl border border-gray-100 space-y-4">
                 <div class="flex items-center gap-1 text-amber-400 text-xs">
                   <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -1069,7 +1188,6 @@ window.HDC.Views.HomeView = {
                 </div>
               </div>
 
-              <!-- Review 3: Parent Vinschool -->
               <div class="bg-brand-grayBg p-6 rounded-2xl border border-gray-100 space-y-4">
                 <div class="flex items-center gap-1 text-amber-400 text-xs">
                   <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -1091,92 +1209,27 @@ window.HDC.Views.HomeView = {
           </div>
         </section>
 
-        <!-- ==========================================
-             9. HERITAGE SUSTAINABILITY JOURNEY
-             From Farm to Boardroom
-             ========================================== -->
-        <section class="py-16 bg-brand-cream/40 border-b border-gray-100 reveal-on-scroll">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            
-            <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
-              <span class="text-[11px] font-bold text-brand-gold uppercase tracking-widest bg-amber-50 px-3.5 py-1 rounded-full border border-amber-200">
-                ✦ Chu Trình Minh Bạch Sinh Thái
-              </span>
-              <h2 class="text-3xl font-extrabold text-brand-greenDark font-serif">
-                Hành Trình Từ Cánh Đồng Đến Phòng Họp
-              </h2>
-              <p class="text-xs sm:text-sm text-gray-500">
-                Mỗi chiếc áo là một tác phẩm kết tinh từ nguồn nguyên liệu bản địa và bàn tay thợ may Việt
-              </p>
-            </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              
-              <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-3">
-                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-brand-green flex items-center justify-center font-bold text-base">
-                  01
-                </div>
-                <h4 class="font-bold text-sm text-gray-900">Vùng Nguyên Liệu Xanh</h4>
-                <p class="text-xs text-gray-500 leading-relaxed">
-                  Thu hoạch thân sen Đồng Tháp, thân chuối Bến Tre và rừng tre tự nhiên bền vững, tạo thu nhập cho nông dân.
-                </p>
-              </div>
-
-              <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-3">
-                <div class="w-10 h-10 rounded-xl bg-amber-100 text-brand-gold flex items-center justify-center font-bold text-base">
-                  02
-                </div>
-                <h4 class="font-bold text-sm text-gray-900">Thủy Phân Sinh Học</h4>
-                <p class="text-xs text-gray-500 leading-relaxed">
-                  Công nghệ enzyme không hóa chất độc hại, bảo toàn trọn vẹn đặc tính kháng khuẩn và tự phục hồi phẳng của sợi.
-                </p>
-              </div>
-
-              <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-3">
-                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-base">
-                  03
-                </div>
-                <h4 class="font-bold text-sm text-gray-900">Dệt May Liền Seamless</h4>
-                <p class="text-xs text-gray-500 leading-relaxed">
-                  Dây chuyền tự động hóa loại bỏ đường may cọ xát, đưa hoa văn Trống Đồng Đông Sơn tinh xảo lên nẹp và cổ áo.
-                </p>
-              </div>
-
-              <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-3">
-                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-base">
-                  04
-                </div>
-                <h4 class="font-bold text-sm text-gray-900">Đồng Hành Thành Công</h4>
-                <p class="text-xs text-gray-500 leading-relaxed">
-                  Trao đến tay 50.000+ doanh nhân và học sinh Việt Nam diện mạo chỉn chu, đĩnh đạc và tự hào bản sắc.
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-        </section>
-
-        <!-- ==========================================
-             10. BOTTOM FLOATING LUXURY ACTION DOCK
-             ========================================== -->
-        <div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 bg-gray-900/90 backdrop-blur-md text-white px-4 py-2.5 rounded-full luxury-floating-dock flex items-center gap-3 sm:gap-5 border border-white/20">
+        <!-- ========================================================
+             11. BOTTOM FLOATING LUXURY ACTION DOCK
+             ======================================================== -->
+        <div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 bg-gray-950/90 backdrop-blur-md text-white px-4 py-2.5 rounded-full luxury-floating-dock flex items-center gap-3 sm:gap-5 border border-amber-300/30">
           <button onclick="HDC.Router.navigate('shop')" class="text-xs font-bold hover:text-amber-300 flex items-center gap-1.5 transition">
-            <i class="fa-solid fa-store text-emerald-400"></i>
+            <i class="fa-solid fa-store text-amber-300"></i>
             <span class="hidden sm:inline">Cửa Hàng</span>
           </button>
           
           <span class="w-px h-4 bg-gray-700"></span>
 
           <button onclick="HDC.Views.HomeView.scrollToSection('smart-size-advisor')" class="text-xs font-bold hover:text-amber-300 flex items-center gap-1.5 transition">
-            <i class="fa-solid fa-ruler-combined text-brand-gold"></i>
+            <i class="fa-solid fa-ruler-combined text-emerald-400"></i>
             <span>Đo Size AI</span>
           </button>
 
           <span class="w-px h-4 bg-gray-700"></span>
 
           <button onclick="HDC.Components.CartDrawer.open()" class="text-xs font-bold hover:text-amber-300 flex items-center gap-1.5 transition relative">
-            <i class="fa-solid fa-bag-shopping text-emerald-400"></i>
+            <i class="fa-solid fa-bag-shopping text-amber-300"></i>
             <span class="hidden sm:inline">Giỏ Hàng</span>
           </button>
 
@@ -1267,6 +1320,88 @@ window.HDC.Views.HomeView = {
   },
 
   /**
+   * FLIR Thermal Vision Toggle
+   */
+  setThermalMode(active) {
+    this.thermalMode = active;
+    const btnNormal = document.getElementById('btnThermalNormal');
+    const btnActive = document.getElementById('btnThermalActive');
+    const imgOld = document.getElementById('imgThermalOld');
+    const imgHDC = document.getElementById('imgThermalHDC');
+    const overlayOld = document.getElementById('overlayHeatOld');
+    const overlayCool = document.getElementById('overlayCoolHDC');
+
+    if (active) {
+      if (btnActive) btnActive.className = 'px-5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-gradient-to-r from-red-600 via-amber-500 to-cyan-500 text-white shadow-xl scale-105 ring-2 ring-amber-300';
+      if (btnNormal) btnNormal.className = 'px-5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200';
+      
+      if (imgOld) imgOld.className = 'w-full h-full object-cover thermal-lens-active transition-all duration-500';
+      if (imgHDC) imgHDC.className = 'w-full h-full object-cover thermal-lens-active transition-all duration-500';
+      if (overlayOld) overlayOld.classList.remove('opacity-0');
+      if (overlayCool) overlayCool.classList.remove('opacity-0');
+
+      HDC.Utils.showToast("Đã kích hoạt Camera Nhiệt FLIR: Thấy rõ mức chênh lệch 2.8°C!");
+    } else {
+      if (btnNormal) btnNormal.className = 'px-5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-brand-green text-white shadow';
+      if (btnActive) btnActive.className = 'px-5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200';
+
+      if (imgOld) imgOld.className = 'w-full h-full object-cover thermal-lens-normal transition-all duration-500';
+      if (imgHDC) imgHDC.className = 'w-full h-full object-cover thermal-lens-normal transition-all duration-500';
+      if (overlayOld) overlayOld.classList.add('opacity-0');
+      if (overlayCool) overlayCool.classList.add('opacity-0');
+    }
+  },
+
+  /**
+   * Wrinkle Physics Simulation Demo
+   */
+  simulateWrinkle() {
+    this.wrinkleState = 'wrinkled';
+    const img = document.getElementById('wrinkleSimImg');
+    const overlay = document.getElementById('wrinkleOverlay');
+    const badge = document.getElementById('wrinkleStatusBadge');
+    const timerBox = document.getElementById('wrinkleTimerBox');
+    const secEl = document.getElementById('wrinkleSeconds');
+
+    if (img) img.style.filter = 'contrast(160%) brightness(85%)';
+    if (overlay) overlay.classList.remove('opacity-0');
+    if (badge) {
+      badge.className = 'bg-brand-red text-white font-bold text-xs px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 animate-pulse';
+      badge.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Đang bóp nhăn vải... Đang kích hoạt tự phục hồi sinh học';
+    }
+    if (timerBox) timerBox.classList.remove('hidden');
+
+    // Countdown 3, 2, 1 -> Self-flatten
+    let sec = 3;
+    if (secEl) secEl.innerText = sec;
+    const interval = setInterval(() => {
+      sec--;
+      if (secEl) secEl.innerText = sec;
+      if (sec <= 0) {
+        clearInterval(interval);
+        this.resetWrinkle();
+        HDC.Utils.showToast("Cấu trúc sợi sinh học đã tự căng phẳng hoàn toàn 98%!");
+      }
+    }, 900);
+  },
+
+  resetWrinkle() {
+    this.wrinkleState = 'flat';
+    const img = document.getElementById('wrinkleSimImg');
+    const overlay = document.getElementById('wrinkleOverlay');
+    const badge = document.getElementById('wrinkleStatusBadge');
+    const timerBox = document.getElementById('wrinkleTimerBox');
+
+    if (img) img.style.filter = 'none';
+    if (overlay) overlay.classList.add('opacity-0');
+    if (timerBox) timerBox.classList.add('hidden');
+    if (badge) {
+      badge.className = 'bg-brand-green text-white font-bold text-xs px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5';
+      badge.innerHTML = '<i class="fa-solid fa-circle-check"></i> Trạng thái: Hoàn toàn phẳng phiu (98%)';
+    }
+  },
+
+  /**
    * 1-Click Direct Add to Cart with Selected Size
    */
   quickAddToCart(productId, size) {
@@ -1297,61 +1432,63 @@ window.HDC.Views.HomeView = {
   selectFiber(fiberKey) {
     this.activeFiber = fiberKey;
     const fiber = this.fiberData[fiberKey];
-    const panel = document.getElementById('fiberSpotlightPanel');
+    const panel = document.getElementById('microscopeDisplayPanel');
     if (!panel || !fiber) return;
 
     panel.innerHTML = `
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center animate-fadeIn">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center animate-fadeIn">
         <div class="lg:col-span-7 space-y-5">
-          <div class="flex flex-wrap items-center gap-2.5">
-            <span class="text-xs font-extrabold px-3 py-1 rounded-full border ${fiber.color}">
-              ${fiber.badge}
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-mono bg-amber-400/20 text-amber-300 px-3 py-1 rounded-full border border-amber-400/40">
+              ZOOM 100X • OPTICAL SCAN
             </span>
-            <span class="text-xs text-gray-400 font-medium">
-              <i class="fa-solid fa-location-dot text-brand-gold"></i> Vùng nguyên liệu: ${fiber.region}
-            </span>
+            <span class="text-xs text-gray-400 font-mono">STATUS: VERIFIED</span>
           </div>
 
-          <h3 class="text-2xl sm:text-3xl font-extrabold text-brand-greenDark font-serif">
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-white font-serif">
             ${fiber.name}
           </h3>
 
-          <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
+          <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
             ${fiber.description}
           </p>
 
-          <div class="grid grid-cols-3 gap-3 pt-2">
+          <div class="p-3 bg-black/60 rounded-xl border border-gray-800 font-mono text-[11px] text-emerald-400 space-y-1">
+            <div>> TELEMETRY: ${fiber.hudCode}</div>
+            <div>> VÙNG NGUYÊN LIỆU: ${fiber.region}</div>
+            <div>> KIỂM ĐỊNH AATCC 100: ĐẠT TIÊU CHUẨN QUỐC TẾ</div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 pt-1">
             ${fiber.stats.map(s => `
-              <div class="bg-white p-3.5 rounded-2xl border border-gray-100 shadow-sm text-center">
-                <div class="text-xl sm:text-2xl font-extrabold text-brand-green font-heading">${s.value}</div>
-                <div class="text-xs font-bold text-gray-800 mt-0.5">${s.label}</div>
-                <div class="text-[10px] text-gray-400">${s.sub}</div>
+              <div class="bg-gray-900 p-3.5 rounded-2xl border border-gray-800 text-center">
+                <div class="text-xl sm:text-2xl font-black text-amber-300 font-heading">${s.value}</div>
+                <div class="text-xs font-bold text-gray-200 mt-0.5">${s.label}</div>
+                <div class="text-[10px] text-gray-500">${s.sub}</div>
               </div>
             `).join('')}
           </div>
 
-          <div class="pt-4 flex flex-wrap items-center justify-between gap-4 border-t border-gray-100">
-            <div class="space-y-0.5">
-              <span class="text-[10px] text-gray-400 uppercase font-semibold">Sản phẩm tiêu biểu ứng dụng:</span>
-              <div class="text-xs sm:text-sm font-bold text-gray-900">${fiber.productSample}</div>
-            </div>
-            <button onclick="HDC.Components.QuickViewModal.open(${fiber.productId})" class="btn-shimmer bg-brand-gold hover:bg-yellow-600 text-white font-bold text-xs px-6 py-3 rounded-xl transition shadow flex items-center gap-2">
-              <span>Xem Chi Tiết Áo</span>
-              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          <div class="pt-2 flex items-center justify-between border-t border-gray-800">
+            <span class="text-xs text-gray-400">Ứng dụng trên: <strong>${fiber.productSample}</strong></span>
+            <button onclick="HDC.Components.QuickViewModal.open(${fiber.productId})" class="btn-shimmer bg-brand-gold text-gray-950 font-bold text-xs px-5 py-2.5 rounded-xl uppercase transition shadow">
+              Xem Chi Tiết Áo &rarr;
             </button>
           </div>
         </div>
 
-        <div class="lg:col-span-5">
-          <div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-square border-4 border-white group">
-            <img id="fiberSpotlightImg" src="${fiber.img}" alt="${fiber.name}" class="w-full h-full object-cover product-img-hover">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
-            <div class="absolute bottom-5 left-5 right-5 text-white flex justify-between items-end">
-              <div>
-                <span class="text-[10px] bg-white/30 backdrop-blur-md px-2.5 py-0.5 rounded font-bold uppercase">Ứng dụng thực tế</span>
-                <div class="font-bold text-sm sm:text-base mt-1 line-clamp-1">${fiber.productSample}</div>
-              </div>
-              <span class="text-base font-extrabold text-amber-300 shrink-0">${fiber.productPrice}</span>
+        <div class="lg:col-span-5 relative flex items-center justify-center">
+          <div class="relative w-72 h-72 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-amber-300/60 shadow-2xl microscope-reticle group">
+            <img id="macroFiberImg" src="${fiber.macroImg}" alt="${fiber.name}" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700">
+            <div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+              <div class="w-full h-px bg-amber-300/30"></div>
+              <div class="h-full w-px bg-amber-300/30 absolute"></div>
+              <div class="w-20 h-20 border border-amber-300/50 rounded-full absolute"></div>
+            </div>
+            <div class="absolute bottom-3 inset-x-0 text-center pointer-events-none">
+              <span class="bg-black/80 text-amber-300 font-mono text-[10px] px-2.5 py-0.5 rounded-full border border-amber-300/30">
+                CẤU TRÚC VI MÔ 100X
+              </span>
             </div>
           </div>
         </div>
@@ -1359,12 +1496,12 @@ window.HDC.Views.HomeView = {
     `;
 
     // Update active tab buttons
-    const tabs = document.querySelectorAll('#fiberTabsContainer button');
+    const tabs = document.querySelectorAll('#fiberMicroTabs button');
     tabs.forEach(btn => {
       if (btn.innerText.includes(fiber.name)) {
-        btn.className = 'px-4 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 flex items-center gap-2 bg-brand-green text-white shadow-lg scale-105 border border-brand-green';
+        btn.className = 'px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-brand-green text-white shadow-md scale-105';
       } else {
-        btn.className = 'px-4 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 flex items-center gap-2 bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 shadow-sm';
+        btn.className = 'px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-brand-grayBg text-gray-700 hover:bg-gray-200 border border-gray-200';
       }
     });
   },
@@ -1406,7 +1543,7 @@ window.HDC.Views.HomeView = {
 
           <div class="space-y-3">
             ${lb.items.map(item => `
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-brand-grayBg border border-gray-100 hover:border-brand-green/30 transition">
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white border border-gray-200 hover:border-brand-green/40 transition shadow-sm">
                 <div class="flex items-center gap-3">
                   <i class="fa-solid fa-shirt text-brand-green text-sm"></i>
                   <span class="text-xs font-bold text-gray-800">${item.name}</span>
@@ -1416,7 +1553,7 @@ window.HDC.Views.HomeView = {
             `).join('')}
           </div>
 
-          <div class="bg-amber-50/70 p-4 rounded-2xl border border-amber-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="bg-amber-50/80 p-4 rounded-2xl border border-amber-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <div class="text-[11px] text-gray-500">Tổng giá bán lẻ: <span class="line-through">${lb.originalPrice.toLocaleString('vi-VN')}₫</span></div>
               <div class="text-xl font-extrabold text-brand-red font-heading">${lb.comboPrice.toLocaleString('vi-VN')}₫</div>
@@ -1467,13 +1604,10 @@ window.HDC.Views.HomeView = {
     document.getElementById('heightDisplay').innerText = h + ' cm';
     document.getElementById('weightDisplay').innerText = w + ' kg';
 
-    // Calculate Recommended Size
     let size = '39 (M)';
     let shoulder = 44;
     let chest = 96;
     let len = 71;
-
-    const bmi = w / ((h / 100) * (h / 100));
 
     if (h < 165 || w < 58) {
       size = '38 (S)';

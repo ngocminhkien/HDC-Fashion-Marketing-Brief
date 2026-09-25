@@ -36,12 +36,13 @@ window.HDC.Components.Footer = {
 
             <!-- Col 2 -->
             <div class="space-y-2.5">
-              <h4 class="font-bold text-sm text-white uppercase tracking-wider mb-2">Chính sách & Hỗ trợ</h4>
+              <h4 class="font-bold text-sm text-white uppercase tracking-wider mb-2">Chính sách & Pháp lý</h4>
               <ul class="space-y-1.5 text-gray-400">
-                <li><button onclick="HDC.Router.navigate('tracking')" class="hover:text-white transition">Chính sách đổi trả 7 ngày</button></li>
-                <li><button onclick="HDC.Router.navigate('tracking')" class="hover:text-white transition">Chính sách vận chuyển & kiểm tra</button></li>
-                <li><button onclick="HDC.Router.navigate('b2b')" class="hover:text-white transition">Chính sách chiết khấu B2B</button></li>
-                <li><button onclick="HDC.Router.navigate('faq')" class="hover:text-white transition">Trung tâm hỏi đáp (FAQ)</button></li>
+                <li><button onclick="HDC.Router.navigate('about')" class="hover:text-white transition flex items-center gap-1.5"><i class="fa-solid fa-feather text-brand-gold text-[10px]"></i> Câu chuyện thương hiệu</button></li>
+                <li><button onclick="HDC.Components.LegalModal.open('returns')" class="hover:text-white transition flex items-center gap-1.5"><i class="fa-solid fa-rotate-left text-emerald-400 text-[10px]"></i> Đổi size 7 ngày & Bảo hành 12T</button></li>
+                <li><button onclick="HDC.Components.LegalModal.open('privacy')" class="hover:text-white transition flex items-center gap-1.5"><i class="fa-solid fa-user-shield text-blue-400 text-[10px]"></i> Chính sách bảo mật thông tin</button></li>
+                <li><button onclick="HDC.Components.LegalModal.open('terms')" class="hover:text-white transition flex items-center gap-1.5"><i class="fa-solid fa-file-contract text-amber-400 text-[10px]"></i> Điều khoản & Quy chế TMĐT</button></li>
+                <li><button onclick="HDC.Router.navigate('faq')" class="hover:text-white transition flex items-center gap-1.5"><i class="fa-solid fa-circle-question text-gray-400 text-[10px]"></i> Trung tâm hỏi đáp (FAQ)</button></li>
               </ul>
             </div>
 

@@ -23,19 +23,20 @@ Dự án được tổ chức theo chuẩn **Clean Code & Component-Based Modula
 HDC-Fashion-Marketing-Brief/
 │
 ├── 📄 README.md                             # Tài liệu tổng quan dự án
+├── 📄 HDC_Fashion_Pitch_5-10_Phut.md        # Bản Pitch 5-10 phút cho người mua bận rộn (Elevator Pitch)
 ├── 📄 index.html                            # Điểm neo chính của Website (Semantic Mount Points)
 ├── 📄 server.ps1                            # Web server tĩnh siêu nhẹ bằng PowerShell (Port 8080)
 ├── 🖼️ j-p.vn.png                           # Ảnh chụp giao diện tham chiếu j-p.vn
 │
 ├── 📂 docs/                                 # Hệ thống tài liệu chiến lược & đặc tả
 │   ├── HDC_Fashion_Creative_Marketing_Brief.md       # Creative/Marketing Brief chi tiết v1.0
-│   ├── HDC_Fashion_Creative_Marketing_Brief_v2.md    # Creative/Marketing Brief chi tiết v2.0
+│   ├── HDC_Fashion_Creative_Marketing_Brief_v2.md    # Creative/Marketing Brief chi tiết v2.1
 │   ├── HDC_Fashion_FAQ_va_Chuc_Nang.md              # 72 câu hỏi FAQ & 46 chức năng hệ thống
 │   └── HDC_Fashion_Website_Specification.md          # Đặc tả kiến trúc website e-commerce
 │
 └── 📂 src/                                  # Mã nguồn Frontend ứng dụng Web
     ├── 📂 styles/
-    │   └── main.css                         # Custom animations, design tokens, ticket vouchers
+    │   └── main.css                         # Custom animations, FLIR thermal filters, design tokens
     ├── 📂 utils/
     │   ├── helpers.js                       # Tiện ích format tiền tệ, clipboard, toast
     │   ├── store.js                         # Reactive State Store (Giỏ hàng, Yêu thích, Voucher)
@@ -50,11 +51,13 @@ HDC-Fashion-Marketing-Brief/
     │   ├── Footer.js                        # Bố cục 4 cột, Bộ Công Thương, Cổng thanh toán
     │   ├── ProductCard.js                   # Thẻ sản phẩm tái sử dụng
     │   ├── CartDrawer.js                    # Giỏ hàng trượt slide-in bên phải
-    │   ├── QuickViewModal.js                # Modal xem nhanh, chọn size & màu sắc
+    │   ├── QuickViewModal.js                # Modal xem chi tiết, 3 tab thông số sợi, bảng size, cam kết
     │   ├── B2BModal.js                      # Modal form báo giá đồng phục doanh nghiệp
-    │   └── Chatbot.js                       # Trợ lý ảo AI tư vấn tự động
+    │   ├── LegalModal.js                    # Modal chính sách bảo mật, điều khoản TMĐT, đổi trả 7 ngày
+    │   └── Chatbot.js                       # Trợ lý ảo tư vấn & FAQ tự động
     └── 📂 views/
-        ├── HomeView.js                      # Phân hệ Trang chủ E-commerce (phong cách j-p.vn)
+        ├── HomeView.js                      # Trang chủ Haute Couture (FLIR Thermal, Kính hiển vi 100x, Vải tự phẳng)
+        ├── AboutView.js                     # Phân hệ Câu chuyện thương hiệu: Từ phù sa Đồng Tháp đến phòng họp
         ├── ShopView.js                      # Phân hệ Cửa hàng & Bộ lọc đa năng (Facet Filters)
         ├── B2BView.js                       # Phân hệ B2B: Máy tính chiết khấu & Portfolio ngành
         ├── KidsView.js                      # Phân hệ IHDC Kids: Cổng đồng phục Vinschool
