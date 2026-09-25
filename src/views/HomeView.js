@@ -2,9 +2,7 @@
  * HDC Fashion — Haute Couture & Sensory Fashion Experience (HomeView)
  * Bespoke Art Direction & Radical Interactive Features:
  * - Editorial Luxury Hero with Obsidian/Emerald Couture Aesthetic & Sacred Đông Sơn Motif
- * - FLIR Infrared Thermal Camera Vision Simulator (Compare 35.2°C vs 38.8°C Live)
  * - Interactive Digital Fiber Microscope HUD (100x Microscopic Zoom & Cellular Scan)
- * - Live Wrinkle-Release Physics Simulator ("Không Cần Là Ủi" Demonstration)
  * - Executive Capsule Fitting Studio (Interactive 1-Click Outfits)
  * - Smart AI Size & Fit Advisor (Real-time Height/Weight/Fit Calculator)
  * - Interactive B2B Corporate Uniform Cost Estimator
@@ -20,8 +18,6 @@ window.HDC.Views.HomeView = {
   activeFiber: 'sen',
   activeCategory: 'all',
   activeLookbook: 'executive',
-  thermalMode: false,
-  wrinkleState: 'flat', // 'wrinkled' or 'flat'
 
   // Interactive Size Advisor State
   sizeAdvisor: {
@@ -313,9 +309,6 @@ window.HDC.Views.HomeView = {
                     <i class="fa-solid fa-briefcase text-xs text-brand-gold"></i>
                     <span>Đồng Phục Doanh Nghiệp (B2B)</span>
                   </button>
-                  <button onclick="HDC.Views.HomeView.scrollToSection('thermal-lab-section')" class="text-xs font-bold text-brand-green hover:text-emerald-800 flex items-center gap-1.5 underline underline-offset-4 py-2">
-                    <i class="fa-solid fa-camera-rotate text-brand-gold"></i> Soi Camera Nhiệt Live &darr;
-                  </button>
                 </div>
 
                 <!-- Verified Stats Bar -->
@@ -388,108 +381,6 @@ window.HDC.Views.HomeView = {
         </section>
 
 
-        <!-- ========================================================
-             2. WOW FACTOR 1: CAMERA NHIỆT HỒNG NGOẠI FLIR (THERMAL VISION)
-             Live Temperature Difference: 35.2°C vs 38.8°C
-             ======================================================== -->
-        <section id="thermal-lab-section" class="py-16 lg:py-24 bg-gradient-to-b from-[#f0e9dc] via-[#f8f6f0] to-white text-gray-900 border-b border-gray-200 reveal-on-scroll relative overflow-hidden">
-          
-          <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-            
-            <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
-              <span class="text-[11px] font-bold text-brand-gold uppercase tracking-widest bg-amber-50 px-3.5 py-1 rounded-full border border-amber-200">
-                ✦ Trực Quan Hóa Bằng Công Nghệ Nhiệt FLIR
-              </span>
-              <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-greenDark font-serif">
-                Tại Sao Áo Sơ Mi HDC Mát Hơn 2.8°C?
-              </h2>
-              <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                Chiêm ngưỡng bằng chứng khoa học thực nghiệm: Áo thường giữ nhiệt ngột ngạt VS Áo sợi sen HDC tự giải phóng thân nhiệt.
-              </p>
-
-              <!-- Interactive Camera Switcher Controls -->
-              <div class="inline-flex p-1.5 bg-white rounded-2xl border border-gray-300 shadow-md gap-2 mt-2">
-                <button onclick="HDC.Views.HomeView.setThermalMode(false)" id="btnThermalNormal" class="px-5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-brand-green text-white shadow">
-                  <i class="fa-solid fa-eye"></i> Chế Độ Mắt Thường
-                </button>
-                <button onclick="HDC.Views.HomeView.setThermalMode(true)" id="btnThermalActive" class="px-5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200">
-                  <i class="fa-solid fa-camera-rotate text-red-500"></i> Bật Camera Nhiệt FLIR
-                </button>
-              </div>
-            </div>
-
-            <!-- Thermal Comparison Arena -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
-              
-              <!-- Left: Conventional Cotton/Poly -->
-              <div class="bg-white rounded-3xl p-6 border-2 border-red-200 space-y-4 relative overflow-hidden shadow-lg">
-                <div class="flex items-center justify-between border-b border-gray-100 pb-3">
-                  <div class="text-xs font-bold text-red-600 uppercase tracking-wider flex items-center gap-2">
-                    <i class="fa-solid fa-circle-xmark text-base"></i> Sơ Mi Cotton/Poly Thường
-                  </div>
-                  <span id="tempBadgeOld" class="text-xs font-black px-2.5 py-0.5 rounded-full bg-red-100 text-red-600 border border-red-300">
-                    🔥 38.8°C (Rất Nóng)
-                  </span>
-                </div>
-
-                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-black">
-                  <img id="imgThermalOld" src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&auto=format&fit=crop&q=80" alt="Cotton thường" class="w-full h-full object-cover thermal-lens-normal">
-                  <!-- Red Heat Pulse Overlay (Hidden by default, shown in thermal mode) -->
-                  <div id="overlayHeatOld" class="absolute inset-0 thermal-hotspot opacity-0 pointer-events-none transition-opacity duration-500"></div>
-                  
-                  <div class="absolute bottom-3 left-3 bg-black/70 backdrop-blur px-3 py-1 rounded-lg text-[10px] text-gray-300 font-mono">
-                    CHỈ SỐ: BÍ BÁCH & TÍCH TỤ MỒ HÔI
-                  </div>
-                </div>
-
-                <ul class="space-y-2 text-xs text-gray-600 pt-1">
-                  <li class="flex items-start gap-2">
-                    <span class="text-red-500 font-bold">✕</span>
-                    <span>Thớ vải dệt chặt giữ nhiệt ẩm, gây ngột ngạt sau 2 giờ ngồi họp.</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <span class="text-red-500 font-bold">✕</span>
-                    <span>Dễ ố vàng nách và tích tụ vi khuẩn tạo mùi cơ thể.</span>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Right: HDC Lotus Bio-Shirt -->
-              <div class="bg-gradient-to-b from-white via-emerald-50/40 to-white rounded-3xl p-6 border-2 border-emerald-500 space-y-4 relative overflow-hidden shadow-xl">
-                <div class="flex items-center justify-between border-b border-gray-100 pb-3">
-                  <div class="text-xs font-bold text-brand-green uppercase tracking-wider flex items-center gap-2 font-heading">
-                    <i class="fa-solid fa-circle-check text-base"></i> Sơ Mi Sợi Sen Sinh Học HDC
-                  </div>
-                  <span id="tempBadgeHDC" class="text-xs font-black px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
-                    ❄️ 35.2°C (Hạ Nhiệt -2.8°C)
-                  </span>
-                </div>
-
-                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-black">
-                  <img id="imgThermalHDC" src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80" alt="Sơ mi sen HDC" class="w-full h-full object-cover thermal-lens-normal">
-                  <!-- Emerald Cool Pulse Overlay (Hidden by default, shown in thermal mode) -->
-                  <div id="overlayCoolHDC" class="absolute inset-0 thermal-coolspot opacity-0 pointer-events-none transition-opacity duration-500"></div>
-
-                  <div class="absolute bottom-3 left-3 bg-black/70 backdrop-blur px-3 py-1 rounded-lg text-[10px] text-emerald-300 font-mono">
-                    CHỈ SỐ: VI XỐP RỖNG LƯU THÔNG KHÍ MÁT
-                  </div>
-                </div>
-
-                <ul class="space-y-2 text-xs text-gray-700 pt-1">
-                  <li class="flex items-start gap-2">
-                    <span class="text-emerald-600 font-bold">✓</span>
-                    <span>Hạ nhiệt độ tiếp xúc bề mặt da 2.8°C, mát lạnh suốt ngày dài làm việc.</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <span class="text-emerald-600 font-bold">✓</span>
-                    <span>Kháng khuẩn sinh học 99.8% — không mùi hôi áo dù bay đường dài 12 tiếng.</span>
-                  </li>
-                </ul>
-              </div>
-
-            </div>
-
-        </section>
 
 
         <!-- ========================================================
@@ -603,66 +494,6 @@ window.HDC.Views.HomeView = {
         </section>
 
 
-        <!-- ========================================================
-             4. WOW FACTOR 3: MÔ PHỎNG VẢI TỰ PHỤC HỒI PHẲNG (WRINKLE-RELEASE)
-             Interactive Wrinkle Simulator Demo
-             ======================================================== -->
-        <section class="py-16 bg-brand-cream/60 border-b border-gray-100 reveal-on-scroll">
-          <div class="max-w-5xl mx-auto px-4 sm:px-6">
-            
-            <div class="text-center max-w-2xl mx-auto mb-8 space-y-2">
-              <span class="text-[11px] font-bold text-brand-gold uppercase tracking-widest bg-amber-50 px-3.5 py-1 rounded-full border border-amber-200">
-                ✦ Tương Tác Vật Lý Thực Nghiệm
-              </span>
-              <h2 class="text-3xl font-extrabold text-brand-greenDark font-serif">
-                Thử Nghiệm Độ Tự Phục Hồi Phẳng
-              </h2>
-              <p class="text-xs sm:text-sm text-gray-500">
-                Bấm nút bóp nhăn vải để tận mắt chứng kiến công nghệ tự kéo phẳng nếp gấp của HDC Fashion
-              </p>
-            </div>
-
-            <!-- Wrinkle Physics Box -->
-            <div class="bg-white rounded-3xl p-6 sm:p-10 border border-gray-200 shadow-xl text-center space-y-6">
-              
-              <div class="relative max-w-xl mx-auto h-64 sm:h-72 rounded-2xl overflow-hidden border-4 border-gray-100 shadow-inner group">
-                <img id="wrinkleSimImg" src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=800&auto=format&fit=crop&q=80" alt="Vải tự phẳng" class="w-full h-full object-cover transition-all duration-700">
-                
-                <!-- Wrinkle overlay texture (shown when simulated) -->
-                <div id="wrinkleOverlay" class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-black/40 via-transparent to-black/20 opacity-0 pointer-events-none transition-opacity duration-500 backdrop-blur-[1px]"></div>
-
-                <!-- Status Badge -->
-                <div class="absolute top-4 left-4">
-                  <span id="wrinkleStatusBadge" class="bg-brand-green text-white font-bold text-xs px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
-                    <i class="fa-solid fa-circle-check"></i> Trạng thái: Hoàn toàn phẳng phiu (98%)
-                  </span>
-                </div>
-
-                <!-- Countdown Recovery Timer -->
-                <div id="wrinkleTimerBox" class="absolute bottom-4 right-4 bg-black/80 backdrop-blur text-amber-300 font-mono text-xs px-3 py-1 rounded-xl hidden">
-                  ĐANG PHỤC HỒI: <span id="wrinkleSeconds">15</span>s
-                </div>
-              </div>
-
-              <!-- Action Trigger -->
-              <div class="flex flex-wrap justify-center gap-4 pt-2">
-                <button onclick="HDC.Views.HomeView.simulateWrinkle()" id="btnSimulateWrinkle" class="btn-shimmer bg-brand-red hover:bg-brand-redHover text-white font-bold text-xs uppercase px-7 py-3.5 rounded-xl transition shadow flex items-center gap-2">
-                  <i class="fa-solid fa-hand-fist"></i>
-                  <span>Bóp Nhăn Vải Thử Nghiệm</span>
-                </button>
-                <button onclick="HDC.Views.HomeView.resetWrinkle()" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-xs uppercase px-6 py-3.5 rounded-xl transition flex items-center gap-2">
-                  <i class="fa-solid fa-rotate-left"></i>
-                  <span>Đặt Lại</span>
-                </button>
-              </div>
-
-              <p class="text-xs text-gray-400 italic">
-                *Cơ chế: Sợi sinh học tự nhiên liên tục hấp thu vi ẩm từ không khí để tái định hình liên kết phân tử về trạng thái phẳng ban đầu.
-              </p>
-            </div>
-
-          </div>
-        </section>
 
 
         <!-- ========================================================
@@ -1319,87 +1150,6 @@ window.HDC.Views.HomeView = {
     }).join('');
   },
 
-  /**
-   * FLIR Thermal Vision Toggle
-   */
-  setThermalMode(active) {
-    this.thermalMode = active;
-    const btnNormal = document.getElementById('btnThermalNormal');
-    const btnActive = document.getElementById('btnThermalActive');
-    const imgOld = document.getElementById('imgThermalOld');
-    const imgHDC = document.getElementById('imgThermalHDC');
-    const overlayOld = document.getElementById('overlayHeatOld');
-    const overlayCool = document.getElementById('overlayCoolHDC');
-
-    if (active) {
-      if (btnActive) btnActive.className = 'px-5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-gradient-to-r from-red-600 via-amber-500 to-cyan-500 text-white shadow-xl scale-105 ring-2 ring-amber-300';
-      if (btnNormal) btnNormal.className = 'px-5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200';
-      
-      if (imgOld) imgOld.className = 'w-full h-full object-cover thermal-lens-active transition-all duration-500';
-      if (imgHDC) imgHDC.className = 'w-full h-full object-cover thermal-lens-active transition-all duration-500';
-      if (overlayOld) overlayOld.classList.remove('opacity-0');
-      if (overlayCool) overlayCool.classList.remove('opacity-0');
-
-      HDC.Utils.showToast("Đã kích hoạt Camera Nhiệt FLIR: Thấy rõ mức chênh lệch 2.8°C!");
-    } else {
-      if (btnNormal) btnNormal.className = 'px-5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-brand-green text-white shadow';
-      if (btnActive) btnActive.className = 'px-5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200';
-
-      if (imgOld) imgOld.className = 'w-full h-full object-cover thermal-lens-normal transition-all duration-500';
-      if (imgHDC) imgHDC.className = 'w-full h-full object-cover thermal-lens-normal transition-all duration-500';
-      if (overlayOld) overlayOld.classList.add('opacity-0');
-      if (overlayCool) overlayCool.classList.add('opacity-0');
-    }
-  },
-
-  /**
-   * Wrinkle Physics Simulation Demo
-   */
-  simulateWrinkle() {
-    this.wrinkleState = 'wrinkled';
-    const img = document.getElementById('wrinkleSimImg');
-    const overlay = document.getElementById('wrinkleOverlay');
-    const badge = document.getElementById('wrinkleStatusBadge');
-    const timerBox = document.getElementById('wrinkleTimerBox');
-    const secEl = document.getElementById('wrinkleSeconds');
-
-    if (img) img.style.filter = 'contrast(160%) brightness(85%)';
-    if (overlay) overlay.classList.remove('opacity-0');
-    if (badge) {
-      badge.className = 'bg-brand-red text-white font-bold text-xs px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 animate-pulse';
-      badge.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Đang bóp nhăn vải... Đang kích hoạt tự phục hồi sinh học';
-    }
-    if (timerBox) timerBox.classList.remove('hidden');
-
-    // Countdown 3, 2, 1 -> Self-flatten
-    let sec = 3;
-    if (secEl) secEl.innerText = sec;
-    const interval = setInterval(() => {
-      sec--;
-      if (secEl) secEl.innerText = sec;
-      if (sec <= 0) {
-        clearInterval(interval);
-        this.resetWrinkle();
-        HDC.Utils.showToast("Cấu trúc sợi sinh học đã tự căng phẳng hoàn toàn 98%!");
-      }
-    }, 900);
-  },
-
-  resetWrinkle() {
-    this.wrinkleState = 'flat';
-    const img = document.getElementById('wrinkleSimImg');
-    const overlay = document.getElementById('wrinkleOverlay');
-    const badge = document.getElementById('wrinkleStatusBadge');
-    const timerBox = document.getElementById('wrinkleTimerBox');
-
-    if (img) img.style.filter = 'none';
-    if (overlay) overlay.classList.add('opacity-0');
-    if (timerBox) timerBox.classList.add('hidden');
-    if (badge) {
-      badge.className = 'bg-brand-green text-white font-bold text-xs px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5';
-      badge.innerHTML = '<i class="fa-solid fa-circle-check"></i> Trạng thái: Hoàn toàn phẳng phiu (98%)';
-    }
-  },
 
   /**
    * 1-Click Direct Add to Cart with Selected Size
