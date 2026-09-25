@@ -2,6 +2,7 @@
  * HDC Fashion — Haute Couture & Sensory Fashion Experience (HomeView)
  * Bespoke Art Direction & Radical Interactive Features:
  * - Editorial Luxury Hero with Obsidian/Emerald Couture Aesthetic & Sacred Đông Sơn Motif
+ * - Scientific Temperature & Breathability Comparison (35.2°C vs 38.8°C)
  * - Interactive Digital Fiber Microscope HUD (100x Microscopic Zoom & Cellular Scan)
  * - Executive Capsule Fitting Studio (Interactive 1-Click Outfits)
  * - Smart AI Size & Fit Advisor (Real-time Height/Weight/Fit Calculator)
@@ -381,6 +382,95 @@ window.HDC.Views.HomeView = {
         </section>
 
 
+        <!-- ========================================================
+             2. ĐỐI CHỨNG THỰC NGHIỆM: SO SÁNH NHIỆT ĐỘ & ĐỘ THOÁNG KHÍ
+             Bằng chứng thực nghiệm: 35.2°C vs 38.8°C
+             ======================================================== -->
+        <section class="py-16 lg:py-24 bg-gradient-to-b from-[#f0e9dc] via-[#f8f6f0] to-white text-gray-900 border-b border-gray-200 reveal-on-scroll relative overflow-hidden">
+          
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+              <span class="text-[11px] font-bold text-brand-gold uppercase tracking-widest bg-amber-50 px-3.5 py-1 rounded-full border border-amber-200">
+                ✦ Bằng Chứng Khoa Học Thực Nghiệm
+              </span>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-greenDark font-serif">
+                Tại Sao Áo Sơ Mi HDC Mát Hơn 2.8°C?
+              </h2>
+              <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                Chiêm ngưỡng bằng chứng khoa học thực nghiệm: Áo thường giữ nhiệt ngột ngạt VS Áo sợi sen HDC tự giải phóng thân nhiệt.
+              </p>
+            </div>
+
+            <!-- Comparison Arena -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
+              
+              <!-- Left: Conventional Cotton/Poly -->
+              <div class="bg-white rounded-3xl p-6 border-2 border-red-200 space-y-4 relative overflow-hidden shadow-lg hover:shadow-xl transition">
+                <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                  <div class="text-xs font-bold text-red-600 uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-circle-xmark text-base"></i> Sơ Mi Cotton/Poly Thường
+                  </div>
+                  <span class="text-xs font-black px-2.5 py-0.5 rounded-full bg-red-100 text-red-600 border border-red-300">
+                    🔥 38.8°C (Rất Nóng)
+                  </span>
+                </div>
+
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-gray-900">
+                  <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&auto=format&fit=crop&q=80" alt="Cotton thường" class="w-full h-full object-cover">
+                  
+                  <div class="absolute bottom-3 left-3 bg-black/75 backdrop-blur px-3 py-1.5 rounded-xl text-[10px] text-gray-300 font-mono flex items-center gap-1.5">
+                    <i class="fa-solid fa-triangle-exclamation text-amber-400"></i> CHỈ SỐ: BÍ BÁCH & TÍCH TỤ MỒ HÔI
+                  </div>
+                </div>
+
+                <ul class="space-y-2 text-xs text-gray-600 pt-1">
+                  <li class="flex items-start gap-2">
+                    <span class="text-red-500 font-bold">✕</span>
+                    <span>Thớ vải dệt chặt giữ nhiệt ẩm, gây ngột ngạt sau 2 giờ ngồi họp.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-red-500 font-bold">✕</span>
+                    <span>Dễ ố vàng nách và tích tụ vi khuẩn tạo mùi cơ thể.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Right: HDC Lotus Bio-Shirt -->
+              <div class="bg-gradient-to-b from-white via-emerald-50/40 to-white rounded-3xl p-6 border-2 border-emerald-500 space-y-4 relative overflow-hidden shadow-xl hover:shadow-2xl transition">
+                <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                  <div class="text-xs font-bold text-brand-green uppercase tracking-wider flex items-center gap-2 font-heading">
+                    <i class="fa-solid fa-circle-check text-base"></i> Sơ Mi Sợi Sen Sinh Học HDC
+                  </div>
+                  <span class="text-xs font-black px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
+                    ❄️ 35.2°C (Hạ Nhiệt -2.8°C)
+                  </span>
+                </div>
+
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-emerald-950">
+                  <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80" alt="Sơ mi sen HDC" class="w-full h-full object-cover">
+
+                  <div class="absolute bottom-3 left-3 bg-black/75 backdrop-blur px-3 py-1.5 rounded-xl text-[10px] text-emerald-300 font-mono flex items-center gap-1.5">
+                    <i class="fa-solid fa-leaf text-emerald-400"></i> CHỈ SỐ: VI XỐP RỖNG LƯU THÔNG KHÍ MÁT
+                  </div>
+                </div>
+
+                <ul class="space-y-2 text-xs text-gray-700 pt-1">
+                  <li class="flex items-start gap-2">
+                    <span class="text-emerald-600 font-bold">✓</span>
+                    <span>Hạ nhiệt độ tiếp xúc bề mặt da 2.8°C, mát lạnh suốt ngày dài làm việc.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-emerald-600 font-bold">✓</span>
+                    <span>Kháng khuẩn sinh học 99.8% — không mùi hôi áo dù bay đường dài 12 tiếng.</span>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
 
 
         <!-- ========================================================
