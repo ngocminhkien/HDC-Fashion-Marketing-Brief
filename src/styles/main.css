@@ -71,7 +71,13 @@
 .voucher-card::before { left: -8px; }
 .voucher-card::after { right: -8px; }
 
-/* Navigation Tab Active Indicator */
+/* Navigation Tab */
+.nav-tab {
+  white-space: nowrap !important;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+}
 .nav-tab.active {
   color: #1e4832;
   border-bottom: 2px solid #1e4832;
