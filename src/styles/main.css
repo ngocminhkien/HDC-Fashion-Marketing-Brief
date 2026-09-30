@@ -77,14 +77,36 @@
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
+  position: relative;
+  transition: color 0.2s ease;
 }
 .nav-tab.active {
   color: #1e4832;
-  border-bottom: 2px solid #1e4832;
+  font-weight: 700;
+}
+.nav-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  right: 10px;
+  height: 2.5px;
+  background-color: #1e4832;
+  border-radius: 9999px;
 }
 .nav-tab.active-sale {
   color: #d92d20;
-  border-bottom: 2px solid #d92d20;
+  font-weight: 700;
+}
+.nav-tab.active-sale::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  right: 10px;
+  height: 2.5px;
+  background-color: #d92d20;
+  border-radius: 9999px;
 }
 
 /* Subtle View Transition */
