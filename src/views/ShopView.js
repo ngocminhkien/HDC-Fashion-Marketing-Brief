@@ -321,7 +321,6 @@ window.HDC.Views.ShopView = {
                     <option value="featured">Nổi bật</option>
                     <option value="price-asc">Giá thấp → cao</option>
                     <option value="price-desc">Giá cao → thấp</option>
-                    <option value="rating">Đánh giá cao nhất</option>
                     <option value="name">A - Z</option>
                   </select>
                   <!-- View Mode Toggle: Grid 4 hoặc Grid 3 -->
@@ -470,7 +469,6 @@ window.HDC.Views.ShopView = {
 
     if (sortVal === 'price-asc') filtered.sort((a, b) => a.price - b.price);
     else if (sortVal === 'price-desc') filtered.sort((a, b) => b.price - a.price);
-    else if (sortVal === 'rating') filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
     else if (sortVal === 'name') filtered.sort((a, b) => a.title.localeCompare(b.title));
 
     this.renderCatalog(filtered);

@@ -180,7 +180,7 @@ window.HDC.Components.QuickViewModal = {
     if (badgeEl) badgeEl.innerText = product.badge || 'Mới';
     if (catEl) catEl.innerText = product.material ? `Chất liệu sợi ${product.material.toUpperCase()}` : 'Thời trang sinh học';
     if (descEl) descEl.innerText = product.description || '100% Sợi sinh học tự nhiên, tự phục hồi phẳng sau khi phơi.';
-    if (stockEl) stockEl.innerText = `✓ Còn ${product.stock || 25} sản phẩm`;
+    if (stockEl) stockEl.innerText = '✓ Còn hàng';
 
     // Reset size buttons
     document.querySelectorAll('.modal-size-btn').forEach(btn => {
