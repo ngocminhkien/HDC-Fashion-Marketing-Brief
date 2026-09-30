@@ -18,6 +18,9 @@ window.HDC.App = {
     HDC.Components.CartDrawer.init();
 
     // 3. Initialize View Controllers
+    if (HDC.Views.HomeView && HDC.Views.HomeView.init) {
+      HDC.Views.HomeView.init();
+    }
     HDC.Views.ShopView.init();
     HDC.Views.B2BView.init();
     HDC.Views.KidsView.init();
@@ -31,8 +34,17 @@ window.HDC.App = {
     HDC.Utils.initScrollReveal();
     HDC.Utils.initScrollHeader();
 
-    window.addEventListener('hdc:view-changed', () => {
+    window.addEventListener('hdc:view-changed', (e) => {
       setTimeout(() => HDC.Utils.initScrollReveal(), 100);
+      if (e.detail && e.detail.view === 'home') {
+        if (HDC.Views.HomeView && HDC.Views.HomeView.startAutoPlay) {
+          HDC.Views.HomeView.startAutoPlay();
+        }
+      } else {
+        if (HDC.Views.HomeView && HDC.Views.HomeView.stopAutoPlay) {
+          HDC.Views.HomeView.stopAutoPlay();
+        }
+      }
     });
   },
 

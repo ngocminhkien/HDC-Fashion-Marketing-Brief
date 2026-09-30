@@ -20,6 +20,104 @@ window.HDC.Views.HomeView = {
   activeCategory: 'all',
   activeLookbook: 'executive',
 
+  // Full-bleed Hero Carousel State & Slides Data
+  currentSlide: 0,
+  slideTimer: null,
+  heroSlides: [
+    {
+      id: 1,
+      tag: "KỶ NGUYÊN THỜI TRANG SINH HỌC BẢN ĐỊA 2026",
+      tagIcon: "fa-leaf text-emerald-600",
+      title: 'Khí Chất Bản Lĩnh, <br class="hidden sm:inline"><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-green via-emerald-700 to-brand-gold">Khắc Họa Di Sản</span>',
+      description: 'Từ thớ sợi phù sa Sen Đồng Tháp, Tơ Chuối Bến Tre đến hào khí Trống Đồng ngàn năm. HDC Fashion kiến tạo thế hệ âu phục công sở & giải pháp đồng phục doanh nghiệp <strong class="text-brand-green font-bold">hoàn toàn không cần bàn là</strong>, tự thở và nâng tầm phong thái người dẫn đầu.',
+      pillars: [
+        { icon: 'fa-wand-magic-sparkles text-brand-gold', title: 'Tự Phẳng 98%', desc: 'Không cần bàn là' },
+        { icon: 'fa-temperature-arrow-down text-emerald-600', title: 'Hạ Nhiệt 2.8°C', desc: 'Sợi sen & bạc hà' },
+        { icon: 'fa-certificate text-brand-gold', title: 'Chuẩn Vinschool', desc: 'Đối tác 30 năm DNT' }
+      ],
+      primaryBtnText: 'Khám Phá Cửa Hàng',
+      primaryBtnAction: "HDC.Router.navigate('shop')",
+      secondaryBtnText: 'Đồng Phục Doanh Nghiệp (B2B)',
+      secondaryBtnIcon: 'fa-briefcase text-brand-gold',
+      secondaryBtnAction: "HDC.Router.navigate('b2b')",
+      img: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=1800&auto=format&fit=crop&q=85',
+      floatingBadge: '100% Sợi Sen Đồng Tháp • Không Cần Bàn Là',
+      floatingTitle: 'Sơ Mi Sợi Sen Kháng Khuẩn 1001',
+      floatingPrice: '649.000₫',
+      floatingOldPrice: '799.000₫',
+      productId: 1
+    },
+    {
+      id: 2,
+      tag: "HDC GOLF EDITION & CHỐNG TIA CỰC TÍM",
+      tagIcon: "fa-sun text-yellow-500",
+      title: 'Bản Lĩnh Thương Trường, <br class="hidden sm:inline"><span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-yellow-600 to-brand-gold">Tự Tin Từng Cú Swing</span>',
+      description: 'Dòng áo Polo HDC Golf dệt từ sợi tre Bamboo và tinh chất Bạc Hà tự nhiên. Chuẩn chống nắng UPF 50+, co giãn 4D đa hướng, đồng hành cùng các golfer doanh nhân giữ vững phong thái đĩnh đạc dưới nắng hè nhiệt đới.',
+      pillars: [
+        { icon: 'fa-shield-halved text-amber-600', title: 'Anti-UV UPF 50+', desc: 'Chống nắng vượt trội' },
+        { icon: 'fa-arrows-up-down-left-right text-emerald-600', title: 'Co Giãn 4D', desc: 'Vung gậy tự do' },
+        { icon: 'fa-snowflake text-blue-500', title: 'Giảm 2-3°C', desc: 'Bạc hà mát lạnh' }
+      ],
+      primaryBtnText: 'Xem Bộ Sưu Tập Polo',
+      primaryBtnAction: "HDC.Router.navigate('shop', { category: 'polo' })",
+      secondaryBtnText: 'Đặt Polo Sự Kiện & B2B',
+      secondaryBtnIcon: 'fa-flag text-brand-gold',
+      secondaryBtnAction: "HDC.Router.navigate('b2b')",
+      img: 'https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=1800&auto=format&fit=crop&q=85',
+      floatingBadge: 'Golf Edition • Chuẩn UPF 50+',
+      floatingTitle: 'Áo Polo Golf Doanh Nhân Trẻ',
+      floatingPrice: '489.000₫',
+      floatingOldPrice: '590.000₫',
+      productId: 5
+    },
+    {
+      id: 3,
+      tag: "CÔNG NGHỆ DỆT LIỀN SEAMLESS ĐỘT PHÁ",
+      tagIcon: "fa-vest text-emerald-600",
+      title: 'May Đo Liền Khối, <br class="hidden sm:inline"><span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 via-brand-green to-emerald-600">Êm Ái Làn Da Thứ Hai</span>',
+      description: 'Triệt tiêu hoàn toàn đường chỉ may tại nẹp cổ và vạt áo. Chất liệu Modal gỗ sồi kết hợp sợi sinh học đem lại sự êm ái tối thượng, loại bỏ mọi cọ xát cho ngày làm việc căng thẳng và những chuyến công tác dài giờ.',
+      pillars: [
+        { icon: 'fa-feather text-emerald-600', title: '0% Cọ Xát', desc: 'Dệt liền thân không may' },
+        { icon: 'fa-repeat text-brand-gold', title: 'Bền Màu 100 Lần Giặt', desc: 'Gỗ sồi Modal bền bỉ' },
+        { icon: 'fa-shield-virus text-emerald-600', title: 'Kháng Khuẩn 24H', desc: 'Tự tiêu diệt mùi hôi' }
+      ],
+      primaryBtnText: 'Trải Nghiệm Seamless 4D',
+      primaryBtnAction: "HDC.Router.navigate('shop', { category: 'seamless' })",
+      secondaryBtnText: 'Trợ Lý Đo Size Bằng AI',
+      secondaryBtnIcon: 'fa-ruler-combined text-brand-gold',
+      secondaryBtnAction: "HDC.Router.navigate('quiz')",
+      img: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=1800&auto=format&fit=crop&q=85',
+      floatingBadge: 'Công nghệ dệt liền • Co giãn 4 chiều',
+      floatingTitle: 'Sơ Mi Seamless Co Giãn 2002',
+      floatingPrice: '789.000₫',
+      floatingOldPrice: '899.000₫',
+      productId: 2
+    },
+    {
+      id: 4,
+      tag: "DI SẢN VĂN HÓA ĐÔNG SƠN BẢN ĐỊA",
+      tagIcon: "fa-landmark text-amber-600",
+      title: 'Hào Khí Đông Sơn, <br class="hidden sm:inline"><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-600 to-yellow-600">Khẳng Định Bản Sắc Việt</span>',
+      description: 'Chắt lọc tinh hoa từ nét chạm khắc Trống Đồng Đông Sơn 2.000 năm lịch sử vào cổ áo và măng sét. Dòng trang phục cao cấp dành cho lãnh đạo và giải pháp quà tặng ngoại giao được tin chọn bởi hơn 500+ doanh nghiệp.',
+      pillars: [
+        { icon: 'fa-crown text-brand-gold', title: 'Họa Tiết 2.000 Năm', desc: 'Trống Đồng linh thiêng' },
+        { icon: 'fa-box-open text-amber-600', title: 'Hộp Quà Ngoại Giao', desc: 'Đóng gói thủ công VIP' },
+        { icon: 'fa-handshake text-emerald-600', title: '500+ Doanh Nghiệp', desc: 'Đối tác chiến lược' }
+      ],
+      primaryBtnText: 'Khám Phá Di Sản Văn Hóa',
+      primaryBtnAction: "HDC.Router.navigate('shop', { category: 'van-hoa' })",
+      secondaryBtnText: 'Báo Giá Đồng Phục B2B',
+      secondaryBtnIcon: 'fa-paper-plane text-brand-gold',
+      secondaryBtnAction: "HDC.Components.B2BModal.open()",
+      img: 'https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?w=1800&auto=format&fit=crop&q=85',
+      floatingBadge: 'Di Sản Đông Sơn • Bản Lĩnh Doanh Nhân',
+      floatingTitle: 'Sơ Mi Khắc Họa Trống Đồng 3003',
+      floatingPrice: '899.000₫',
+      floatingOldPrice: '999.000₫',
+      productId: 3
+    }
+  ],
+
   // Interactive Size Advisor State
   sizeAdvisor: {
     gender: 'nam',
@@ -238,132 +336,152 @@ window.HDC.Views.HomeView = {
         </div>
 
         <!-- ========================================================
-             1. HAUTE COUTURE EDITORIAL HERO COVER (LUMINOUS & RADIANT)
+             1. HAUTE COUTURE EDITORIAL HERO COVER (FULL-BLEED CINEMATIC SLIDER)
+             Ảnh nền toàn màn hình, mờ dần về bên phần chữ,
+             đa ảnh tự động chuyển & tương tác người dùng
              ======================================================== -->
-        <section class="relative overflow-hidden bg-gradient-to-b from-[#fbf9f4] via-[#f7f3e8] to-[#f0e9dc] text-gray-900 py-14 lg:py-24 border-b border-amber-200/70">
+        <section id="heroCarouselSection" class="relative overflow-hidden bg-[#fbf9f4] text-gray-900 min-h-[580px] lg:min-h-[670px] flex items-center border-b border-amber-200/70 select-none group">
           
-          <!-- Animated Sacred Đông Sơn Sun Motif in Background (Noble Gold Silk Watermark) -->
-          <div class="absolute -top-40 -right-40 w-[600px] h-[600px] opacity-[0.14] pointer-events-none animate-dongson-slow">
-            <svg viewBox="0 0 500 500" class="w-full h-full fill-none stroke-[#b89047] stroke-[1.4]">
-              <circle cx="250" cy="250" r="230"/>
-              <circle cx="250" cy="250" r="180" stroke-dasharray="8 6"/>
-              <circle cx="250" cy="250" r="130"/>
-              <circle cx="250" cy="250" r="80" stroke-dasharray="4 4"/>
-              <circle cx="250" cy="250" r="30" fill="currentColor"/>
-              ${[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(deg => `
-                <line x1="250" y1="250" x2="${250 + 220 * Math.cos(deg * Math.PI / 180)}" y2="${250 + 220 * Math.sin(deg * Math.PI / 180)}" opacity="0.6"/>
-              `).join('')}
-            </svg>
+          <!-- FULL-BLEED BACKGROUND SLIDES WITH LUXURY GRADIENT MASK -->
+          <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            ${this.heroSlides.map((slide, idx) => `
+              <div id="heroSlideBg-${idx}" class="absolute inset-0 w-full h-full transition-all duration-1000 ease-out ${idx === 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'}">
+                <img src="${slide.img}" alt="${slide.tag}" class="w-full h-full object-cover object-center lg:object-right filter brightness-[0.98]">
+              </div>
+            `).join('')}
+
+            <!-- LUXURY GRADIENT OVERLAY (MỜ DẦN VỀ BÊN PHẦN CHỮ) -->
+            <!-- Desktop: Left-to-right fade (solid #fbf9f4 where text sits, smoothly dissolves to transparent on the right) -->
+            <div class="absolute inset-0 hidden lg:block" style="background: linear-gradient(90deg, #fbf9f4 0%, #fbf9f4 36%, rgba(251, 249, 244, 0.94) 48%, rgba(251, 249, 244, 0.55) 66%, rgba(251, 249, 244, 0.1) 85%, rgba(251, 249, 244, 0) 100%);"></div>
+            
+            <!-- Mobile / Tablet: Gradient to guarantee crystal-clear text readability over image -->
+            <div class="absolute inset-0 lg:hidden" style="background: linear-gradient(180deg, rgba(251, 249, 244, 0.96) 0%, rgba(251, 249, 244, 0.9) 65%, rgba(251, 249, 244, 0.6) 88%, rgba(251, 249, 244, 0.3) 100%);"></div>
+
+            <!-- Animated Sacred Đông Sơn Sun Motif in Background (Noble Gold Silk Watermark) -->
+            <div class="absolute -top-40 -right-40 w-[600px] h-[600px] opacity-[0.12] pointer-events-none animate-dongson-slow">
+              <svg viewBox="0 0 500 500" class="w-full h-full fill-none stroke-[#b89047] stroke-[1.4]">
+                <circle cx="250" cy="250" r="230"/>
+                <circle cx="250" cy="250" r="180" stroke-dasharray="8 6"/>
+                <circle cx="250" cy="250" r="130"/>
+                <circle cx="250" cy="250" r="80" stroke-dasharray="4 4"/>
+                <circle cx="250" cy="250" r="30" fill="currentColor"/>
+                ${[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(deg => `
+                  <line x1="250" y1="250" x2="${250 + 220 * Math.cos(deg * Math.PI / 180)}" y2="${250 + 220 * Math.sin(deg * Math.PI / 180)}" opacity="0.6"/>
+                `).join('')}
+              </svg>
+            </div>
           </div>
 
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <!-- FOREGROUND CONTENT CONTAINER (Z-10) -->
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 py-12 lg:py-20 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
               
-              <!-- Left Storytelling Content -->
+              <!-- Left Storytelling Content (Col 1-7) -->
               <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                 
-                <div class="inline-flex items-center gap-2.5 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full border border-amber-300 shadow-sm">
+                <!-- Tag Badge with Active Slide Tag -->
+                <div class="inline-flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-4 py-1.5 rounded-full border border-amber-300 shadow-sm transition-all duration-300">
                   <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-ping"></span>
-                  <span class="text-xs font-bold text-brand-green uppercase tracking-widest font-heading">
-                    Kỷ Nguyên Thời Trang Sinh Học Bản Địa 2026
+                  <i id="heroSlideTagIcon" class="fa-solid ${this.heroSlides[0].tagIcon} text-xs"></i>
+                  <span id="heroSlideTag" class="text-xs font-bold text-brand-green uppercase tracking-widest font-heading">
+                    ${this.heroSlides[0].tag}
                   </span>
                 </div>
 
+                <!-- Slide Title & Description -->
                 <div class="space-y-3">
-                  <h1 class="text-4xl sm:text-5xl lg:text-[62px] font-extrabold font-serif leading-[1.08] tracking-tight text-[#0f291a]">
-                    Khí Chất Bản Lĩnh, <br class="hidden sm:inline">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-green via-emerald-700 to-brand-gold">
-                      Khắc Họa Di Sản
-                    </span>
+                  <h1 id="heroSlideTitle" class="text-4xl sm:text-5xl lg:text-[58px] font-extrabold font-serif leading-[1.1] tracking-tight text-[#0f291a] transition-all duration-500">
+                    ${this.heroSlides[0].title}
                   </h1>
-                  <p class="text-sm sm:text-base text-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
-                    Từ thớ sợi phù sa Sen Đồng Tháp, Tơ Chuối Bến Tre đến hào khí Trống Đồng ngàn năm. HDC Fashion kiến tạo thế hệ âu phục công sở & giải pháp đồng phục doanh nghiệp <strong class="text-brand-green font-bold">hoàn toàn không cần bàn là</strong>, tự thở và nâng tầm phong thái người dẫn đầu.
+                  <p id="heroSlideDesc" class="text-sm sm:text-base text-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal transition-all duration-500">
+                    ${this.heroSlides[0].description}
                   </p>
                 </div>
 
-                <!-- Three Key Pillars Badge Row (Luminous Pearl Style) -->
-                <div class="grid grid-cols-3 gap-3 pt-2 max-w-lg mx-auto lg:mx-0">
-                  <div class="bg-white/95 backdrop-blur p-3.5 rounded-2xl border border-amber-200/80 shadow-md text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-wand-magic-sparkles text-brand-gold text-lg mb-1"></i>
-                    <div class="font-bold text-xs text-gray-900">Tự Phẳng 98%</div>
-                    <div class="text-[10px] text-gray-500 mt-0.5">Không cần bàn là</div>
-                  </div>
-                  <div class="bg-white/95 backdrop-blur p-3.5 rounded-2xl border border-amber-200/80 shadow-md text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-temperature-arrow-down text-emerald-600 text-lg mb-1"></i>
-                    <div class="font-bold text-xs text-gray-900">Hạ Nhiệt 2.8°C</div>
-                    <div class="text-[10px] text-gray-500 mt-0.5">Sợi sen & bạc hà</div>
-                  </div>
-                  <div class="bg-white/95 backdrop-blur p-3.5 rounded-2xl border border-amber-200/80 shadow-md text-center hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-certificate text-brand-gold text-lg mb-1"></i>
-                    <div class="font-bold text-xs text-gray-900">Chuẩn Vinschool</div>
-                    <div class="text-[10px] text-gray-500 mt-0.5">Đối tác 30 năm DNT</div>
-                  </div>
+                <!-- Three Key Pillars Row -->
+                <div id="heroSlidePillars" class="grid grid-cols-3 gap-3 pt-2 max-w-lg mx-auto lg:mx-0 transition-all duration-500">
+                  ${this.heroSlides[0].pillars.map(p => `
+                    <div class="bg-white/95 backdrop-blur p-3.5 rounded-2xl border border-amber-200/80 shadow-md text-center hover:scale-105 transition-transform">
+                      <i class="fa-solid ${p.icon} text-lg mb-1"></i>
+                      <div class="font-bold text-xs text-gray-900">${p.title}</div>
+                      <div class="text-[10px] text-gray-500 mt-0.5">${p.desc}</div>
+                    </div>
+                  `).join('')}
                 </div>
 
-                <!-- Primary Action Button Stack -->
+                <!-- Primary & Secondary CTA Action Buttons -->
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
-                  <button onclick="HDC.Router.navigate('shop')" class="btn-shimmer bg-brand-green hover:bg-brand-greenDark text-white font-extrabold px-8 py-4 rounded-2xl text-xs uppercase tracking-wider transition-all shadow-xl shadow-brand-green/25 flex items-center gap-2.5 hover:scale-[1.02] active:scale-[0.98]">
-                    <span>Khám Phá Cửa Hàng</span>
+                  <button id="heroSlideCtaPrimary" onclick="${this.heroSlides[0].primaryBtnAction}" class="btn-shimmer bg-brand-green hover:bg-brand-greenDark text-white font-extrabold px-8 py-4 rounded-2xl text-xs uppercase tracking-wider transition-all shadow-xl shadow-brand-green/25 flex items-center gap-2.5 hover:scale-[1.02] active:scale-[0.98]">
+                    <span>${this.heroSlides[0].primaryBtnText}</span>
                     <i class="fa-solid fa-arrow-right text-xs"></i>
                   </button>
-                  <button onclick="HDC.Router.navigate('b2b')" class="bg-white hover:bg-emerald-50 text-brand-green border-2 border-brand-green/50 px-7 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]">
-                    <i class="fa-solid fa-briefcase text-xs text-brand-gold"></i>
-                    <span>Đồng Phục Doanh Nghiệp (B2B)</span>
+                  <button id="heroSlideCtaSecondary" onclick="${this.heroSlides[0].secondaryBtnAction}" class="bg-white hover:bg-emerald-50 text-brand-green border-2 border-brand-green/50 px-7 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]">
+                    <i class="fa-solid ${this.heroSlides[0].secondaryBtnIcon} text-xs"></i>
+                    <span>${this.heroSlides[0].secondaryBtnText}</span>
                   </button>
                 </div>
 
-                <!-- Verified Stats Bar -->
-                <div class="pt-4 border-t border-amber-200/60 flex items-center justify-center lg:justify-start gap-6 text-xs text-gray-600">
-                  <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-circle-check text-emerald-600"></i>
-                    <span>500+ Doanh nghiệp Việt tin dùng</span>
+                <!-- Verified Stats Bar & Carousel Slide Selector -->
+                <div class="pt-4 border-t border-amber-200/60 flex flex-wrap items-center justify-between gap-4 text-xs text-gray-600">
+                  <div class="flex items-center gap-4 sm:gap-6">
+                    <div class="flex items-center gap-2">
+                      <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                      <span>500+ Doanh nghiệp Việt tin dùng</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <i class="fa-solid fa-truck-fast text-brand-gold"></i>
+                      <span>Giao hàng hỏa tốc 24H</span>
+                    </div>
                   </div>
-                  <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-truck-fast text-brand-gold"></i>
-                    <span>Giao hàng hỏa tốc 24H</span>
+
+                  <!-- Pagination Dots & Counter Inside Left Column (Accessible) -->
+                  <div class="flex items-center gap-3 bg-white/80 backdrop-blur px-3 py-1.5 rounded-full border border-amber-200/80 shadow-sm">
+                    <span id="heroSlideCounter" class="text-[11px] font-bold text-gray-600 font-mono tracking-wider">
+                      01 / 04
+                    </span>
+                    <div class="flex items-center gap-1.5" id="heroDotsWrapper">
+                      ${this.heroSlides.map((_, i) => `
+                        <button id="heroDot-${i}" onclick="HDC.Views.HomeView.goToSlide(${i})" aria-label="Slide ${i+1}" class="${i === 0 ? 'h-2.5 w-8 rounded-full bg-brand-green shadow-sm' : 'h-2.5 w-2.5 rounded-full bg-amber-400/40 hover:bg-amber-400'} transition-all duration-300"></button>
+                      `).join('')}
+                    </div>
                   </div>
                 </div>
 
               </div>
 
-              <!-- Right Centerpiece: High-Fashion Editorial Artwork -->
-              <div class="lg:col-span-5 relative">
-                <div class="relative mx-auto max-w-md">
+              <!-- Right Centerpiece: Floating Luxury Spotlight Card (Col 8-12) -->
+              <div class="lg:col-span-5 relative hidden sm:flex justify-end">
+                <div class="w-full max-w-sm">
                   
-                  <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white card-lift group cursor-pointer gold-rim-glow" onclick="HDC.Components.QuickViewModal.open(1)">
-                    <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=800&auto=format&fit=crop&q=80" alt="HDC Fashion Haute Couture" class="w-full h-[470px] sm:h-[510px] object-cover product-img-hover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+                  <!-- Floating Glass Spotlight Card -->
+                  <div id="heroSlideFloatCard" onclick="HDC.Components.QuickViewModal.open(${this.heroSlides[0].productId})" class="relative bg-white/90 backdrop-blur-xl p-5 rounded-3xl shadow-2xl border-2 border-white/80 card-lift group cursor-pointer transition-all duration-500 gold-rim-glow">
+                    <div class="flex items-center justify-between mb-3">
+                      <span id="heroSlideFloatBadge" class="bg-brand-green/10 text-brand-green font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider border border-brand-green/20">
+                        ${this.heroSlides[0].floatingBadge}
+                      </span>
+                      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                    </div>
                     
-                    <!-- Floating Luxury Badges on Image -->
-                    <div class="absolute top-4 left-4">
-                      <span class="glass-luxury text-brand-green font-bold text-[10px] px-3.5 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-md border border-amber-300/60">
-                        <i class="fa-solid fa-spa text-xs text-brand-gold"></i> 100% Sợi Sen Đồng Tháp
-                      </span>
-                    </div>
+                    <h3 id="heroSlideFloatTitle" class="font-serif text-lg font-bold text-gray-900 group-hover:text-brand-green transition-colors leading-tight mb-2">
+                      ${this.heroSlides[0].floatingTitle}
+                    </h3>
 
-                    <div class="absolute top-4 right-4">
-                      <span class="bg-brand-red text-white font-extrabold text-[10px] px-3 py-1.5 rounded-full shadow-lg uppercase tracking-wider animate-float">
-                        Không Cần Bàn Là
-                      </span>
-                    </div>
-
-                    <!-- Bottom Hero Information Plate -->
-                    <div class="absolute bottom-5 left-5 right-5 text-white space-y-2">
-                      <span class="text-[10px] uppercase font-bold tracking-widest text-emerald-300">Tuyệt Phẩm Di Sản 2026</span>
-                      <h3 class="font-serif text-xl sm:text-2xl font-bold leading-tight">
-                        Sơ Mi Doanh Nhân Sợi Sen Kháng Khuẩn 1001
-                      </h3>
-                      <div class="flex items-center justify-between pt-1 border-t border-white/20">
-                        <span class="text-amber-300 font-extrabold text-base">649.000₫ <span class="text-xs text-white/70 line-through font-normal">799.000₫</span></span>
-                        <span class="text-xs bg-brand-gold text-gray-950 px-3 py-1.5 rounded-xl font-extrabold group-hover:bg-white transition shadow">
-                          Xem Chi Tiết &rarr;
-                        </span>
+                    <div class="flex items-center justify-between pt-2 border-t border-gray-100">
+                      <div>
+                        <div class="text-[10px] text-gray-500 uppercase font-semibold">Giá Độc Quyền</div>
+                        <div id="heroSlideFloatPrice" class="text-brand-red font-extrabold text-base">
+                          ${this.heroSlides[0].floatingPrice} <span class="text-xs text-gray-400 line-through font-normal">${this.heroSlides[0].floatingOldPrice}</span>
+                        </div>
                       </div>
+                      <span class="text-xs bg-brand-green text-white group-hover:bg-brand-gold group-hover:text-gray-900 px-4 py-2 rounded-xl font-bold transition-all shadow flex items-center gap-1.5">
+                        <span>Chi Tiết</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                      </span>
                     </div>
                   </div>
 
-                  <!-- Floating Partner Micro-Card (Bottom Right) -->
-                  <div class="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-2xl border border-amber-200/80 flex items-center gap-3 animate-float-delay hidden sm:flex max-w-[240px]">
+                  <!-- Floating Partner Micro-Card -->
+                  <div class="mt-4 bg-white/90 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-amber-200/80 flex items-center gap-3">
                     <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-lg font-bold shrink-0">
                       <i class="fa-solid fa-graduation-cap"></i>
                     </div>
@@ -379,6 +497,20 @@ window.HDC.Views.HomeView = {
 
             </div>
           </div>
+
+          <!-- SLIDE NAVIGATION ARROW CONTROLS (LEFT / RIGHT) -->
+          <button onclick="HDC.Views.HomeView.prevSlide()" aria-label="Slide trước" class="absolute left-3 lg:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-13 lg:h-13 rounded-full bg-white/80 hover:bg-white text-gray-800 shadow-xl backdrop-blur-md flex items-center justify-center border border-amber-200/80 transition-all hover:scale-110 active:scale-95 opacity-80 hover:opacity-100 cursor-pointer">
+            <i class="fa-solid fa-chevron-left text-sm"></i>
+          </button>
+          <button onclick="HDC.Views.HomeView.nextSlide()" aria-label="Slide kế tiếp" class="absolute right-3 lg:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-13 lg:h-13 rounded-full bg-white/80 hover:bg-white text-gray-800 shadow-xl backdrop-blur-md flex items-center justify-center border border-amber-200/80 transition-all hover:scale-110 active:scale-95 opacity-80 hover:opacity-100 cursor-pointer">
+            <i class="fa-solid fa-chevron-right text-sm"></i>
+          </button>
+
+          <!-- AUTO-PLAY PROGRESS BAR (Bottom of Hero) -->
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-amber-100/40 z-20 overflow-hidden">
+            <div id="heroProgressBar" class="h-full bg-gradient-to-r from-emerald-600 to-brand-gold w-0 transition-all"></div>
+          </div>
+
         </section>
 
 
@@ -1629,5 +1761,156 @@ window.HDC.Views.HomeView = {
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  },
+
+  // ========================================================
+  // FULL-BLEED HERO CAROUSEL CONTROLLER
+  // ========================================================
+  goToSlide(index) {
+    if (!this.heroSlides || !this.heroSlides.length) return;
+    if (index < 0) index = this.heroSlides.length - 1;
+    if (index >= this.heroSlides.length) index = 0;
+    this.currentSlide = index;
+    const slide = this.heroSlides[index];
+    if (!slide) return;
+
+    // 1. Crossfade background images
+    this.heroSlides.forEach((_, i) => {
+      const bgEl = document.getElementById(`heroSlideBg-${i}`);
+      if (bgEl) {
+        if (i === index) {
+          bgEl.classList.remove('opacity-0', 'scale-105', 'pointer-events-none');
+          bgEl.classList.add('opacity-100', 'scale-100');
+        } else {
+          bgEl.classList.remove('opacity-100', 'scale-100');
+          bgEl.classList.add('opacity-0', 'scale-105', 'pointer-events-none');
+        }
+      }
+    });
+
+    // 2. Update Left Storytelling Content
+    const tagEl = document.getElementById('heroSlideTag');
+    const tagIconEl = document.getElementById('heroSlideTagIcon');
+    const titleEl = document.getElementById('heroSlideTitle');
+    const descEl = document.getElementById('heroSlideDesc');
+    const pillarsEl = document.getElementById('heroSlidePillars');
+    const ctaPrimaryEl = document.getElementById('heroSlideCtaPrimary');
+    const ctaSecondaryEl = document.getElementById('heroSlideCtaSecondary');
+    const counterEl = document.getElementById('heroSlideCounter');
+
+    if (counterEl) {
+      counterEl.innerText = `0${index + 1} / 0${this.heroSlides.length}`;
+    }
+
+    if (tagEl) tagEl.innerText = slide.tag;
+    if (tagIconEl) tagIconEl.className = `fa-solid ${slide.tagIcon} text-xs`;
+    if (titleEl) titleEl.innerHTML = slide.title;
+    if (descEl) descEl.innerHTML = slide.description;
+
+    if (pillarsEl && slide.pillars) {
+      pillarsEl.innerHTML = slide.pillars.map(p => `
+        <div class="bg-white/95 backdrop-blur p-3.5 rounded-2xl border border-amber-200/80 shadow-md text-center hover:scale-105 transition-transform">
+          <i class="fa-solid ${p.icon} text-lg mb-1"></i>
+          <div class="font-bold text-xs text-gray-900">${p.title}</div>
+          <div class="text-[10px] text-gray-500 mt-0.5">${p.desc}</div>
+        </div>
+      `).join('');
+    }
+
+    if (ctaPrimaryEl) {
+      ctaPrimaryEl.innerHTML = `<span>${slide.primaryBtnText}</span><i class="fa-solid fa-arrow-right text-xs"></i>`;
+      ctaPrimaryEl.setAttribute('onclick', slide.primaryBtnAction);
+    }
+    if (ctaSecondaryEl) {
+      ctaSecondaryEl.innerHTML = `<i class="fa-solid ${slide.secondaryBtnIcon} text-xs"></i><span>${slide.secondaryBtnText}</span>`;
+      ctaSecondaryEl.setAttribute('onclick', slide.secondaryBtnAction);
+    }
+
+    // 3. Update Floating Product Spotlight Card
+    const floatBadge = document.getElementById('heroSlideFloatBadge');
+    const floatTitle = document.getElementById('heroSlideFloatTitle');
+    const floatPrice = document.getElementById('heroSlideFloatPrice');
+    const floatCard = document.getElementById('heroSlideFloatCard');
+    if (floatBadge) floatBadge.innerText = slide.floatingBadge;
+    if (floatTitle) floatTitle.innerText = slide.floatingTitle;
+    if (floatPrice) {
+      floatPrice.innerHTML = `${slide.floatingPrice} <span class="text-xs text-gray-400 line-through font-normal">${slide.floatingOldPrice}</span>`;
+    }
+    if (floatCard) {
+      floatCard.setAttribute('onclick', `HDC.Components.QuickViewModal.open(${slide.productId})`);
+    }
+
+    // 4. Update Pagination Dots
+    this.heroSlides.forEach((_, i) => {
+      const dot = document.getElementById(`heroDot-${i}`);
+      if (dot) {
+        if (i === index) {
+          dot.className = 'h-2.5 w-8 rounded-full bg-brand-green shadow-sm transition-all duration-300';
+        } else {
+          dot.className = 'h-2.5 w-2.5 rounded-full bg-amber-400/40 hover:bg-amber-400 transition-all duration-300 cursor-pointer';
+        }
+      }
+    });
+
+    // 5. Reset progress bar animation
+    const progressEl = document.getElementById('heroProgressBar');
+    if (progressEl) {
+      progressEl.style.transition = 'none';
+      progressEl.style.width = '0%';
+      void progressEl.offsetWidth; // force DOM reflow
+      progressEl.style.transition = 'width 5000ms linear';
+      progressEl.style.width = '100%';
+    }
+  },
+
+  nextSlide() {
+    this.goToSlide(this.currentSlide + 1);
+  },
+
+  prevSlide() {
+    this.goToSlide(this.currentSlide - 1);
+  },
+
+  startAutoPlay() {
+    this.stopAutoPlay();
+    const progressEl = document.getElementById('heroProgressBar');
+    if (progressEl) {
+      progressEl.style.transition = 'none';
+      progressEl.style.width = '0%';
+      void progressEl.offsetWidth;
+      progressEl.style.transition = 'width 5000ms linear';
+      progressEl.style.width = '100%';
+    }
+    this.slideTimer = setInterval(() => {
+      this.nextSlide();
+    }, 5000);
+  },
+
+  stopAutoPlay() {
+    if (this.slideTimer) {
+      clearInterval(this.slideTimer);
+      this.slideTimer = null;
+    }
+    const progressEl = document.getElementById('heroProgressBar');
+    if (progressEl) {
+      progressEl.style.transition = 'none';
+    }
+  },
+
+  initHeroCarousel() {
+    const heroSection = document.getElementById('heroCarouselSection');
+    if (!heroSection) return;
+
+    // Hover listener to pause/resume auto-play
+    heroSection.addEventListener('mouseenter', () => this.stopAutoPlay());
+    heroSection.addEventListener('mouseleave', () => this.startAutoPlay());
+
+    // Initialize slide 0 and start auto-play
+    this.goToSlide(0);
+    this.startAutoPlay();
+  },
+
+  init() {
+    this.initHeroCarousel();
   }
 };
