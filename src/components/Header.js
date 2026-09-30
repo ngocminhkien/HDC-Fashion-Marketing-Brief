@@ -34,83 +34,83 @@ window.HDC.Components.Header = {
 
       <!-- MAIN STICKY NAVIGATION -->
       <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 transition-all duration-300">
-        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4 lg:gap-6 xl:gap-8">
+        <div class="w-full max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-3 lg:gap-4 xl:gap-8">
           
           <!-- Mobile Menu Button -->
-          <button onclick="HDC.Components.Header.toggleMobileMenu()" class="lg:hidden text-gray-700 hover:text-brand-green text-xl p-1.5 shrink-0" title="Menu">
+          <button onclick="HDC.Components.Header.toggleMobileMenu()" class="lg:hidden text-gray-700 hover:text-brand-green text-xl p-1.5 rounded-lg hover:bg-gray-100 transition shrink-0" title="Menu" aria-label="Mở menu">
             <i class="fa-solid fa-bars"></i>
           </button>
 
           <!-- BRAND LOGO -->
           <a href="javascript:void(0)" onclick="HDC.Router.navigate('home')" class="flex flex-col items-center select-none group shrink-0">
             <div class="flex items-center gap-2">
-              <span class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-brand-green group-hover:text-brand-greenDark transition">
+              <span class="font-serif text-2xl lg:text-2xl xl:text-3xl font-bold tracking-tight text-brand-green group-hover:text-brand-greenDark transition">
                 HDC
               </span>
-              <span class="font-heading text-xs tracking-[0.25em] font-semibold text-brand-gold uppercase border-l pl-2 border-brand-gold/60">
+              <span class="font-heading text-[10px] lg:text-xs tracking-[0.25em] font-semibold text-brand-gold uppercase border-l pl-2 border-brand-gold/60">
                 FASHION
               </span>
             </div>
-            <span class="text-[9px] font-medium tracking-widest text-gray-400 uppercase -mt-0.5">Phong Cách Tạo Thành Công</span>
+            <span class="text-[8.5px] lg:text-[9px] font-medium tracking-widest text-gray-400 uppercase -mt-0.5 hidden sm:block">Phong Cách Tạo Thành Công</span>
           </a>
 
-          <!-- DESKTOP NAVIGATION -->
-          <nav class="hidden lg:flex items-center gap-1.5 xl:gap-3 2xl:gap-5 text-xs xl:text-[13px] font-semibold tracking-wide uppercase whitespace-nowrap">
-            <button onclick="HDC.Router.navigate('home')" id="nav-home" class="nav-tab active px-3 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition whitespace-nowrap shrink-0">
+          <!-- DESKTOP NAVIGATION (Multi-Screen Fluid Adaptation) -->
+          <nav class="hidden lg:flex items-center gap-1 xl:gap-2.5 2xl:gap-5 text-xs xl:text-[13px] 2xl:text-[14px] font-semibold tracking-wide uppercase whitespace-nowrap shrink-0">
+            <button onclick="HDC.Router.navigate('home')" id="nav-home" class="nav-tab active px-2.5 xl:px-3.5 2xl:px-4 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition whitespace-nowrap shrink-0">
               Trang Chủ
             </button>
 
-            <button onclick="HDC.Router.navigate('about')" id="nav-about" class="nav-tab px-3 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition whitespace-nowrap shrink-0">
+            <button onclick="HDC.Router.navigate('about')" id="nav-about" class="nav-tab px-2.5 xl:px-3.5 2xl:px-4 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition whitespace-nowrap shrink-0">
               Về HDC
             </button>
 
-            <button onclick="HDC.Router.navigate('shop')" id="nav-shop" class="nav-tab px-3 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition flex items-center gap-1.5 whitespace-nowrap shrink-0">
+            <button onclick="HDC.Router.navigate('shop')" id="nav-shop" class="nav-tab px-2.5 xl:px-3.5 2xl:px-4 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition flex items-center gap-1 whitespace-nowrap shrink-0">
               Cửa Hàng <span class="text-[9px] bg-emerald-100 text-brand-green px-1.5 py-0.5 rounded font-bold">Mới</span>
             </button>
 
-            <button onclick="HDC.Router.navigate('b2b')" id="nav-b2b" class="nav-tab px-3 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition flex items-center gap-1.5 whitespace-nowrap shrink-0">
-              <i class="fa-solid fa-briefcase text-brand-gold text-xs"></i> Đồng Phục B2B
+            <button onclick="HDC.Router.navigate('b2b')" id="nav-b2b" class="nav-tab px-2.5 xl:px-3.5 2xl:px-4 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition flex items-center gap-1 whitespace-nowrap shrink-0">
+              <i class="fa-solid fa-briefcase text-brand-gold text-xs hidden xl:inline-block mr-0.5"></i> Đồng Phục B2B
             </button>
 
-            <button onclick="HDC.Router.navigate('kids')" id="nav-kids" class="nav-tab px-3 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition flex items-center gap-1.5 whitespace-nowrap shrink-0">
-              <i class="fa-solid fa-graduation-cap text-emerald-600 text-xs"></i> IHDC Kids
+            <button onclick="HDC.Router.navigate('kids')" id="nav-kids" class="nav-tab px-2.5 xl:px-3.5 2xl:px-4 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition flex items-center gap-1 whitespace-nowrap shrink-0">
+              <i class="fa-solid fa-graduation-cap text-emerald-600 text-xs hidden xl:inline-block mr-0.5"></i> IHDC Kids
             </button>
 
-            <button onclick="HDC.Router.navigate('quiz')" id="nav-quiz" class="nav-tab px-3 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition flex items-center gap-1.5 whitespace-nowrap shrink-0">
-              <i class="fa-solid fa-ruler-combined text-brand-gold text-xs"></i> Chọn Size AI
+            <button onclick="HDC.Router.navigate('quiz')" id="nav-quiz" class="nav-tab px-2.5 xl:px-3.5 2xl:px-4 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition flex items-center gap-1 whitespace-nowrap shrink-0">
+              <i class="fa-solid fa-ruler-combined text-brand-gold text-xs hidden xl:inline-block mr-0.5"></i> Chọn Size AI
             </button>
 
-            <button onclick="HDC.Router.navigate('faq')" id="nav-faq" class="nav-tab px-3 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition whitespace-nowrap shrink-0">
+            <button onclick="HDC.Router.navigate('faq')" id="nav-faq" class="nav-tab px-2.5 xl:px-3.5 2xl:px-4 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition whitespace-nowrap shrink-0">
               Hỏi Đáp
             </button>
 
-            <button onclick="HDC.Router.navigate('shop', { filter: 'sale' })" id="nav-sale" class="nav-tab px-3 py-2 rounded-lg text-brand-red font-bold hover:text-brand-redHover hover:bg-red-50/50 transition flex items-center gap-1 whitespace-nowrap shrink-0">
+            <button onclick="HDC.Router.navigate('shop', { filter: 'sale' })" id="nav-sale" class="nav-tab px-2.5 xl:px-3.5 2xl:px-4 py-2 rounded-lg text-brand-red font-bold hover:text-brand-redHover hover:bg-red-50/50 transition flex items-center gap-1 whitespace-nowrap shrink-0">
               SALE THÁNG 9 🔥
             </button>
           </nav>
 
           <!-- ACTIONS RIGHT -->
-          <div class="flex items-center gap-3 sm:gap-4 text-gray-700 shrink-0">
-            <button onclick="HDC.Components.Header.toggleSearch()" class="hover:text-brand-green p-1.5 transition" title="Tìm kiếm">
+          <div class="flex items-center gap-2 sm:gap-3 xl:gap-4 text-gray-700 shrink-0">
+            <button onclick="HDC.Components.Header.toggleSearch()" class="hover:text-brand-green p-1.5 rounded-lg hover:bg-gray-100 transition" title="Tìm kiếm">
               <i class="fa-solid fa-magnifying-glass text-base sm:text-lg"></i>
             </button>
 
-            <button onclick="HDC.Router.navigate('tracking')" class="hidden sm:inline-flex hover:text-brand-green p-1.5 transition text-xs font-semibold items-center gap-1" title="Tra cứu đơn">
+            <button onclick="HDC.Router.navigate('tracking')" class="hidden xl:inline-flex hover:text-brand-green p-1.5 rounded-lg hover:bg-gray-100 transition text-xs font-semibold items-center gap-1" title="Tra cứu đơn">
               <i class="fa-solid fa-truck-ramp-box text-base"></i>
             </button>
 
-            <button onclick="HDC.Utils.showToast('Danh sách yêu thích đã lưu ' + HDC.Store.getWishlistCount() + ' sản phẩm!')" class="hover:text-brand-red p-1.5 transition relative" title="Yêu thích">
+            <button onclick="HDC.Utils.showToast('Danh sách yêu thích đã lưu ' + HDC.Store.getWishlistCount() + ' sản phẩm!')" class="hidden sm:inline-flex hover:text-brand-red p-1.5 rounded-lg hover:bg-gray-100 transition relative" title="Yêu thích">
               <i class="fa-regular fa-heart text-base sm:text-lg"></i>
               <span id="wishlistCountBadge" class="absolute -top-0.5 -right-1 bg-brand-red text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
             </button>
 
-            <button onclick="HDC.Components.CartDrawer.open()" class="hover:text-brand-green p-1.5 transition relative" title="Giỏ hàng">
+            <button onclick="HDC.Components.CartDrawer.open()" class="hover:text-brand-green p-1.5 rounded-lg hover:bg-gray-100 transition relative" title="Giỏ hàng">
               <i class="fa-solid fa-bag-shopping text-lg sm:text-xl text-brand-green"></i>
               <span id="cartCountBadge" class="absolute -top-1 -right-1.5 bg-brand-red text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold ring-2 ring-white">0</span>
             </button>
 
-            <button onclick="HDC.Components.B2BModal.open()" class="btn-shimmer hidden lg:inline-flex items-center gap-2 bg-brand-green text-white text-xs font-bold px-4 py-2 rounded-full hover:bg-brand-greenDark transition shadow-sm hover:scale-105 active:scale-95 whitespace-nowrap shrink-0">
-              <i class="fa-solid fa-paper-plane text-[10px]"></i> Báo giá B2B
+            <button onclick="HDC.Components.B2BModal.open()" class="btn-shimmer hidden md:inline-flex items-center gap-1.5 bg-brand-green text-white text-xs font-bold px-3 xl:px-4 py-1.5 xl:py-2 rounded-full hover:bg-brand-greenDark transition shadow-sm hover:scale-105 active:scale-95 whitespace-nowrap shrink-0">
+              <i class="fa-solid fa-paper-plane text-[10px]"></i> <span class="hidden lg:inline">Báo Giá </span>B2B
             </button>
           </div>
 
