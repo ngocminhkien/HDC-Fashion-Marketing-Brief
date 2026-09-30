@@ -1,0 +1,28 @@
+{
+  "name": "hdc-fashion-platform",
+  "version": "1.0.0",
+  "description": "HDC Fashion — E-Commerce & B2B Sustainable Fashion Platform",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "powershell -ExecutionPolicy Bypass -File .\\server.ps1",
+    "backend:install": "cd backend && npm install",
+    "backend:dev": "cd backend && npm run dev",
+    "backend:start": "cd backend && npm start",
+    "backend:test": "cd backend && npm test",
+    "backend:lint": "cd backend && npm run lint",
+    "frontend:lint": "node scripts/check-frontend-syntax.js",
+    "test": "npm run frontend:lint && npm run backend:test",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f"
+  },
+  "keywords": [
+    "hdc-fashion",
+    "sustainable-fashion",
+    "vietnam",
+    "ecommerce"
+  ],
+  "author": "HDC Fashion",
+  "license": "ISC"
+}

@@ -1,0 +1,81 @@
+# ========================================================
+# HDC Fashion — Local Fullstack Orchestration
+# Services: PostgreSQL 16, Redis 7, Backend Express API
+# Usage: docker compose up -d
+# ========================================================
+
+version: '3.8'
+
+services:
+  # 1. Primary Relational Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: hdc-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER:-hdc_user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-hdc_secure_password}
+      POSTGRES_DB: ${DB_NAME:-hdc_fashion_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - hdc_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-hdc_user} -d ${DB_NAME:-hdc_fashion_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - hdc-network
+
+  # 2. Redis Cache & Fast Memory Store
+  redis:
+    image: redis:7-alpine
+    container_name: hdc-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - hdc_redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - hdc-network
+
+  # 3. HDC Fashion Backend API Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: hdc-backend-api
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: development
+      PORT: 5000
+      API_PREFIX: /api/v1
+      DATABASE_URL: postgresql://${DB_USER:-hdc_user}:${DB_PASSWORD:-hdc_secure_password}@postgres:5432/${DB_NAME:-hdc_fashion_db}
+      REDIS_URL: redis://redis:6379
+      CORS_ORIGIN: http://localhost:8080,http://127.0.0.1:8080
+      JWT_SECRET: hdc_secret_jwt_key_local_dev
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - hdc-network
+
+networks:
+  hdc-network:
+    driver: bridge
+
+volumes:
+  hdc_pgdata:
+    driver: local
+  hdc_redisdata:
+    driver: local

@@ -1,0 +1,40 @@
+{
+  "name": "hdc-fashion-backend",
+  "version": "1.0.0",
+  "description": "Production-ready backend API service for HDC Fashion E-Commerce & B2B Platform",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "lint": "node scripts/check-syntax.js",
+    "test": "node --test tests/health.test.js tests/products.test.js",
+    "test:ci": "node --test --test-reporter=spec tests/health.test.js tests/products.test.js",
+    "docker:build": "docker build -t hdc-fashion-backend:latest .",
+    "docker:run": "docker run -p 5000:5000 --env-file .env hdc-fashion-backend:latest"
+  },
+  "keywords": [
+    "hdc-fashion",
+    "ecommerce",
+    "backend",
+    "express",
+    "postgresql",
+    "ci-cd"
+  ],
+  "author": "HDC Fashion Engineering Team",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "supertest": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}
