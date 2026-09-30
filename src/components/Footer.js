@@ -27,7 +27,10 @@ window.HDC.Components.Footer = {
                 <p><i class="fa-solid fa-phone text-brand-gold mr-1"></i> 1900 888 999 — 0916 305 533</p>
                 <p><i class="fa-solid fa-envelope text-brand-gold mr-1"></i> cskh@hdcfashion.vn</p>
               </div>
-
+              <button onclick="HDC.Router.navigate('about')" class="inline-flex items-center gap-1.5 text-brand-gold hover:text-amber-300 font-semibold text-xs pt-1 transition group">
+                <span>Hành trình HDC & Di sản Đông Sơn</span>
+                <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+              </button>
             </div>
 
             <!-- Col 2 -->

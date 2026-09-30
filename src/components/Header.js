@@ -19,7 +19,11 @@ window.HDC.Components.Header = {
             </span>
           </div>
           <div class="flex items-center gap-4 text-gray-300">
-            <span class="hidden md:inline"><i class="fa-solid fa-leaf text-emerald-400"></i> 100% Sợi Tự Nhiên &bull; Kháng Khuẩn &bull; Không Cần Là Ủi</span>
+            <button onclick="HDC.Router.navigate('about')" class="hidden md:inline-flex items-center gap-1.5 text-emerald-300 hover:text-amber-300 transition text-[11px] font-medium group cursor-pointer" title="Khám phá câu chuyện thương hiệu & di sản HDC">
+              <i class="fa-solid fa-seedling text-brand-gold group-hover:rotate-12 transition-transform"></i>
+              <span>Về HDC & Di Sản Sợi Xanh</span>
+              <i class="fa-solid fa-arrow-right text-[9px] opacity-70 group-hover:translate-x-0.5 transition-transform"></i>
+            </button>
             <span class="hidden md:inline">|</span>
             <button onclick="HDC.Router.navigate('tracking')" class="hover:text-amber-300 transition flex items-center gap-1">
               <i class="fa-solid fa-box-archive"></i> Tra cứu đơn hàng & Đổi trả
@@ -54,14 +58,10 @@ window.HDC.Components.Header = {
             <span class="text-[8.5px] lg:text-[9px] font-medium tracking-widest text-gray-400 uppercase -mt-0.5 hidden sm:block">Phong Cách Tạo Thành Công</span>
           </a>
 
-          <!-- DESKTOP NAVIGATION (Multi-Screen Fluid Adaptation) -->
-          <nav class="hidden lg:flex items-center gap-1 xl:gap-2.5 2xl:gap-5 text-xs xl:text-[13px] 2xl:text-[14px] font-semibold tracking-wide uppercase whitespace-nowrap shrink-0">
+          <!-- DESKTOP NAVIGATION (Multi-Screen Fluid Adaptation - Pure E-Commerce Focus) -->
+          <nav class="hidden lg:flex items-center gap-1.5 xl:gap-3 2xl:gap-6 text-xs xl:text-[13px] 2xl:text-[14px] font-semibold tracking-wide uppercase whitespace-nowrap shrink-0">
             <button onclick="HDC.Router.navigate('home')" id="nav-home" class="nav-tab active px-2.5 xl:px-3.5 2xl:px-4 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition whitespace-nowrap shrink-0">
               Trang Chủ
-            </button>
-
-            <button onclick="HDC.Router.navigate('about')" id="nav-about" class="nav-tab px-2.5 xl:px-3.5 2xl:px-4 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition whitespace-nowrap shrink-0">
-              Về HDC
             </button>
 
             <button onclick="HDC.Router.navigate('shop')" id="nav-shop" class="nav-tab px-2.5 xl:px-3.5 2xl:px-4 py-2 rounded-lg hover:text-brand-green hover:bg-emerald-50/50 transition flex items-center gap-1 whitespace-nowrap shrink-0">

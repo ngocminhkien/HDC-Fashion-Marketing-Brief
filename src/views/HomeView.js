@@ -583,8 +583,75 @@ window.HDC.Views.HomeView = {
           </div>
         </section>
 
+        <!-- ========================================================
+             4.5. BRAND STORY EDITORIAL TEASER — TỪ PHÙ SA ĐẾN PHÒNG HỌP TẦNG 30
+             ======================================================== -->
+        <section class="py-14 lg:py-18 bg-gradient-to-r from-brand-greenDark via-[#173e28] to-brand-green text-white relative overflow-hidden reveal-on-scroll border-y border-amber-300/20 shadow-inner">
+          
+          <!-- Background Sacred Watermark -->
+          <div class="absolute -right-16 -bottom-16 w-80 h-80 opacity-10 pointer-events-none select-none">
+            <svg viewBox="0 0 200 200" class="w-full h-full fill-none stroke-[#b89047] stroke-2">
+              <circle cx="100" cy="100" r="90"/>
+              <circle cx="100" cy="100" r="65"/>
+              <circle cx="100" cy="100" r="40"/>
+              <circle cx="100" cy="100" r="15" fill="currentColor"/>
+            </svg>
+          </div>
 
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              <!-- Left Story Column -->
+              <div class="lg:col-span-8 space-y-4 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-3.5 py-1 rounded-full border border-amber-300/40 text-amber-300 text-[11px] font-bold uppercase tracking-wider">
+                  <i class="fa-solid fa-feather-pointed text-xs"></i>
+                  <span>Câu Chuyện Thương Hiệu HDC Fashion</span>
+                </div>
+                
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-serif leading-tight">
+                  Từ Phù Sa Đồng Tháp <br class="hidden sm:inline">
+                  <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-yellow-400">
+                    Đến Phòng Họp Tầng 30
+                  </span>
+                </h2>
 
+                <p class="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-normal max-w-2xl">
+                  HDC Fashion không chỉ tạo nên những chiếc áo sơ mi. Chúng tôi giải phóng <strong>91 giờ là ủi mỗi năm</strong> cho doanh nhân lãnh đạo bằng 100% sợi sinh học bản địa, đưa niềm tự hào di sản Trống Đồng 2.000 năm lịch sử vào phong thái tự tin nơi thương trường.
+                </p>
+
+                <!-- Mini Metrics -->
+                <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-emerald-100">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                    <span>Tiết kiệm <strong>91 giờ/năm</strong></span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                    <span><strong>100%</strong> Sợi tự nhiên bản địa</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                    <span>Hoa văn <strong>Di sản Đông Sơn</strong></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Action Column -->
+              <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-center justify-center lg:items-end gap-3.5 shrink-0">
+                <button onclick="HDC.Router.navigate('about')" class="btn-shimmer w-full sm:w-auto lg:w-full bg-brand-gold hover:bg-yellow-500 text-brand-dark font-extrabold text-xs uppercase px-7 py-3.5 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2.5 hover:scale-105 active:scale-95 group">
+                  <i class="fa-solid fa-book-open-reader text-xs"></i>
+                  <span>Khám Phá Hành Trình HDC</span>
+                  <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                </button>
+                <button onclick="HDC.Router.navigate('shop')" class="w-full sm:w-auto lg:w-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-xs uppercase px-6 py-3 rounded-2xl transition flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-bag-shopping text-xs text-amber-300"></i>
+                  <span>Xem Sản Phẩm Sợi Xanh</span>
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </section>
 
         <!-- ========================================================
              5. HAUTE COUTURE EXECUTIVE LOOKBOOK & CAPSULE OUTFITS
